@@ -36,7 +36,7 @@ target_link_libraries(gen_multisig
   PRIVATE
     wallet
     cryptonote_core
-    cncrypto
+    cnhcrypto
     common
     epee
     ${EPEE_READLINE}

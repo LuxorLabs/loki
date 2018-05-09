@@ -72,13 +72,13 @@ set(crypto_private_headers
   skein_port.h
   cn_slow_hash.hpp)
 
-loki_private_headers(cncrypto
+loki_private_headers(cnhcrypto
   ${crypto_private_headers})
-loki_add_library(cncrypto
+loki_add_library(cnhcrypto
   ${crypto_sources}
   ${crypto_headers}
   ${crypto_private_headers})
-target_link_libraries(cncrypto
+target_link_libraries(cnhcrypto
   PUBLIC
     epee
     ${Boost_SYSTEM_LIBRARY}

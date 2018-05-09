@@ -67,7 +67,7 @@ loki_add_library(device
 target_link_libraries(device
   PUBLIC
     ${PCSC_LIBRARIES}
-    cncrypto
+    cnhcrypto
     ringct_basic
     ${OPENSSL_CRYPTO_LIBRARIES}
   PRIVATE

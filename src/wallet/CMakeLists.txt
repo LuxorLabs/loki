@@ -89,7 +89,7 @@ target_link_libraries(wallet_rpc_server
     epee
     rpc_base
     cryptonote_core
-    cncrypto
+    cnhcrypto
     common
     version
     ${Boost_CHRONO_LIBRARY}
@@ -114,7 +114,7 @@ if (BUILD_GUI_DEPS)
             cryptonote_basic
             mnemonics
             common
-            cncrypto
+            cnhcrypto
             device
             ringct
             ringct_basic

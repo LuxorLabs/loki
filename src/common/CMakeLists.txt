@@ -80,7 +80,7 @@ loki_add_library(common
 target_link_libraries(common
   PUBLIC
     epee
-    cncrypto
+    cnhcrypto
     ${UNBOUND_LIBRARY}
     ${LIBUNWIND_LIBRARIES}
     ${Boost_DATE_TIME_LIBRARY}
