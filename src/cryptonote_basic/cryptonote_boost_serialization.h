@@ -41,7 +41,7 @@
 #include <boost/archive/portable_binary_oarchive.hpp>
 #include "cryptonote_basic.h"
 #include "common/unordered_containers_boost_serialization.h"
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 #include "ringct/rctTypes.h"
 #include "ringct/rctOps.h"
 

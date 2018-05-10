@@ -32,7 +32,7 @@
 #include "cryptonote_protocol/cryptonote_protocol_defs.h"
 #include "cryptonote_basic/cryptonote_basic.h"
 #include "cryptonote_basic/difficulty.h"
-#include "crypto/cnh_hash.h"
+#include "cnh_crypto/cnh_hash.h"
 
 namespace cryptonote
 {

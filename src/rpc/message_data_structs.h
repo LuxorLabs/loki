@@ -28,7 +28,7 @@
 
 #pragma once
 
-#include "crypto/cnh_hash.h"
+#include "cnh_crypto/cnh_hash.h"
 #include "cryptonote_basic/cryptonote_basic.h"
 #include "ringct/rctSigs.h"
 

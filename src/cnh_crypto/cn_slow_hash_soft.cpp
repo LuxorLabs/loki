@@ -30,7 +30,7 @@
 
 #include "cn_slow_hash.hpp"
 extern "C" {
-#include "../crypto/keccak.h"
+#include "../cnh_crypto/keccak.h"
 }
 
 /*

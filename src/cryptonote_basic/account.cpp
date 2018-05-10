@@ -34,10 +34,10 @@
 #include "include_base_utils.h"
 #include "account.h"
 #include "warnings.h"
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 extern "C"
 {
-#include "crypto/keccak.h"
+#include "cnh_crypto/keccak.h"
 }
 #include "cryptonote_basic_impl.h"
 #include "cryptonote_format_utils.h"

@@ -44,7 +44,7 @@ using namespace epee;
 #include "common/threadpool.h"
 #include "common/command_line.h"
 #include "warnings.h"
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 #include "cryptonote_config.h"
 #include "cryptonote_tx_utils.h"
 #include "misc_language.h"

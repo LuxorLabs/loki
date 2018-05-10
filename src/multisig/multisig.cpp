@@ -29,7 +29,7 @@
 
 #include <unordered_set>
 #include "include_base_utils.h"
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 #include "ringct/rctOps.h"
 #include "cryptonote_basic/account.h"
 #include "cryptonote_basic/cryptonote_format_utils.h"

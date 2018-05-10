@@ -39,8 +39,8 @@ using namespace epee;
 #include "serialization/string.h"
 #include "cryptonote_format_utils.h"
 #include "cryptonote_config.h"
-#include "crypto/crypto.h"
-#include "crypto/cnh_hash.h"
+#include "cnh_crypto/crypto.h"
+#include "cnh_crypto/cnh_hash.h"
 #include "ringct/rctSigs.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

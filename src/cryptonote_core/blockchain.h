@@ -50,7 +50,7 @@
 #include "cryptonote_basic/difficulty.h"
 #include "cryptonote_tx_utils.h"
 #include "cryptonote_basic/verification_context.h"
-#include "crypto/cnh_hash.h"
+#include "cnh_crypto/cnh_hash.h"
 #include "checkpoints/checkpoints.h"
 #include "cryptonote_basic/hardfork.h"
 #include "blockchain_db/blockchain_db.h"

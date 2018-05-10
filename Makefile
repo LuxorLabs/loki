@@ -307,7 +307,7 @@ cnhcrypto: cmake_check_build_system
 
 # fast build rule for target.
 cnhcrypto/fast:
-	$(MAKE) -f src/crypto/CMakeFiles/cnhcrypto.dir/build.make src/crypto/CMakeFiles/cnhcrypto.dir/build
+	$(MAKE) -f src/cnh_crypto/CMakeFiles/cnhcrypto.dir/build.make src/cnh_crypto/CMakeFiles/cnhcrypto.dir/build
 .PHONY : cnhcrypto/fast
 
 #=============================================================================
@@ -320,7 +320,7 @@ obj_cnhcrypto: cmake_check_build_system
 
 # fast build rule for target.
 obj_cnhcrypto/fast:
-	$(MAKE) -f src/crypto/CMakeFiles/obj_cnhcrypto.dir/build.make src/crypto/CMakeFiles/obj_cnhcrypto.dir/build
+	$(MAKE) -f src/cnh_crypto/CMakeFiles/obj_cnhcrypto.dir/build.make src/cnh_crypto/CMakeFiles/obj_cnhcrypto.dir/build
 .PHONY : obj_cnhcrypto/fast
 
 #=============================================================================

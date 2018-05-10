@@ -41,7 +41,7 @@
 
 #include "memwipe.h"
 #include "cnh_hash.h"
-#include "crypto/cn_slow_hash.hpp"
+#include "cnh_crypto/cn_slow_hash.hpp"
 
 namespace crypto {
   extern "C" {

@@ -30,7 +30,7 @@
 
 #include <vector>
 #include <unordered_map>
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 #include "cryptonote_basic/cryptonote_format_utils.h"
 #include "ringct/rctTypes.h"
 

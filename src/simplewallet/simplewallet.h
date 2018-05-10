@@ -47,7 +47,7 @@
 #include "console_handler.h"
 #include "common/i18n.h"
 #include "common/password.h"
-#include "crypto/crypto.h"  // for definition of crypto::secret_key
+#include "cnh_crypto/crypto.h"  // for definition of crypto::secret_key
 
 #undef LOKI_DEFAULT_LOG_CATEGORY
 #define LOKI_DEFAULT_LOG_CATEGORY "wallet.simplewallet"

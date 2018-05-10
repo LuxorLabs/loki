@@ -32,7 +32,7 @@
 #include <map>
 #include <vector>
 #include "misc_log_ex.h"
-#include "crypto/cnh_hash.h"
+#include "cnh_crypto/cnh_hash.h"
 #include "cryptonote_config.h"
 
 #define ADD_CHECKPOINT(h, hash)  CHECK_AND_ASSERT(add_checkpoint(h,  hash), false);

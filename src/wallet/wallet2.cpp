@@ -52,7 +52,7 @@ using namespace epee;
 #include "common/command_line.h"
 #include "common/threadpool.h"
 #include "profile_tools.h"
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 #include "serialization/binary_utils.h"
 #include "serialization/string.h"
 #include "cryptonote_basic/blobdatatype.h"
@@ -72,8 +72,8 @@ using namespace epee;
 
 extern "C"
 {
-#include "crypto/keccak.h"
-#include "crypto/crypto-ops.h"
+#include "cnh_crypto/keccak.h"
+#include "cnh_crypto/crypto-ops.h"
 }
 using namespace std;
 using namespace crypto;

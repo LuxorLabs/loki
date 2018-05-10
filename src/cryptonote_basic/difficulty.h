@@ -33,7 +33,7 @@
 #include <cstdint>
 #include <vector>
 
-#include "crypto/cnh_hash.h"
+#include "cnh_crypto/cnh_hash.h"
 
 namespace cryptonote
 {

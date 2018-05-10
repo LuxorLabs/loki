@@ -35,8 +35,8 @@
 #include <vector>
 
 #include "warnings.h"
-#include "crypto/crypto.h"
-#include "crypto/cnh_hash.h"
+#include "cnh_crypto/crypto.h"
+#include "cnh_crypto/cnh_hash.h"
 #include "crypto-tests.h"
 #include "../io.h"
 

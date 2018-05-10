@@ -28,7 +28,7 @@
 
 #include "subaddress_account.h"
 #include "wallet.h"
-#include "crypto/cnh_hash.h"
+#include "cnh_crypto/cnh_hash.h"
 #include "wallet/wallet2.h"
 #include "common_defines.h"
 

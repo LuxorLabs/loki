@@ -46,7 +46,7 @@
 #include "p2p_protocol_defs.h"
 #include "net_peerlist_boost_serialization.h"
 #include "net/local_ip.h"
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 #include "storages/levin_abstract_invoke2.h"
 #include "cryptonote_core/cryptonote_core.h"
 

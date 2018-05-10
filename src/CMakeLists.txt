@@ -110,7 +110,7 @@ include(Version)
 loki_add_library(version SOURCES ${CMAKE_BINARY_DIR}/version.cpp DEPENDS genversion)
 
 add_subdirectory(common)
-add_subdirectory(crypto)
+add_subdirectory(cnh_crypto)
 add_subdirectory(ringct)
 add_subdirectory(checkpoints)
 add_subdirectory(cryptonote_basic)

@@ -40,7 +40,7 @@
 #include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>
 #include "include_base_utils.h"
-#include "crypto/crypto.h"  // for crypto::secret_key definition
+#include "cnh_crypto/crypto.h"  // for crypto::secret_key definition
 #include "common/i18n.h"
 #include "common/command_line.h"
 #include "common/util.h"

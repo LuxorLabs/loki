@@ -42,7 +42,7 @@
 #include "wipeable_string.h"
 using namespace epee;
 
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 #include "util.h"
 #include "stack_trace.h"
 #include "memwipe.h"
