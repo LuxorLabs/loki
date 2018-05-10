@@ -51,7 +51,7 @@
 #include "cryptonote_core/cryptonote_tx_utils.h"
 #include "common/unordered_containers_boost_serialization.h"
 #include "crypto/chacha.h"
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 #include "ringct/rctTypes.h"
 #include "ringct/rctOps.h"
 #include "checkpoints/checkpoints.h"

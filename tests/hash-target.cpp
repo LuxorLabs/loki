@@ -32,7 +32,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <limits>
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 #include "cryptonote_basic/difficulty.h"
 
 using namespace std;

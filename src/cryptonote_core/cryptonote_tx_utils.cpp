@@ -39,7 +39,7 @@ using namespace epee;
 #include "cryptonote_config.h"
 #include "cryptonote_basic/miner.h"
 #include "crypto/crypto.h"
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 #include "ringct/rctSigs.h"
 #include "multisig/multisig.h"
 

@@ -35,7 +35,7 @@
 #include "subaddress_index.h"
 #include "include_base_utils.h"
 #include "crypto/crypto.h"
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 #include <unordered_map>
 
 namespace epee

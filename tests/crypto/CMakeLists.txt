@@ -30,7 +30,7 @@ set(crypto_sources
   crypto-ops-data.c
   crypto-ops.c
   crypto.cpp
-  hash.c
+  cnh_hash.c
   main.cpp
   random.c)
 

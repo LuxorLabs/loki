@@ -40,7 +40,7 @@ using namespace epee;
 #include "cryptonote_format_utils.h"
 #include "cryptonote_config.h"
 #include "crypto/crypto.h"
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 #include "ringct/rctSigs.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

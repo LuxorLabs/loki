@@ -42,7 +42,7 @@
 #include "common/varint.h"
 #include "warnings.h"
 #include "crypto.h"
-#include "hash.h"
+#include "cnh_hash.h"
 
 namespace {
   static void local_abort(const char *msg)

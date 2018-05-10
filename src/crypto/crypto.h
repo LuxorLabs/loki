@@ -45,7 +45,7 @@
 #include "generic-ops.h"
 #include "hex.h"
 #include "span.h"
-#include "hash.h"
+#include "cnh_hash.h"
 
 namespace crypto {
 

@@ -44,7 +44,7 @@ using namespace epee;
 #include "cryptonote_basic/cryptonote_basic_impl.h"
 #include "misc_language.h"
 #include "storages/http_abstract_invoke.h"
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 #include "rpc/rpc_args.h"
 #include "core_rpc_server_error_codes.h"
 #include "p2p/net_node.h"

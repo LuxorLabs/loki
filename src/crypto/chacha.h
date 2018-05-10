@@ -40,7 +40,7 @@
 #include <memory.h>
 
 #include "memwipe.h"
-#include "hash.h"
+#include "cnh_hash.h"
 #include "crypto/cn_slow_hash.hpp"
 
 namespace crypto {

@@ -48,7 +48,7 @@ using namespace epee;
 #include "misc_language.h"
 #include "string_coding.h"
 #include "string_tools.h"
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 #include "mnemonics/electrum-words.h"
 #include "rpc/rpc_args.h"
 #include "rpc/core_rpc_server_commands_defs.h"

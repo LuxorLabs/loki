@@ -34,7 +34,7 @@
 #include "cryptonote_protocol/cryptonote_protocol_defs.h"
 #include "cryptonote_basic/cryptonote_basic.h"
 #include "cryptonote_basic/subaddress_index.h"
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 #include "wallet_rpc_server_error_codes.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

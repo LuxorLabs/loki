@@ -34,7 +34,7 @@
 #include <string>
 #include <vector>
 
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 #include "int-util.h"
 #include "util.h"
 #include "varint.h"

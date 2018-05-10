@@ -47,7 +47,7 @@
 #include "cryptonote_basic/connection_context.h"
 #include "cryptonote_basic/cryptonote_stat_info.h"
 #include "warnings.h"
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 
 PUSH_WARNINGS
 DISABLE_VS_WARNINGS(4355)

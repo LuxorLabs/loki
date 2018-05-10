@@ -45,7 +45,7 @@
 #include "misc_language.h"
 #include "warnings.h"
 #include "common/perf_timer.h"
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY
 #define LOKI_DEFAULT_LOG_CATEGORY "txpool"

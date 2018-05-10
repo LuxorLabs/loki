@@ -44,7 +44,7 @@
 #include "misc_log_ex.h"
 #endif
 
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 
 /*! \brief Various Tools
  *

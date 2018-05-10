@@ -45,7 +45,7 @@
 #include "serialization/keyvalue_serialization.h" // eepe named serialization
 #include "cryptonote_config.h"
 #include "crypto/crypto.h"
-#include "crypto/hash.h"
+#include "crypto/cnh_hash.h"
 #include "misc_language.h"
 #include "tx_extra.h"
 #include "ringct/rctTypes.h"

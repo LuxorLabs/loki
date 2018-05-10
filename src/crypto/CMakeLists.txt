@@ -39,7 +39,7 @@ set(crypto_sources
   hash-extra-groestl.c
   hash-extra-jh.c
   hash-extra-skein.c
-  hash.c
+  cnh_hash.c
   jh.c
   keccak.c
   oaes_lib.c
@@ -61,7 +61,7 @@ set(crypto_private_headers
   groestl.h
   groestl_tables.h
   hash-ops.h
-  hash.h
+  cnh_hash.h
   initializer.h
   jh.h
   keccak.h
