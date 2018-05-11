@@ -28,9 +28,9 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <boost/filesystem.hpp>
-#include "cryptonote_basic/cryptonote_basic.h"
-#include "cryptonote_basic/tx_extra.h"
-#include "cryptonote_core/blockchain.h"
+#include "cnh_cryptonote_basic/cryptonote_basic.h"
+#include "cnh_cryptonote_basic/tx_extra.h"
+#include "cnh_cryptonote_core/blockchain.h"
 #include "common/command_line.h"
 #include "version.h"
 

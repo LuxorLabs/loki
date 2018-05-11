@@ -73,7 +73,7 @@
 #include "cryptonote_protocol_handler.h"
 #include "net/network_throttle.hpp"
 
-#include "cryptonote_core/cryptonote_core.h" // e.g. for the send_stop_signal()
+#include "cnh_cryptonote_core/cnh_cryptonote_core.h" // e.g. for the send_stop_signal()
 
 #undef LOKI_DEFAULT_LOG_CATEGORY
 #define LOKI_DEFAULT_LOG_CATEGORY "net.cn"

@@ -41,7 +41,7 @@
 #ifdef BERKELEY_DB
 #include "blockchain_db/berkeleydb/db_bdb.h"
 #endif
-#include "cryptonote_basic/cryptonote_format_utils.h"
+#include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 
 using namespace cryptonote;
 using epee::string_tools::pod_to_hex;

@@ -48,7 +48,7 @@
 #include "net/local_ip.h"
 #include "cnh_crypto/crypto.h"
 #include "storages/levin_abstract_invoke2.h"
-#include "cryptonote_core/cryptonote_core.h"
+#include "cnh_cryptonote_core/cnh_cryptonote_core.h"
 
 #include <miniupnp/miniupnpc/miniupnpc.h>
 #include <miniupnp/miniupnpc/upnpcommands.h>

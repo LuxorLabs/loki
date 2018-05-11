@@ -31,7 +31,7 @@
 #include <memory>  // std::unique_ptr
 #include <cstring>  // memcpy
 
-#include "cryptonote_basic/cryptonote_format_utils.h"
+#include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 #include "cnh_crypto/crypto.h"
 #include "profile_tools.h"
 

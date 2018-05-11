@@ -37,7 +37,7 @@ add_executable(core_proxy
   ${core_proxy_headers})
 target_link_libraries(core_proxy
   PRIVATE
-    cryptonote_core
+    cnh_cryptonote_core
     cryptonote_protocol
     p2p
     version

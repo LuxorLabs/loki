@@ -44,12 +44,12 @@
 #include "common/boost_serialization_helper.h"
 #include "common/command_line.h"
 
-#include "cryptonote_basic/account_boost_serialization.h"
-#include "cryptonote_basic/cryptonote_basic.h"
-#include "cryptonote_basic/cryptonote_basic_impl.h"
-#include "cryptonote_basic/cryptonote_format_utils.h"
-#include "cryptonote_core/cryptonote_core.h"
-#include "cryptonote_basic/cryptonote_boost_serialization.h"
+#include "cnh_cryptonote_basic/account_boost_serialization.h"
+#include "cnh_cryptonote_basic/cryptonote_basic.h"
+#include "cnh_cryptonote_basic/cryptonote_basic_impl.h"
+#include "cnh_cryptonote_basic/cryptonote_format_utils.h"
+#include "cnh_cryptonote_core/cnh_cryptonote_core.h"
+#include "cnh_cryptonote_basic/cryptonote_boost_serialization.h"
 #include "misc_language.h"
 
 #undef MONERO_DEFAULT_LOG_CATEGORY

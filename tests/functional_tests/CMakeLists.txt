@@ -40,7 +40,7 @@ add_executable(functional_tests
   ${functional_tests_headers})
 target_link_libraries(functional_tests
   PRIVATE
-    cryptonote_core
+    cnh_cryptonote_core
     wallet
     common
     cnhcrypto

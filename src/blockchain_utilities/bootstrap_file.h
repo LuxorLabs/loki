@@ -35,8 +35,8 @@
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
 
-#include "cryptonote_basic/cryptonote_basic.h"
-#include "cryptonote_core/blockchain.h"
+#include "cnh_cryptonote_basic/cryptonote_basic.h"
+#include "cnh_cryptonote_core/blockchain.h"
 
 #include <algorithm>
 #include <cstdio>

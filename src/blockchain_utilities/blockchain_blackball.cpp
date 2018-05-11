@@ -31,9 +31,9 @@
 #include <boost/algorithm/string.hpp>
 #include "common/command_line.h"
 #include "common/varint.h"
-#include "cryptonote_core/tx_pool.h"
-#include "cryptonote_core/cryptonote_core.h"
-#include "cryptonote_core/blockchain.h"
+#include "cnh_cryptonote_core/tx_pool.h"
+#include "cnh_cryptonote_core/cnh_cryptonote_core.h"
+#include "cnh_cryptonote_core/blockchain.h"
 #include "blockchain_db/blockchain_db.h"
 #include "blockchain_db/db_types.h"
 #include "wallet/ringdb.h"

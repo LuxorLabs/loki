@@ -34,7 +34,7 @@
 
 #include "ringct/rctOps.h"
 #include "cnh_crypto/crypto.h"
-#include "cryptonote_basic/account.h"
+#include "cnh_cryptonote_basic/account.h"
 
 #include "device.hpp"
 

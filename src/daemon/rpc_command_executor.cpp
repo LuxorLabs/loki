@@ -34,8 +34,8 @@
 #include "common/scoped_message_writer.h"
 #include "daemon/rpc_command_executor.h"
 #include "rpc/core_rpc_server_commands_defs.h"
-#include "cryptonote_core/cryptonote_core.h"
-#include "cryptonote_basic/hardfork.h"
+#include "cnh_cryptonote_core/cnh_cryptonote_core.h"
+#include "cnh_cryptonote_basic/hardfork.h"
 #include <boost/format.hpp>
 #include <ctime>
 #include <string>

@@ -80,7 +80,7 @@ target_link_libraries(unit_tests
   PRIVATE
     ringct
     cryptonote_protocol
-    cryptonote_core
+    cnh_cryptonote_core
     blockchain_db
     rpc
     wallet

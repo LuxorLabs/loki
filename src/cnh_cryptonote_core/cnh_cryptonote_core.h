@@ -43,9 +43,9 @@
 #include "common/command_line.h"
 #include "tx_pool.h"
 #include "blockchain.h"
-#include "cryptonote_basic/miner.h"
-#include "cryptonote_basic/connection_context.h"
-#include "cryptonote_basic/cryptonote_stat_info.h"
+#include "cnh_cryptonote_basic/miner.h"
+#include "cnh_cryptonote_basic/connection_context.h"
+#include "cnh_cryptonote_basic/cryptonote_stat_info.h"
 #include "warnings.h"
 #include "cnh_crypto/cnh_hash.h"
 

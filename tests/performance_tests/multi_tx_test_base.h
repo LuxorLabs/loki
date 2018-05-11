@@ -32,9 +32,9 @@
 
 #include <vector>
 
-#include "cryptonote_basic/account.h"
-#include "cryptonote_basic/cryptonote_basic.h"
-#include "cryptonote_core/cryptonote_tx_utils.h"
+#include "cnh_cryptonote_basic/account.h"
+#include "cnh_cryptonote_basic/cryptonote_basic.h"
+#include "cnh_cryptonote_core/cryptonote_tx_utils.h"
 #include "cnh_crypto/crypto.h"
 
 template<size_t a_ring_size>

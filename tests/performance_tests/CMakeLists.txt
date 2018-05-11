@@ -53,7 +53,7 @@ add_executable(performance_tests
 target_link_libraries(performance_tests
   PRIVATE
     wallet
-    cryptonote_core
+    cnh_cryptonote_core
     common
     cnhcrypto
     epee

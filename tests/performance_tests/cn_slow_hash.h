@@ -32,7 +32,7 @@
 
 #include "string_tools.h"
 #include "cnh_crypto/crypto.h"
-#include "cryptonote_basic/cryptonote_basic.h"
+#include "cnh_cryptonote_basic/cryptonote_basic.h"
 
 class test_cn_slow_hash
 {

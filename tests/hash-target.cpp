@@ -33,7 +33,7 @@
 #include <cstring>
 #include <limits>
 #include "cnh_crypto/cnh_hash.h"
-#include "cryptonote_basic/difficulty.h"
+#include "cnh_cryptonote_basic/difficulty.h"
 
 using namespace std;
 using cryptonote::check_hash;

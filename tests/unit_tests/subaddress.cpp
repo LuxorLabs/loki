@@ -33,8 +33,8 @@
 #include "include_base_utils.h"
 #include "wallet/wallet2.h"
 #include "cnh_crypto/crypto.h"
-#include "cryptonote_basic/account.h"
-#include "cryptonote_basic/cryptonote_basic_impl.h"
+#include "cnh_cryptonote_basic/account.h"
+#include "cnh_cryptonote_basic/cryptonote_basic_impl.h"
 #include "wallet/api/subaddress.h"
 
 class WalletSubaddress : public ::testing::Test 

@@ -38,7 +38,7 @@ target_link_libraries(transfers
   PRIVATE
     useragent
     rpc
-    cryptonote_core
+    cnh_cryptonote_core
     cnhcrypto
     common
     epee

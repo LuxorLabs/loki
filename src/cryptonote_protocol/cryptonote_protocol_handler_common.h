@@ -32,7 +32,7 @@
 
 #include "p2p/net_node_common.h"
 #include "cryptonote_protocol/cryptonote_protocol_defs.h"
-#include "cryptonote_basic/connection_context.h"
+#include "cnh_cryptonote_basic/connection_context.h"
 namespace cryptonote
 {
   /************************************************************************/

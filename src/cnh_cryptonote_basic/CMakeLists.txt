@@ -27,41 +27,48 @@
 # STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 # THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-set(cryptonote_core_sources
-  blockchain.cpp
-  cryptonote_core.cpp
-  tx_pool.cpp
-  cryptonote_tx_utils.cpp)
-
-set(cryptonote_core_headers)
-
-set(cryptonote_core_private_headers
-  blockchain_storage_boost_serialization.h
-  blockchain.h
-  cryptonote_core.h
-  tx_pool.h
-  cryptonote_tx_utils.h)
-
-if(PER_BLOCK_CHECKPOINT)
-  set(Blocks "blocks")
-else()
-  set(Blocks "")
+if(APPLE)
+  find_library(IOKIT_LIBRARY IOKit)
+  mark_as_advanced(IOKIT_LIBRARY)
+  list(APPEND EXTRA_LIBRARIES ${IOKIT_LIBRARY})
 endif()
 
-loki_private_headers(cryptonote_core
-  ${cryptonote_core_private_headers})
-loki_add_library(cryptonote_core
-  ${cryptonote_core_sources}
-  ${cryptonote_core_headers}
-  ${cryptonote_core_private_headers})
-target_link_libraries(cryptonote_core
+set(cnh_cryptonote_basic_sources
+  account.cpp
+  cryptonote_basic_impl.cpp
+  cryptonote_format_utils.cpp
+  difficulty.cpp
+  hardfork.cpp
+  miner.cpp)
+
+set(cnh_cryptonote_basic_headers)
+
+set(cnh_cryptonote_basic_private_headers
+  account.h
+  account_boost_serialization.h
+  connection_context.h
+  cryptonote_basic.h
+  cryptonote_basic_impl.h
+  cryptonote_boost_serialization.h
+  cryptonote_format_utils.h
+  cryptonote_stat_info.h
+  difficulty.h
+  hardfork.h
+  miner.h
+  tx_extra.h
+  verification_context.h)
+
+loki_private_headers(cnh_cryptonote_basic
+  ${cnh_cryptonote_basic_private_headers})
+loki_add_library(cnh_cryptonote_basic
+  ${cnh_cryptonote_basic_sources}
+  ${cnh_cryptonote_basic_headers}
+  ${cnh_cryptonote_basic_private_headers})
+target_link_libraries(cnh_cryptonote_basic
   PUBLIC
-    version
     common
     cnhcrypto
-    blockchain_db
-    multisig
-    ringct
+    checkpoints
     device
     ${Boost_DATE_TIME_LIBRARY}
     ${Boost_PROGRAM_OPTIONS_LIBRARY}
@@ -70,5 +77,4 @@ target_link_libraries(cryptonote_core
     ${Boost_SYSTEM_LIBRARY}
     ${Boost_THREAD_LIBRARY}
   PRIVATE
-    ${Blocks}
     ${EXTRA_LIBRARIES})

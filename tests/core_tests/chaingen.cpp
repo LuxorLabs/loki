@@ -37,10 +37,10 @@
 #include "console_handler.h"
 
 #include "p2p/net_node.h"
-#include "cryptonote_basic/cryptonote_basic.h"
-#include "cryptonote_basic/cryptonote_basic_impl.h"
-#include "cryptonote_basic/cryptonote_format_utils.h"
-#include "cryptonote_basic/miner.h"
+#include "cnh_cryptonote_basic/cryptonote_basic.h"
+#include "cnh_cryptonote_basic/cryptonote_basic_impl.h"
+#include "cnh_cryptonote_basic/cryptonote_format_utils.h"
+#include "cnh_cryptonote_basic/miner.h"
 
 #include "chaingen.h"
 #include "device/device.hpp"

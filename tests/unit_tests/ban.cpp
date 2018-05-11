@@ -29,7 +29,7 @@
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
 #include "gtest/gtest.h"
-#include "cryptonote_core/cryptonote_core.h"
+#include "cnh_cryptonote_core/cnh_cryptonote_core.h"
 #include "p2p/net_node.h"
 #include "p2p/net_node.inl"
 #include "cryptonote_protocol/cryptonote_protocol_handler.h"

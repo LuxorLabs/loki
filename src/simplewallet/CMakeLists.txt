@@ -45,7 +45,7 @@ target_link_libraries(simplewallet
   PRIVATE
     wallet
     rpc_base
-    cryptonote_core
+    cnh_cryptonote_core
     cnhcrypto
     common
     mnemonics
