@@ -85,7 +85,7 @@ target_link_libraries(daemon
   PRIVATE
     rpc
     blockchain_db
-    cryptonote_core
+    cnh_cryptonote_core
     cnhcrypto
     common
     p2p

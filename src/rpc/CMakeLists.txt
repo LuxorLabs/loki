@@ -110,7 +110,7 @@ target_link_libraries(rpc
   PUBLIC
     rpc_base
     common
-    cryptonote_core
+    cnh_cryptonote_core
     cryptonote_protocol
     epee
     ${Boost_REGEX_LIBRARY}
@@ -120,7 +120,7 @@ target_link_libraries(rpc
 
 target_link_libraries(daemon_messages
   LINK_PRIVATE
-    cryptonote_core
+  cnh_cryptonote_core
     cryptonote_protocol
     serialization
     ${EXTRA_LIBRARIES})
@@ -128,7 +128,7 @@ target_link_libraries(daemon_messages
 target_link_libraries(daemon_rpc_server
   LINK_PRIVATE
     rpc
-    cryptonote_core
+    cnh_cryptonote_core
     cryptonote_protocol
     daemon_messages
     serialization
