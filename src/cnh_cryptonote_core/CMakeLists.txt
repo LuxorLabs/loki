@@ -29,7 +29,7 @@
 
 set(cryptonote_core_sources
   blockchain.cpp
-  cryptonote_core.cpp
+  cnh_cryptonote_core.cpp
   tx_pool.cpp
   cryptonote_tx_utils.cpp)
 

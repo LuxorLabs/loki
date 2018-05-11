@@ -224,32 +224,32 @@ blockchain.cpp.s:
 	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/blockchain.cpp.s
 .PHONY : blockchain.cpp.s
 
-cryptonote_core.o: cryptonote_core.cpp.o
+cnh_cryptonote_core.o: cnh_cryptonote_core.cpp.o
 
-.PHONY : cryptonote_core.o
+.PHONY : cnh_cryptonote_core.o
 
 # target to build an object file
-cryptonote_core.cpp.o:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cryptonote_core.cpp.o
-.PHONY : cryptonote_core.cpp.o
+cnh_cryptonote_core.cpp.o:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cnh_cryptonote_core.cpp.o
+.PHONY : cnh_cryptonote_core.cpp.o
 
-cryptonote_core.i: cryptonote_core.cpp.i
+cnh_cryptonote_core.i: cnh_cryptonote_core.cpp.i
 
-.PHONY : cryptonote_core.i
+.PHONY : cnh_cryptonote_core.i
 
 # target to preprocess a source file
-cryptonote_core.cpp.i:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cryptonote_core.cpp.i
-.PHONY : cryptonote_core.cpp.i
+cnh_cryptonote_core.cpp.i:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cnh_cryptonote_core.cpp.i
+.PHONY : cnh_cryptonote_core.cpp.i
 
-cryptonote_core.s: cryptonote_core.cpp.s
+cnh_cryptonote_core.s: cnh_cryptonote_core.cpp.s
 
-.PHONY : cryptonote_core.s
+.PHONY : cnh_cryptonote_core.s
 
 # target to generate assembly for a file
-cryptonote_core.cpp.s:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cryptonote_core.cpp.s
-.PHONY : cryptonote_core.cpp.s
+cnh_cryptonote_core.cpp.s:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cnh_cryptonote_core.cpp.s
+.PHONY : cnh_cryptonote_core.cpp.s
 
 cryptonote_tx_utils.o: cryptonote_tx_utils.cpp.o
 
@@ -323,9 +323,9 @@ help:
 	@echo "... blockchain.o"
 	@echo "... blockchain.i"
 	@echo "... blockchain.s"
-	@echo "... cryptonote_core.o"
-	@echo "... cryptonote_core.i"
-	@echo "... cryptonote_core.s"
+	@echo "... cnh_cryptonote_core.o"
+	@echo "... cnh_cryptonote_core.i"
+	@echo "... cnh_cryptonote_core.s"
 	@echo "... cryptonote_tx_utils.o"
 	@echo "... cryptonote_tx_utils.i"
 	@echo "... cryptonote_tx_utils.s"
