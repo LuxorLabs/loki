@@ -95,7 +95,7 @@ target_link_libraries(daemon
     daemon_rpc_server
     epee
     ${EPEE_READLINE}
-    version
+    cnh_version
     ${Boost_CHRONO_LIBRARY}
     ${Boost_FILESYSTEM_LIBRARY}
     ${Boost_PROGRAM_OPTIONS_LIBRARY}

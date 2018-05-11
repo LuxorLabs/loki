@@ -40,7 +40,7 @@ loki_add_library(p2p ${P2P})
 target_link_libraries(p2p
   PUBLIC
     epee
-    version
+    cnh_version
     cnh_cryptonote_core
     ${UPNP_LIBRARIES}
     ${Boost_CHRONO_LIBRARY}

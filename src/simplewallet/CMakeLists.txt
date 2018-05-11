@@ -51,7 +51,7 @@ target_link_libraries(simplewallet
     mnemonics
     epee
     ${EPEE_READLINE}
-    version
+    cnh_version
     ${Boost_CHRONO_LIBRARY}
     ${Boost_PROGRAM_OPTIONS_LIBRARY}
     ${Boost_FILESYSTEM_LIBRARY}

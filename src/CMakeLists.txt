@@ -107,7 +107,7 @@ function (loki_add_library_with_deps)
 endfunction ()
 
 include(Version)
-loki_add_library(version SOURCES ${CMAKE_BINARY_DIR}/version.cpp DEPENDS genversion)
+loki_add_library(cnh_version SOURCES ${CMAKE_BINARY_DIR}/version.cpp DEPENDS genversion)
 
 add_subdirectory(common)
 add_subdirectory(cnh_crypto)

@@ -43,7 +43,7 @@ target_link_libraries(libwallet_api_tests
   PRIVATE
     wallet_api
     wallet
-    version
+    cnh_version
     epee
     ${Boost_CHRONO_LIBRARY}
     ${Boost_SERIALIZATION_LIBRARY}

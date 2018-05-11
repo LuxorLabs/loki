@@ -102,7 +102,7 @@ target_link_libraries(blockchain_import
     cnh_cryptonote_core
     blockchain_db
     p2p
-    version
+    cnh_version
     epee
     ${Boost_FILESYSTEM_LIBRARY}
     ${Boost_SYSTEM_LIBRARY}
@@ -129,7 +129,7 @@ target_link_libraries(blockchain_export
   cnh_cryptonote_core
     blockchain_db
     p2p
-    version
+    cnh_version
     epee
     ${Boost_FILESYSTEM_LIBRARY}
     ${Boost_SYSTEM_LIBRARY}
@@ -152,7 +152,7 @@ target_link_libraries(blockchain_blackball
     cnh_cryptonote_core
     blockchain_db
     p2p
-    version
+    cnh_version
     epee
     ${Boost_FILESYSTEM_LIBRARY}
     ${Boost_SYSTEM_LIBRARY}
@@ -175,7 +175,7 @@ target_link_libraries(blockchain_usage
   cnh_cryptonote_core
     blockchain_db
     p2p
-    version
+    cnh_version
     epee
     ${Boost_FILESYSTEM_LIBRARY}
     ${Boost_SYSTEM_LIBRARY}

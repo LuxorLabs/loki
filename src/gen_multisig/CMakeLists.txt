@@ -48,7 +48,7 @@ target_link_libraries(gen_multisig
     ${GNU_READLINE_LIBRARY}
     ${EXTRA_LIBRARIES})
 add_dependencies(gen_multisig
-  version)
+  cnh_version)
 set_property(TARGET gen_multisig
   PROPERTY
     OUTPUT_NAME "loki-gen-trusted-multisig")

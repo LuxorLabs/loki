@@ -51,5 +51,5 @@ target_link_libraries(serialization
     ${Boost_THREAD_LIBRARY}
     ${EXTRA_LIBRARIES})
 add_dependencies(serialization
-  version)
+cnh_version)
 

@@ -56,7 +56,7 @@ loki_add_library(cnh_cryptonote_core
   ${cryptonote_core_private_headers})
 target_link_libraries(cnh_cryptonote_core
   PUBLIC
-    version
+  cnh_version
     common
     cnhcrypto
     blockchain_db
