@@ -44,8 +44,11 @@ using namespace epee;
 #include "common/int-util.h"
 #include "common/dns_utils.h"
 
+
 #undef LOKI_DEFAULT_LOG_CATEGORY
 #define LOKI_DEFAULT_LOG_CATEGORY "cn"
+
+double loki_exp2(double);
 
 namespace cryptonote {
 
@@ -87,7 +90,7 @@ namespace cryptonote {
     return CRYPTONOTE_MAX_TX_SIZE;
   }
   //-----------------------------------------------------------------------------------------------
-  bool get_block_reward(size_t median_size, size_t current_block_size, uint64_t already_generated_coins, uint64_t &reward, uint8_t version) {
+  bool get_block_reward(size_t median_size, size_t current_block_size, uint64_t already_generated_coins, uint64_t &reward, uint8_t version, uint64_t height) {
 
     //premine reward
     if (already_generated_coins == 0)
@@ -106,11 +109,8 @@ namespace cryptonote {
       base_reward = 0;
     }
 
-    uint64_t minimum_reward = already_generated_coins / (720 * 365 * YEARLY_INFLATION_INVERSE);
-    if (base_reward < minimum_reward)
-    {
-      base_reward = minimum_reward;
-    }
+    if (version >= 8)
+      base_reward = 28000000000.0 + 100000000000.0 / loki_exp2(height / (720.0 * 90.0)); // halve every 90 days.
 
     uint64_t full_reward_zone = get_min_block_size(version);
 
