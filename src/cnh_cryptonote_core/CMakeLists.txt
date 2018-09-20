@@ -31,13 +31,19 @@ set(cryptonote_core_sources
   blockchain.cpp
   cnh_cryptonote_core.cpp
   tx_pool.cpp
+  service_node_list.cpp
+  service_node_deregister.cpp
+  quorum_cop.cpp
   cryptonote_tx_utils.cpp)
 
 set(cryptonote_core_headers)
 
 set(cryptonote_core_private_headers
   blockchain_storage_boost_serialization.h
+  service_node_list.h
+  quorum_cop.h
   blockchain.h
+  service_node_deregister.h
   cnh_cryptonote_core.h
   tx_pool.h
   cryptonote_tx_utils.h)

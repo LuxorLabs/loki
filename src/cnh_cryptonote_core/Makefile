@@ -278,6 +278,87 @@ cryptonote_tx_utils.cpp.s:
 	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cryptonote_tx_utils.cpp.s
 .PHONY : cryptonote_tx_utils.cpp.s
 
+quorum_cop.o: quorum_cop.cpp.o
+
+.PHONY : quorum_cop.o
+
+# target to build an object file
+quorum_cop.cpp.o:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/quorum_cop.cpp.o
+.PHONY : quorum_cop.cpp.o
+
+quorum_cop.i: quorum_cop.cpp.i
+
+.PHONY : quorum_cop.i
+
+# target to preprocess a source file
+quorum_cop.cpp.i:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/quorum_cop.cpp.i
+.PHONY : quorum_cop.cpp.i
+
+quorum_cop.s: quorum_cop.cpp.s
+
+.PHONY : quorum_cop.s
+
+# target to generate assembly for a file
+quorum_cop.cpp.s:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/quorum_cop.cpp.s
+.PHONY : quorum_cop.cpp.s
+
+service_node_deregister.o: service_node_deregister.cpp.o
+
+.PHONY : service_node_deregister.o
+
+# target to build an object file
+service_node_deregister.cpp.o:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/service_node_deregister.cpp.o
+.PHONY : service_node_deregister.cpp.o
+
+service_node_deregister.i: service_node_deregister.cpp.i
+
+.PHONY : service_node_deregister.i
+
+# target to preprocess a source file
+service_node_deregister.cpp.i:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/service_node_deregister.cpp.i
+.PHONY : service_node_deregister.cpp.i
+
+service_node_deregister.s: service_node_deregister.cpp.s
+
+.PHONY : service_node_deregister.s
+
+# target to generate assembly for a file
+service_node_deregister.cpp.s:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/service_node_deregister.cpp.s
+.PHONY : service_node_deregister.cpp.s
+
+service_node_list.o: service_node_list.cpp.o
+
+.PHONY : service_node_list.o
+
+# target to build an object file
+service_node_list.cpp.o:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/service_node_list.cpp.o
+.PHONY : service_node_list.cpp.o
+
+service_node_list.i: service_node_list.cpp.i
+
+.PHONY : service_node_list.i
+
+# target to preprocess a source file
+service_node_list.cpp.i:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/service_node_list.cpp.i
+.PHONY : service_node_list.cpp.i
+
+service_node_list.s: service_node_list.cpp.s
+
+.PHONY : service_node_list.s
+
+# target to generate assembly for a file
+service_node_list.cpp.s:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/service_node_list.cpp.s
+.PHONY : service_node_list.cpp.s
+
 tx_pool.o: tx_pool.cpp.o
 
 .PHONY : tx_pool.o
@@ -329,6 +410,15 @@ help:
 	@echo "... cryptonote_tx_utils.o"
 	@echo "... cryptonote_tx_utils.i"
 	@echo "... cryptonote_tx_utils.s"
+	@echo "... quorum_cop.o"
+	@echo "... quorum_cop.i"
+	@echo "... quorum_cop.s"
+	@echo "... service_node_deregister.o"
+	@echo "... service_node_deregister.i"
+	@echo "... service_node_deregister.s"
+	@echo "... service_node_list.o"
+	@echo "... service_node_list.i"
+	@echo "... service_node_list.s"
 	@echo "... tx_pool.o"
 	@echo "... tx_pool.i"
 	@echo "... tx_pool.s"
