@@ -47,6 +47,7 @@
 #include "file_io_utils.h"
 #include "common/int-util.h"
 #include "common/threadpool.h"
+#include "common/rules.h"
 #include "common/boost_serialization_helper.h"
 #include "warnings.h"
 #include "cnh_crypto/cnh_hash.h"
