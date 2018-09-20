@@ -28,7 +28,7 @@
 
 #include <boost/uuid/uuid.hpp>
 #include "gtest/gtest.h"
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 #include "cryptonote_protocol/cryptonote_protocol_defs.h"
 #include "cryptonote_protocol/block_queue.h"
 

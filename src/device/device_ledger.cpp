@@ -31,8 +31,8 @@
 #include "device_ledger.hpp"
 #include "log.hpp"
 #include "ringct/rctOps.h"
-#include "cryptonote_basic/account.h"
-#include "cryptonote_basic/subaddress_index.h"
+#include "cnh_cryptonote_basic/account.h"
+#include "cnh_cryptonote_basic/subaddress_index.h"
 
 #include <boost/thread/locks.hpp> 
 #include <boost/thread/lock_guard.hpp>

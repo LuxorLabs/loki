@@ -35,7 +35,7 @@
 #include <string>
 
 #include "warnings.h"
-#include "crypto/hash.h"
+#include "cnh_crypto/hash.h"
 #include "../io.h"
 
 using namespace std;

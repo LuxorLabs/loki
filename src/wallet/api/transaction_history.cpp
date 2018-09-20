@@ -33,7 +33,7 @@
 #include "transaction_info.h"
 #include "wallet.h"
 
-#include "crypto/hash.h"
+#include "cnh_crypto/hash.h"
 #include "wallet/wallet2.h"
 
 

@@ -28,7 +28,7 @@
 
 #include "gtest/gtest.h"
 #include "mnemonics/electrum-words.h"
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 #include <stdlib.h>
 #include <vector>
 #include <time.h>

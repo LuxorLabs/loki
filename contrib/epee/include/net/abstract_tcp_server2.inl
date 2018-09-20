@@ -51,7 +51,7 @@
 #include <iomanip>
 #include <algorithm>
 
-#include "../../../../src/cryptonote_core/cryptonote_core.h" // e.g. for the send_stop_signal()
+#include "../../../../src/cnh_cryptonote_core/cryptonote_core.h" // e.g. for the send_stop_signal()
 
 #undef LOKI_DEFAULT_LOG_CATEGORY
 #define LOKI_DEFAULT_LOG_CATEGORY "net"

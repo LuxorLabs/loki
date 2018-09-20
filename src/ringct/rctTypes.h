@@ -38,12 +38,12 @@
 #include <cinttypes>
 
 extern "C" {
-#include "crypto/crypto-ops.h"
-#include "crypto/random.h"
-#include "crypto/keccak.h"
+#include "cnh_crypto/crypto-ops.h"
+#include "cnh_crypto/random.h"
+#include "cnh_crypto/keccak.h"
 }
-#include "crypto/generic-ops.h"
-#include "crypto/crypto.h"
+#include "cnh_crypto/generic-ops.h"
+#include "cnh_crypto/crypto.h"
 
 #include "hex.h"
 #include "span.h"

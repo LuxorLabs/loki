@@ -36,9 +36,9 @@
 #include "gtest/gtest.h"
 
 #include "string_tools.h"
-#include "crypto/crypto.h"
-#include "crypto/random.h"
-#include "crypto/chacha.h"
+#include "cnh_crypto/crypto.h"
+#include "cnh_crypto/random.h"
+#include "cnh_crypto/chacha.h"
 #include "wallet/ringdb.h"
 
 static crypto::chacha_key generate_chacha_key()

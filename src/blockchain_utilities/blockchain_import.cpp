@@ -37,12 +37,12 @@
 #include "misc_log_ex.h"
 #include "bootstrap_file.h"
 #include "bootstrap_serialization.h"
-#include "cryptonote_basic/cryptonote_format_utils.h"
+#include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 #include "serialization/binary_utils.h" // dump_binary(), parse_binary()
 #include "serialization/json_utils.h" // dump_json()
 #include "include_base_utils.h"
 #include "blockchain_db/db_types.h"
-#include "cryptonote_core/cryptonote_core.h"
+#include "cnh_cryptonote_core/cryptonote_core.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY
 #define LOKI_DEFAULT_LOG_CATEGORY "bcutil"

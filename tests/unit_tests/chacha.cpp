@@ -32,7 +32,7 @@
 
 #include "gtest/gtest.h"
 
-#include "crypto/chacha.h"
+#include "cnh_crypto/chacha.h"
 
 namespace
 {

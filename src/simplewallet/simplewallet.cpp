@@ -53,13 +53,13 @@
 #include "common/base58.h"
 #include "common/scoped_message_writer.h"
 #include "cryptonote_protocol/cryptonote_protocol_handler.h"
-#include "cryptonote_core/service_node_deregister.h"
-#include "cryptonote_core/service_node_list.h"
+#include "cnh_cryptonote_core/service_node_deregister.h"
+#include "cnh_cryptonote_core/service_node_list.h"
 #include "simplewallet.h"
-#include "cryptonote_basic/cryptonote_format_utils.h"
+#include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 #include "storages/http_abstract_invoke.h"
 #include "rpc/core_rpc_server_commands_defs.h"
-#include "crypto/crypto.h"  // for crypto::secret_key definition
+#include "cnh_crypto/crypto.h"  // for crypto::secret_key definition
 #include "mnemonics/electrum-words.h"
 #include "rapidjson/document.h"
 #include "common/json_util.h"

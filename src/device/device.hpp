@@ -44,8 +44,8 @@
 
 #pragma once
 
-#include "crypto/crypto.h"
-#include "crypto/chacha.h"
+#include "cnh_crypto/crypto.h"
+#include "cnh_crypto/chacha.h"
 #include "ringct/rctTypes.h"
 
 #ifndef USE_DEVICE_LEDGER

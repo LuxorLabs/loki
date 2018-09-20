@@ -28,9 +28,9 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <map>
-#include "cryptonote_basic/cryptonote_basic.h"
-#include "cryptonote_basic/tx_extra.h"
-#include "cryptonote_core/blockchain.h"
+#include "cnh_cryptonote_basic/cryptonote_basic.h"
+#include "cnh_cryptonote_basic/tx_extra.h"
+#include "cnh_cryptonote_core/blockchain.h"
 #include "p2p/p2p_protocol_defs.h"
 #include "net/connection_basic.hpp"
 #include "p2p/net_peerlist.h"
@@ -52,16 +52,17 @@ class size_logger
 public:
   ~size_logger()
   {
-    for (const auto &i: types)
+    for (const auto &i : types)
       std::cout << std::to_string(i.first) << "\t" << i.second << std::endl;
   }
   void add(const char *type, size_t size) { types.insert(std::make_pair(size, type)); }
+
 private:
   std::multimap<size_t, const std::string> types;
 };
 #define SL(type) sl.add(#type, sizeof(type))
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
   size_logger sl;
 

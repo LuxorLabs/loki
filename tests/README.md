@@ -32,7 +32,7 @@ Crypto tests are located under the `tests/crypto` directory.
 - `crypto-tests.h` contains test harness headers
 - `main.cpp` implements the driver for the crypto tests
 
-Tests correspond to components under `src/crypto/`. A quick comparison reveals the pattern, and new tests should continue the naming convention.
+Tests correspond to components under `src/cnh_crypto/`. A quick comparison reveals the pattern, and new tests should continue the naming convention.
 
 To run only Monero's crypto tests (after building):
 

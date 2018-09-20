@@ -60,7 +60,7 @@
 
 #include "md5_l.h"
 #include "string_tools.h"
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 
 namespace {
 namespace http = epee::net_utils::http;

@@ -30,8 +30,8 @@
 #include "bootstrap_file.h"
 #include "blocksdat_file.h"
 #include "common/command_line.h"
-#include "cryptonote_core/tx_pool.h"
-#include "cryptonote_core/cryptonote_core.h"
+#include "cnh_cryptonote_core/tx_pool.h"
+#include "cnh_cryptonote_core/cryptonote_core.h"
 #include "blockchain_db/blockchain_db.h"
 #include "blockchain_db/db_types.h"
 #include "version.h"
@@ -42,7 +42,7 @@
 namespace po = boost::program_options;
 using namespace epee;
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
   TRY_ENTRY();
 
@@ -64,13 +64,11 @@ int main(int argc, char* argv[])
   po::options_description desc_cmd_only("Command line options");
   po::options_description desc_cmd_sett("Command line options and settings options");
   const command_line::arg_descriptor<std::string> arg_output_file = {"output-file", "Specify output file", "", true};
-  const command_line::arg_descriptor<std::string> arg_log_level  = {"log-level",  "0-4 or categories", ""};
+  const command_line::arg_descriptor<std::string> arg_log_level = {"log-level", "0-4 or categories", ""};
   const command_line::arg_descriptor<uint64_t> arg_block_stop = {"block-stop", "Stop at block number", block_stop};
   const command_line::arg_descriptor<std::string> arg_database = {
-    "database", available_dbs.c_str(), default_db_type
-  };
+      "database", available_dbs.c_str(), default_db_type};
   const command_line::arg_descriptor<bool> arg_blocks_dat = {"blocksdat", "Output in blocks.dat format", blocks_dat};
-
 
   command_line::add_arg(desc_cmd_sett, cryptonote::arg_data_dir);
   command_line::add_arg(desc_cmd_sett, arg_output_file);
@@ -87,13 +85,12 @@ int main(int argc, char* argv[])
   desc_options.add(desc_cmd_only).add(desc_cmd_sett);
 
   po::variables_map vm;
-  bool r = command_line::handle_error_helper(desc_options, [&]()
-  {
+  bool r = command_line::handle_error_helper(desc_options, [&]() {
     po::store(po::parse_command_line(argc, argv, desc_options), vm);
     po::notify(vm);
     return true;
   });
-  if (! r)
+  if (!r)
     return 1;
 
   if (command_line::get_arg(vm, command_line::arg_help))
@@ -158,16 +155,15 @@ int main(int argc, char* argv[])
     tx_memory_pool m_mempool;
     service_nodes::service_node_list m_service_node_list;
     loki::deregister_vote_pool m_deregister_vote_pool;
-    BlockchainObjects() :
-      m_blockchain(m_mempool, m_service_node_list, m_deregister_vote_pool),
-      m_service_node_list(m_blockchain),
-      m_mempool(m_blockchain) { }
+    BlockchainObjects() : m_blockchain(m_mempool, m_service_node_list, m_deregister_vote_pool),
+                          m_service_node_list(m_blockchain),
+                          m_mempool(m_blockchain) {}
   };
-  BlockchainObjects* blockchain_objects = new BlockchainObjects();
-  Blockchain* core_storage = &(blockchain_objects->m_blockchain);
-  tx_memory_pool& m_mempool = blockchain_objects->m_mempool;
+  BlockchainObjects *blockchain_objects = new BlockchainObjects();
+  Blockchain *core_storage = &(blockchain_objects->m_blockchain);
+  tx_memory_pool &m_mempool = blockchain_objects->m_mempool;
 
-  BlockchainDB* db = new_db(db_type);
+  BlockchainDB *db = new_db(db_type);
   if (db == NULL)
   {
     LOG_ERROR("Attempted to use non-existent database type: " << db_type);
@@ -184,7 +180,7 @@ int main(int argc, char* argv[])
   {
     db->open(filename, DBF_RDONLY);
   }
-  catch (const std::exception& e)
+  catch (const std::exception &e)
   {
     LOG_PRINT_L0("Error opening database: " << e.what());
     return 1;

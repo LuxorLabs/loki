@@ -44,19 +44,19 @@ using namespace epee;
 #include "common/rules.h"
 #include "cryptonote_config.h"
 #include "wallet2.h"
-#include "cryptonote_basic/cryptonote_format_utils.h"
+#include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 #include "rpc/core_rpc_server_commands_defs.h"
 #include "misc_language.h"
-#include "cryptonote_basic/cryptonote_basic_impl.h"
+#include "cnh_cryptonote_basic/cryptonote_basic_impl.h"
 #include "multisig/multisig.h"
 #include "common/boost_serialization_helper.h"
 #include "common/command_line.h"
 #include "common/threadpool.h"
 #include "profile_tools.h"
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 #include "serialization/binary_utils.h"
 #include "serialization/string.h"
-#include "cryptonote_basic/blobdatatype.h"
+#include "cnh_cryptonote_basic/blobdatatype.h"
 #include "mnemonics/electrum-words.h"
 #include "common/i18n.h"
 #include "common/util.h"
@@ -73,8 +73,8 @@ using namespace epee;
 
 extern "C"
 {
-#include "crypto/keccak.h"
-#include "crypto/crypto-ops.h"
+#include "cnh_crypto/keccak.h"
+#include "cnh_crypto/crypto-ops.h"
 }
 using namespace std;
 using namespace crypto;

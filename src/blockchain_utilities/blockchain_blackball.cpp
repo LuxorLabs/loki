@@ -31,9 +31,9 @@
 #include <boost/algorithm/string.hpp>
 #include "common/command_line.h"
 #include "common/varint.h"
-#include "cryptonote_core/tx_pool.h"
-#include "cryptonote_core/cryptonote_core.h"
-#include "cryptonote_core/blockchain.h"
+#include "cnh_cryptonote_core/tx_pool.h"
+#include "cnh_cryptonote_core/cryptonote_core.h"
+#include "cnh_cryptonote_core/blockchain.h"
 #include "blockchain_db/blockchain_db.h"
 #include "blockchain_db/db_types.h"
 #include "wallet/ringdb.h"
@@ -50,22 +50,23 @@ struct output_data
 {
   uint64_t amount;
   uint64_t index;
-  output_data(uint64_t a, uint64_t i): amount(a), index(i) {}
+  output_data(uint64_t a, uint64_t i) : amount(a), index(i) {}
   bool operator==(const output_data &other) const { return other.amount == amount && other.index == index; }
 };
 namespace std
 {
-  template<> struct hash<output_data>
+template <>
+struct hash<output_data>
+{
+  size_t operator()(const output_data &od) const
   {
-    size_t operator()(const output_data &od) const
-    {
-      const uint64_t data[2] = {od.amount, od.index};
-      crypto::hash h;
-      crypto::cn_fast_hash(data, 2 * sizeof(uint64_t), h);
-      return reinterpret_cast<const std::size_t &>(h);
-    }
-  };
-}
+    const uint64_t data[2] = {od.amount, od.index};
+    crypto::hash h;
+    crypto::cn_fast_hash(data, 2 * sizeof(uint64_t), h);
+    return reinterpret_cast<const std::size_t &>(h);
+  }
+};
+} // namespace std
 
 static std::string get_default_db_path()
 {
@@ -76,7 +77,7 @@ static std::string get_default_db_path()
   return dir.string();
 }
 
-static bool for_all_transactions(const std::string &filename, const std::function<bool(const cryptonote::transaction_prefix&)> &f)
+static bool for_all_transactions(const std::string &filename, const std::function<bool(const cryptonote::transaction_prefix &)> &f)
 {
   MDB_env *env;
   MDB_dbi dbi;
@@ -86,25 +87,30 @@ static bool for_all_transactions(const std::string &filename, const std::functio
   bool tx_active = false;
 
   dbr = mdb_env_create(&env);
-  if (dbr) throw std::runtime_error("Failed to create LDMB environment: " + std::string(mdb_strerror(dbr)));
+  if (dbr)
+    throw std::runtime_error("Failed to create LDMB environment: " + std::string(mdb_strerror(dbr)));
   dbr = mdb_env_set_maxdbs(env, 2);
-  if (dbr) throw std::runtime_error("Failed to set max env dbs: " + std::string(mdb_strerror(dbr)));
+  if (dbr)
+    throw std::runtime_error("Failed to set max env dbs: " + std::string(mdb_strerror(dbr)));
   const std::string actual_filename = filename;
   dbr = mdb_env_open(env, actual_filename.c_str(), 0, 0664);
-  if (dbr) throw std::runtime_error("Failed to open rings database file '"
-      + actual_filename + "': " + std::string(mdb_strerror(dbr)));
+  if (dbr)
+    throw std::runtime_error("Failed to open rings database file '" + actual_filename + "': " + std::string(mdb_strerror(dbr)));
 
   dbr = mdb_txn_begin(env, NULL, 0, &txn);
-  if (dbr) throw std::runtime_error("Failed to create LMDB transaction: " + std::string(mdb_strerror(dbr)));
-  epee::misc_utils::auto_scope_leave_caller txn_dtor = epee::misc_utils::create_scope_leave_handler([&](){if (tx_active) mdb_txn_abort(txn);});
+  if (dbr)
+    throw std::runtime_error("Failed to create LMDB transaction: " + std::string(mdb_strerror(dbr)));
+  epee::misc_utils::auto_scope_leave_caller txn_dtor = epee::misc_utils::create_scope_leave_handler([&]() {if (tx_active) mdb_txn_abort(txn); });
   tx_active = true;
 
   dbr = mdb_dbi_open(txn, "txs_pruned", MDB_INTEGERKEY, &dbi);
   if (dbr)
     dbr = mdb_dbi_open(txn, "txs", MDB_INTEGERKEY, &dbi);
-  if (dbr) throw std::runtime_error("Failed to open LMDB dbi: " + std::string(mdb_strerror(dbr)));
+  if (dbr)
+    throw std::runtime_error("Failed to open LMDB dbi: " + std::string(mdb_strerror(dbr)));
   dbr = mdb_cursor_open(txn, dbi, &cur);
-  if (dbr) throw std::runtime_error("Failed to create LMDB cursor: " + std::string(mdb_strerror(dbr)));
+  if (dbr)
+    throw std::runtime_error("Failed to create LMDB cursor: " + std::string(mdb_strerror(dbr)));
 
   MDB_val k;
   MDB_val v;
@@ -122,14 +128,15 @@ static bool for_all_transactions(const std::string &filename, const std::functio
 
     cryptonote::transaction_prefix tx;
     blobdata bd;
-    bd.assign(reinterpret_cast<char*>(v.mv_data), v.mv_size);
+    bd.assign(reinterpret_cast<char *>(v.mv_data), v.mv_size);
     std::stringstream ss;
     ss << bd;
     binary_archive<false> ba(ss);
     bool r = do_serialize(ba, tx);
     CHECK_AND_ASSERT_MES(r, false, "Failed to parse transaction from blob");
 
-    if (!f(tx)) {
+    if (!f(tx))
+    {
       fret = false;
       break;
     }
@@ -143,7 +150,7 @@ static bool for_all_transactions(const std::string &filename, const std::functio
   return fret;
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
   TRY_ENTRY();
 
@@ -163,23 +170,18 @@ int main(int argc, char* argv[])
   po::options_description desc_cmd_only("Command line options");
   po::options_description desc_cmd_sett("Command line options and settings options");
   const command_line::arg_descriptor<std::string, false, true, 2> arg_blackball_db_dir = {
-      "blackball-db-dir", "Specify blackball database directory",
-      get_default_db_path(),
-      {{ &arg_testnet_on, &arg_stagenet_on }},
-      [](std::array<bool, 2> testnet_stagenet, bool defaulted, std::string val) {
+      "blackball-db-dir", "Specify blackball database directory", get_default_db_path(), {{&arg_testnet_on, &arg_stagenet_on}}, [](std::array<bool, 2> testnet_stagenet, bool defaulted, std::string val) {
         if (testnet_stagenet[0])
           return (boost::filesystem::path(val) / "testnet").string();
         else if (testnet_stagenet[1])
           return (boost::filesystem::path(val) / "stagenet").string();
         return val;
-      }
-  };
-  const command_line::arg_descriptor<std::string> arg_log_level  = {"log-level",  "0-4 or categories", ""};
+      }};
+  const command_line::arg_descriptor<std::string> arg_log_level = {"log-level", "0-4 or categories", ""};
   const command_line::arg_descriptor<std::string> arg_database = {
-    "database", available_dbs.c_str(), default_db_type
-  };
-  const command_line::arg_descriptor<bool> arg_rct_only  = {"rct-only", "Only work on ringCT outputs", false};
-  const command_line::arg_descriptor<std::vector<std::string> > arg_inputs = {"inputs", "Path to Loki DB, and path to any fork DBs"};
+      "database", available_dbs.c_str(), default_db_type};
+  const command_line::arg_descriptor<bool> arg_rct_only = {"rct-only", "Only work on ringCT outputs", false};
+  const command_line::arg_descriptor<std::vector<std::string>> arg_inputs = {"inputs", "Path to Loki DB, and path to any fork DBs"};
 
   command_line::add_arg(desc_cmd_sett, arg_blackball_db_dir);
   command_line::add_arg(desc_cmd_sett, cryptonote::arg_testnet_on);
@@ -197,14 +199,13 @@ int main(int argc, char* argv[])
   positional_options.add(arg_inputs.name, -1);
 
   po::variables_map vm;
-  bool r = command_line::handle_error_helper(desc_options, [&]()
-  {
+  bool r = command_line::handle_error_helper(desc_options, [&]() {
     auto parser = po::command_line_parser(argc, argv).options(desc_options).positional(positional_options);
     po::store(parser.run(), vm);
     po::notify(vm);
     return true;
   });
-  if (! r)
+  if (!r)
     return 1;
 
   if (command_line::get_arg(vm, command_line::arg_help))
@@ -253,7 +254,7 @@ int main(int argc, char* argv[])
     LOG_PRINT_L0("No inputs given");
     return 1;
   }
-  std::vector<Blockchain*> core_storage(inputs.size());
+  std::vector<Blockchain *> core_storage(inputs.size());
   for (size_t n = 0; n < inputs.size(); ++n)
   {
     // This is done this way because of the circular constructors.
@@ -263,15 +264,14 @@ int main(int argc, char* argv[])
       tx_memory_pool m_mempool;
       service_nodes::service_node_list m_service_node_list;
       loki::deregister_vote_pool m_deregister_vote_pool;
-      BlockchainObjects() :
-        m_blockchain(m_mempool, m_service_node_list, m_deregister_vote_pool),
-        m_service_node_list(m_blockchain),
-        m_mempool(m_blockchain) { }
+      BlockchainObjects() : m_blockchain(m_mempool, m_service_node_list, m_deregister_vote_pool),
+                            m_service_node_list(m_blockchain),
+                            m_mempool(m_blockchain) {}
     };
-    BlockchainObjects* blockchain_objects = new BlockchainObjects();
+    BlockchainObjects *blockchain_objects = new BlockchainObjects();
     core_storage[n] = &(blockchain_objects->m_blockchain);
 
-    BlockchainDB* db = new_db(db_type);
+    BlockchainDB *db = new_db(db_type);
     if (db == NULL)
     {
       LOG_ERROR("Attempted to use non-existent database type: " << db_type);
@@ -288,7 +288,7 @@ int main(int argc, char* argv[])
     {
       db->open(filename, DBF_RDONLY);
     }
-    catch (const std::exception& e)
+    catch (const std::exception &e)
     {
       LOG_PRINT_L0("Error opening database: " << e.what());
       return 1;
@@ -330,9 +330,8 @@ int main(int argc, char* argv[])
   for (size_t n = 0; n < inputs.size(); ++n)
   {
     LOG_PRINT_L0("Reading blockchain from " << inputs[n]);
-    for_all_transactions(inputs[n], [&](const cryptonote::transaction_prefix &tx)->bool
-    {
-      for (const auto &in: tx.vin)
+    for_all_transactions(inputs[n], [&](const cryptonote::transaction_prefix &tx) -> bool {
+      for (const auto &in : tx.vin)
       {
         if (in.type() != typeid(txin_to_key))
           continue;
@@ -342,7 +341,7 @@ int main(int argc, char* argv[])
 
         const std::vector<uint64_t> absolute = cryptonote::relative_output_offsets_to_absolute(txin.key_offsets);
         if (n == 0)
-          for (uint64_t out: absolute)
+          for (uint64_t out : absolute)
             outputs[output_data(txin.amount, out)].insert(txin.k_image);
 
         std::vector<uint64_t> new_ring = txin.key_offsets;
@@ -357,16 +356,14 @@ int main(int argc, char* argv[])
         }
         else if (relative_rings.find(txin.k_image) != relative_rings.end())
         {
-          MINFO("Key image " << txin.k_image << " already seen: rings " <<
-              boost::join(relative_rings[txin.k_image] | boost::adaptors::transformed([](uint64_t out){return std::to_string(out);}), " ") <<
-              ", " << boost::join(txin.key_offsets | boost::adaptors::transformed([](uint64_t out){return std::to_string(out);}), " "));
+          MINFO("Key image " << txin.k_image << " already seen: rings " << boost::join(relative_rings[txin.k_image] | boost::adaptors::transformed([](uint64_t out) { return std::to_string(out); }), " ") << ", " << boost::join(txin.key_offsets | boost::adaptors::transformed([](uint64_t out) { return std::to_string(out); }), " "));
           if (relative_rings[txin.k_image] != txin.key_offsets)
           {
             MINFO("Rings are different");
             const std::vector<uint64_t> r0 = cryptonote::relative_output_offsets_to_absolute(relative_rings[txin.k_image]);
             const std::vector<uint64_t> r1 = cryptonote::relative_output_offsets_to_absolute(txin.key_offsets);
             std::vector<uint64_t> common;
-            for (uint64_t out: r0)
+            for (uint64_t out : r0)
             {
               if (std::find(r1.begin(), r1.end(), out) != r1.end())
                 common.push_back(out);
@@ -386,7 +383,7 @@ int main(int argc, char* argv[])
             else
             {
               MINFO("The intersection has more than one element, it's still ok");
-              for (const auto &out: r0)
+              for (const auto &out : r0)
                 if (std::find(common.begin(), common.end(), out) != common.end())
                   new_ring.push_back(out);
               new_ring = cryptonote::absolute_output_offsets_to_relative(new_ring);
@@ -405,14 +402,14 @@ int main(int argc, char* argv[])
     std::unordered_set<output_data> work_spent = std::move(newly_spent);
     newly_spent.clear();
 
-    for (const output_data &od: work_spent)
+    for (const output_data &od : work_spent)
     {
-      for (const crypto::key_image &ki: outputs[od])
+      for (const crypto::key_image &ki : outputs[od])
       {
         std::vector<uint64_t> absolute = cryptonote::relative_output_offsets_to_absolute(relative_rings[ki]);
         size_t known = 0;
         uint64_t last_unknown = 0;
-        for (uint64_t out: absolute)
+        for (uint64_t out : absolute)
         {
           output_data new_od(od.amount, out);
           if (spent.find(new_od) != spent.end())
@@ -423,8 +420,7 @@ int main(int argc, char* argv[])
         if (known == absolute.size() - 1)
         {
           const crypto::public_key pkey = core_storage[0]->get_output_key(od.amount, last_unknown);
-          MINFO("Blackballing output " << pkey << ", due to being used in a " <<
-              absolute.size() << "-ring where all other outputs are known to be spent");
+          MINFO("Blackballing output " << pkey << ", due to being used in a " << absolute.size() << "-ring where all other outputs are known to be spent");
           ringdb.blackball(pkey);
           newly_spent.insert(output_data(od.amount, last_unknown));
           spent.insert(output_data(od.amount, last_unknown));

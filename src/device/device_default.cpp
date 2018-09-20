@@ -32,8 +32,8 @@
 
 #include "device_default.hpp"
 #include "common/int-util.h"
-#include "cryptonote_basic/account.h"
-#include "cryptonote_basic/subaddress_index.h"
+#include "cnh_cryptonote_basic/account.h"
+#include "cnh_cryptonote_basic/subaddress_index.h"
 #include "ringct/rctOps.h"
 
 #define ENCRYPTED_PAYMENT_ID_TAIL 0x8d

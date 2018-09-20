@@ -38,7 +38,7 @@
 #include "time_helper.h"
 #include "cryptonote_config.h"
 #ifdef ALLOW_DEBUG_COMMANDS
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 #endif
 
 namespace nodetool
