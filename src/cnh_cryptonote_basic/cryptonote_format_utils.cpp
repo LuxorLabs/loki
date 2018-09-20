@@ -34,6 +34,7 @@ using namespace epee;
 
 #include <atomic>
 #include <boost/algorithm/string.hpp>
+#include "common/i18n.h"
 #include "wipeable_string.h"
 #include "string_tools.h"
 #include "serialization/string.h"
