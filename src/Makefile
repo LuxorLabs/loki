@@ -56,40 +56,6 @@ CMAKE_BINARY_DIR = /Users/eddiewang/dev/projects/blockchain/loki/loki
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/Cellar/cmake/3.11.1/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/Cellar/cmake/3.11.1/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/Cellar/cmake/3.11.1/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/Cellar/cmake/3.11.1/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -111,6 +77,16 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -135,16 +111,40 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.11.1/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.11.1/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.11.1/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.11.1/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles /Users/eddiewang/dev/projects/blockchain/loki/loki/external/db_drivers/liblmdb/CMakeFiles/progress.marks
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/all
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles /Users/eddiewang/dev/projects/blockchain/loki/loki/src/CMakeFiles/progress.marks
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/clean
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,12 +154,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/preinstall
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/preinstall
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -168,73 +168,76 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule
-.PHONY : external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule
+src/CMakeFiles/cnh_version.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/cnh_version.dir/rule
+.PHONY : src/CMakeFiles/cnh_version.dir/rule
 
 # Convenience name for target.
-lmdb: external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule
+cnh_version: src/CMakeFiles/cnh_version.dir/rule
 
-.PHONY : lmdb
+.PHONY : cnh_version
 
 # fast build rule for target.
-lmdb/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build
-.PHONY : lmdb/fast
+cnh_version/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/CMakeFiles/cnh_version.dir/build.make src/CMakeFiles/cnh_version.dir/build
+.PHONY : cnh_version/fast
 
-mdb.o: mdb.c.o
+# Convenience name for target.
+src/CMakeFiles/obj_cnh_version.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/obj_cnh_version.dir/rule
+.PHONY : src/CMakeFiles/obj_cnh_version.dir/rule
 
-.PHONY : mdb.o
+# Convenience name for target.
+obj_cnh_version: src/CMakeFiles/obj_cnh_version.dir/rule
+
+.PHONY : obj_cnh_version
+
+# fast build rule for target.
+obj_cnh_version/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/CMakeFiles/obj_cnh_version.dir/build.make src/CMakeFiles/obj_cnh_version.dir/build
+.PHONY : obj_cnh_version/fast
+
+# Convenience name for target.
+src/CMakeFiles/genversion.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/genversion.dir/rule
+.PHONY : src/CMakeFiles/genversion.dir/rule
+
+# Convenience name for target.
+genversion: src/CMakeFiles/genversion.dir/rule
+
+.PHONY : genversion
+
+# fast build rule for target.
+genversion/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/CMakeFiles/genversion.dir/build.make src/CMakeFiles/genversion.dir/build
+.PHONY : genversion/fast
+
+__/version.o: __/version.cpp.o
+
+.PHONY : __/version.o
 
 # target to build an object file
-mdb.c.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/mdb.c.o
-.PHONY : mdb.c.o
+__/version.cpp.o:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/CMakeFiles/obj_cnh_version.dir/build.make src/CMakeFiles/obj_cnh_version.dir/__/version.cpp.o
+.PHONY : __/version.cpp.o
 
-mdb.i: mdb.c.i
+__/version.i: __/version.cpp.i
 
-.PHONY : mdb.i
-
-# target to preprocess a source file
-mdb.c.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/mdb.c.i
-.PHONY : mdb.c.i
-
-mdb.s: mdb.c.s
-
-.PHONY : mdb.s
-
-# target to generate assembly for a file
-mdb.c.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/mdb.c.s
-.PHONY : mdb.c.s
-
-midl.o: midl.c.o
-
-.PHONY : midl.o
-
-# target to build an object file
-midl.c.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/midl.c.o
-.PHONY : midl.c.o
-
-midl.i: midl.c.i
-
-.PHONY : midl.i
+.PHONY : __/version.i
 
 # target to preprocess a source file
-midl.c.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/midl.c.i
-.PHONY : midl.c.i
+__/version.cpp.i:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/CMakeFiles/obj_cnh_version.dir/build.make src/CMakeFiles/obj_cnh_version.dir/__/version.cpp.i
+.PHONY : __/version.cpp.i
 
-midl.s: midl.c.s
+__/version.s: __/version.cpp.s
 
-.PHONY : midl.s
+.PHONY : __/version.s
 
 # target to generate assembly for a file
-midl.c.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/midl.c.s
-.PHONY : midl.c.s
+__/version.cpp.s:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/CMakeFiles/obj_cnh_version.dir/build.make src/CMakeFiles/obj_cnh_version.dir/__/version.cpp.s
+.PHONY : __/version.cpp.s
 
 # Help Target
 help:
@@ -242,20 +245,19 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
-	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... lmdb"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... list_install_components"
+	@echo "... cnh_version"
+	@echo "... obj_cnh_version"
 	@echo "... install/local"
 	@echo "... test"
-	@echo "... mdb.o"
-	@echo "... mdb.i"
-	@echo "... mdb.s"
-	@echo "... midl.o"
-	@echo "... midl.i"
-	@echo "... midl.s"
+	@echo "... install/strip"
+	@echo "... install"
+	@echo "... genversion"
+	@echo "... __/version.o"
+	@echo "... __/version.i"
+	@echo "... __/version.s"
 .PHONY : help
 
 

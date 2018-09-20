@@ -137,14 +137,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles /Users/eddiewang/dev/projects/blockchain/loki/loki/src/cnh_cryptonote_core/CMakeFiles/progress.marks
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_cryptonote_core/all
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles /Users/eddiewang/dev/projects/blockchain/loki/loki/src/device/CMakeFiles/progress.marks
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/device/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_cryptonote_core/clean
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/device/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,12 +154,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_cryptonote_core/preinstall
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/device/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_cryptonote_core/preinstall
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/device/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -168,142 +168,142 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/rule:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/rule
-.PHONY : src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/rule
+src/device/CMakeFiles/device.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/device/CMakeFiles/device.dir/rule
+.PHONY : src/device/CMakeFiles/device.dir/rule
 
 # Convenience name for target.
-cnh_cryptonote_core: src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/rule
+device: src/device/CMakeFiles/device.dir/rule
 
-.PHONY : cnh_cryptonote_core
+.PHONY : device
 
 # fast build rule for target.
-cnh_cryptonote_core/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/build
-.PHONY : cnh_cryptonote_core/fast
+device/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/device.dir/build.make src/device/CMakeFiles/device.dir/build
+.PHONY : device/fast
 
 # Convenience name for target.
-src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/rule:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/rule
-.PHONY : src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/rule
+src/device/CMakeFiles/obj_device.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/device/CMakeFiles/obj_device.dir/rule
+.PHONY : src/device/CMakeFiles/obj_device.dir/rule
 
 # Convenience name for target.
-obj_cnh_cryptonote_core: src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/rule
+obj_device: src/device/CMakeFiles/obj_device.dir/rule
 
-.PHONY : obj_cnh_cryptonote_core
+.PHONY : obj_device
 
 # fast build rule for target.
-obj_cnh_cryptonote_core/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build
-.PHONY : obj_cnh_cryptonote_core/fast
+obj_device/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/build
+.PHONY : obj_device/fast
 
-blockchain.o: blockchain.cpp.o
+device.o: device.cpp.o
 
-.PHONY : blockchain.o
-
-# target to build an object file
-blockchain.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/blockchain.cpp.o
-.PHONY : blockchain.cpp.o
-
-blockchain.i: blockchain.cpp.i
-
-.PHONY : blockchain.i
-
-# target to preprocess a source file
-blockchain.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/blockchain.cpp.i
-.PHONY : blockchain.cpp.i
-
-blockchain.s: blockchain.cpp.s
-
-.PHONY : blockchain.s
-
-# target to generate assembly for a file
-blockchain.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/blockchain.cpp.s
-.PHONY : blockchain.cpp.s
-
-cnh_cryptonote_core.o: cnh_cryptonote_core.cpp.o
-
-.PHONY : cnh_cryptonote_core.o
+.PHONY : device.o
 
 # target to build an object file
-cnh_cryptonote_core.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cnh_cryptonote_core.cpp.o
-.PHONY : cnh_cryptonote_core.cpp.o
+device.cpp.o:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/device.cpp.o
+.PHONY : device.cpp.o
 
-cnh_cryptonote_core.i: cnh_cryptonote_core.cpp.i
+device.i: device.cpp.i
 
-.PHONY : cnh_cryptonote_core.i
+.PHONY : device.i
 
 # target to preprocess a source file
-cnh_cryptonote_core.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cnh_cryptonote_core.cpp.i
-.PHONY : cnh_cryptonote_core.cpp.i
+device.cpp.i:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/device.cpp.i
+.PHONY : device.cpp.i
 
-cnh_cryptonote_core.s: cnh_cryptonote_core.cpp.s
+device.s: device.cpp.s
 
-.PHONY : cnh_cryptonote_core.s
+.PHONY : device.s
 
 # target to generate assembly for a file
-cnh_cryptonote_core.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cnh_cryptonote_core.cpp.s
-.PHONY : cnh_cryptonote_core.cpp.s
+device.cpp.s:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/device.cpp.s
+.PHONY : device.cpp.s
 
-cryptonote_tx_utils.o: cryptonote_tx_utils.cpp.o
+device_default.o: device_default.cpp.o
 
-.PHONY : cryptonote_tx_utils.o
+.PHONY : device_default.o
 
 # target to build an object file
-cryptonote_tx_utils.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cryptonote_tx_utils.cpp.o
-.PHONY : cryptonote_tx_utils.cpp.o
+device_default.cpp.o:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/device_default.cpp.o
+.PHONY : device_default.cpp.o
 
-cryptonote_tx_utils.i: cryptonote_tx_utils.cpp.i
+device_default.i: device_default.cpp.i
 
-.PHONY : cryptonote_tx_utils.i
+.PHONY : device_default.i
 
 # target to preprocess a source file
-cryptonote_tx_utils.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cryptonote_tx_utils.cpp.i
-.PHONY : cryptonote_tx_utils.cpp.i
+device_default.cpp.i:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/device_default.cpp.i
+.PHONY : device_default.cpp.i
 
-cryptonote_tx_utils.s: cryptonote_tx_utils.cpp.s
+device_default.s: device_default.cpp.s
 
-.PHONY : cryptonote_tx_utils.s
+.PHONY : device_default.s
 
 # target to generate assembly for a file
-cryptonote_tx_utils.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cryptonote_tx_utils.cpp.s
-.PHONY : cryptonote_tx_utils.cpp.s
+device_default.cpp.s:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/device_default.cpp.s
+.PHONY : device_default.cpp.s
 
-tx_pool.o: tx_pool.cpp.o
+device_ledger.o: device_ledger.cpp.o
 
-.PHONY : tx_pool.o
+.PHONY : device_ledger.o
 
 # target to build an object file
-tx_pool.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/tx_pool.cpp.o
-.PHONY : tx_pool.cpp.o
+device_ledger.cpp.o:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/device_ledger.cpp.o
+.PHONY : device_ledger.cpp.o
 
-tx_pool.i: tx_pool.cpp.i
+device_ledger.i: device_ledger.cpp.i
 
-.PHONY : tx_pool.i
+.PHONY : device_ledger.i
 
 # target to preprocess a source file
-tx_pool.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/tx_pool.cpp.i
-.PHONY : tx_pool.cpp.i
+device_ledger.cpp.i:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/device_ledger.cpp.i
+.PHONY : device_ledger.cpp.i
 
-tx_pool.s: tx_pool.cpp.s
+device_ledger.s: device_ledger.cpp.s
 
-.PHONY : tx_pool.s
+.PHONY : device_ledger.s
 
 # target to generate assembly for a file
-tx_pool.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/tx_pool.cpp.s
-.PHONY : tx_pool.cpp.s
+device_ledger.cpp.s:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/device_ledger.cpp.s
+.PHONY : device_ledger.cpp.s
+
+log.o: log.cpp.o
+
+.PHONY : log.o
+
+# target to build an object file
+log.cpp.o:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/log.cpp.o
+.PHONY : log.cpp.o
+
+log.i: log.cpp.i
+
+.PHONY : log.i
+
+# target to preprocess a source file
+log.cpp.i:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/log.cpp.i
+.PHONY : log.cpp.i
+
+log.s: log.cpp.s
+
+.PHONY : log.s
+
+# target to generate assembly for a file
+log.cpp.s:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/device/CMakeFiles/obj_device.dir/build.make src/device/CMakeFiles/obj_device.dir/log.cpp.s
+.PHONY : log.cpp.s
 
 # Help Target
 help:
@@ -317,21 +317,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... install/local"
 	@echo "... test"
+	@echo "... device"
 	@echo "... list_install_components"
-	@echo "... cnh_cryptonote_core"
-	@echo "... obj_cnh_cryptonote_core"
-	@echo "... blockchain.o"
-	@echo "... blockchain.i"
-	@echo "... blockchain.s"
-	@echo "... cnh_cryptonote_core.o"
-	@echo "... cnh_cryptonote_core.i"
-	@echo "... cnh_cryptonote_core.s"
-	@echo "... cryptonote_tx_utils.o"
-	@echo "... cryptonote_tx_utils.i"
-	@echo "... cryptonote_tx_utils.s"
-	@echo "... tx_pool.o"
-	@echo "... tx_pool.i"
-	@echo "... tx_pool.s"
+	@echo "... obj_device"
+	@echo "... device.o"
+	@echo "... device.i"
+	@echo "... device.s"
+	@echo "... device_default.o"
+	@echo "... device_default.i"
+	@echo "... device_default.s"
+	@echo "... device_ledger.o"
+	@echo "... device_ledger.i"
+	@echo "... device_ledger.s"
+	@echo "... log.o"
+	@echo "... log.i"
+	@echo "... log.s"
 .PHONY : help
 
 

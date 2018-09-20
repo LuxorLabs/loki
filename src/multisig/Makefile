@@ -56,30 +56,6 @@ CMAKE_BINARY_DIR = /Users/eddiewang/dev/projects/blockchain/loki/loki
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/Cellar/cmake/3.11.1/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/Cellar/cmake/3.11.1/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/Cellar/cmake/3.11.1/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/Cellar/cmake/3.11.1/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -135,16 +111,40 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.11.1/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.11.1/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.11.1/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.11.1/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles /Users/eddiewang/dev/projects/blockchain/loki/loki/external/db_drivers/liblmdb/CMakeFiles/progress.marks
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/all
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles /Users/eddiewang/dev/projects/blockchain/loki/loki/src/multisig/CMakeFiles/progress.marks
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/multisig/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/clean
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/multisig/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,12 +154,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/preinstall
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/multisig/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/preinstall
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/multisig/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -168,73 +168,61 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule
-.PHONY : external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule
+src/multisig/CMakeFiles/multisig.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/multisig/CMakeFiles/multisig.dir/rule
+.PHONY : src/multisig/CMakeFiles/multisig.dir/rule
 
 # Convenience name for target.
-lmdb: external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule
+multisig: src/multisig/CMakeFiles/multisig.dir/rule
 
-.PHONY : lmdb
+.PHONY : multisig
 
 # fast build rule for target.
-lmdb/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build
-.PHONY : lmdb/fast
+multisig/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/multisig/CMakeFiles/multisig.dir/build.make src/multisig/CMakeFiles/multisig.dir/build
+.PHONY : multisig/fast
 
-mdb.o: mdb.c.o
+# Convenience name for target.
+src/multisig/CMakeFiles/obj_multisig.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/multisig/CMakeFiles/obj_multisig.dir/rule
+.PHONY : src/multisig/CMakeFiles/obj_multisig.dir/rule
 
-.PHONY : mdb.o
+# Convenience name for target.
+obj_multisig: src/multisig/CMakeFiles/obj_multisig.dir/rule
 
-# target to build an object file
-mdb.c.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/mdb.c.o
-.PHONY : mdb.c.o
+.PHONY : obj_multisig
 
-mdb.i: mdb.c.i
+# fast build rule for target.
+obj_multisig/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/multisig/CMakeFiles/obj_multisig.dir/build.make src/multisig/CMakeFiles/obj_multisig.dir/build
+.PHONY : obj_multisig/fast
 
-.PHONY : mdb.i
+multisig.o: multisig.cpp.o
 
-# target to preprocess a source file
-mdb.c.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/mdb.c.i
-.PHONY : mdb.c.i
-
-mdb.s: mdb.c.s
-
-.PHONY : mdb.s
-
-# target to generate assembly for a file
-mdb.c.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/mdb.c.s
-.PHONY : mdb.c.s
-
-midl.o: midl.c.o
-
-.PHONY : midl.o
+.PHONY : multisig.o
 
 # target to build an object file
-midl.c.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/midl.c.o
-.PHONY : midl.c.o
+multisig.cpp.o:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/multisig/CMakeFiles/obj_multisig.dir/build.make src/multisig/CMakeFiles/obj_multisig.dir/multisig.cpp.o
+.PHONY : multisig.cpp.o
 
-midl.i: midl.c.i
+multisig.i: multisig.cpp.i
 
-.PHONY : midl.i
+.PHONY : multisig.i
 
 # target to preprocess a source file
-midl.c.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/midl.c.i
-.PHONY : midl.c.i
+multisig.cpp.i:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/multisig/CMakeFiles/obj_multisig.dir/build.make src/multisig/CMakeFiles/obj_multisig.dir/multisig.cpp.i
+.PHONY : multisig.cpp.i
 
-midl.s: midl.c.s
+multisig.s: multisig.cpp.s
 
-.PHONY : midl.s
+.PHONY : multisig.s
 
 # target to generate assembly for a file
-midl.c.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/midl.c.s
-.PHONY : midl.c.s
+multisig.cpp.s:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/multisig/CMakeFiles/obj_multisig.dir/build.make src/multisig/CMakeFiles/obj_multisig.dir/multisig.cpp.s
+.PHONY : multisig.cpp.s
 
 # Help Target
 help:
@@ -242,20 +230,18 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
-	@echo "... install"
 	@echo "... list_install_components"
-	@echo "... lmdb"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... multisig"
 	@echo "... install/local"
 	@echo "... test"
-	@echo "... mdb.o"
-	@echo "... mdb.i"
-	@echo "... mdb.s"
-	@echo "... midl.o"
-	@echo "... midl.i"
-	@echo "... midl.s"
+	@echo "... install/strip"
+	@echo "... install"
+	@echo "... obj_multisig"
+	@echo "... multisig.o"
+	@echo "... multisig.i"
+	@echo "... multisig.s"
 .PHONY : help
 
 

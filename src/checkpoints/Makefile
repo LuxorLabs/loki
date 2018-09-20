@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles /Users/eddiewang/dev/projects/blockchain/loki/loki/external/db_drivers/liblmdb/CMakeFiles/progress.marks
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/all
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles /Users/eddiewang/dev/projects/blockchain/loki/loki/src/checkpoints/CMakeFiles/progress.marks
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/checkpoints/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/clean
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/checkpoints/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,12 +154,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/preinstall
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/checkpoints/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/preinstall
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/checkpoints/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -168,73 +168,61 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule
-.PHONY : external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule
+src/checkpoints/CMakeFiles/obj_checkpoints.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/checkpoints/CMakeFiles/obj_checkpoints.dir/rule
+.PHONY : src/checkpoints/CMakeFiles/obj_checkpoints.dir/rule
 
 # Convenience name for target.
-lmdb: external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule
+obj_checkpoints: src/checkpoints/CMakeFiles/obj_checkpoints.dir/rule
 
-.PHONY : lmdb
+.PHONY : obj_checkpoints
 
 # fast build rule for target.
-lmdb/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build
-.PHONY : lmdb/fast
+obj_checkpoints/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/checkpoints/CMakeFiles/obj_checkpoints.dir/build.make src/checkpoints/CMakeFiles/obj_checkpoints.dir/build
+.PHONY : obj_checkpoints/fast
 
-mdb.o: mdb.c.o
+# Convenience name for target.
+src/checkpoints/CMakeFiles/checkpoints.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/checkpoints/CMakeFiles/checkpoints.dir/rule
+.PHONY : src/checkpoints/CMakeFiles/checkpoints.dir/rule
 
-.PHONY : mdb.o
+# Convenience name for target.
+checkpoints: src/checkpoints/CMakeFiles/checkpoints.dir/rule
 
-# target to build an object file
-mdb.c.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/mdb.c.o
-.PHONY : mdb.c.o
+.PHONY : checkpoints
 
-mdb.i: mdb.c.i
+# fast build rule for target.
+checkpoints/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/checkpoints/CMakeFiles/checkpoints.dir/build.make src/checkpoints/CMakeFiles/checkpoints.dir/build
+.PHONY : checkpoints/fast
 
-.PHONY : mdb.i
+checkpoints.o: checkpoints.cpp.o
 
-# target to preprocess a source file
-mdb.c.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/mdb.c.i
-.PHONY : mdb.c.i
-
-mdb.s: mdb.c.s
-
-.PHONY : mdb.s
-
-# target to generate assembly for a file
-mdb.c.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/mdb.c.s
-.PHONY : mdb.c.s
-
-midl.o: midl.c.o
-
-.PHONY : midl.o
+.PHONY : checkpoints.o
 
 # target to build an object file
-midl.c.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/midl.c.o
-.PHONY : midl.c.o
+checkpoints.cpp.o:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/checkpoints/CMakeFiles/obj_checkpoints.dir/build.make src/checkpoints/CMakeFiles/obj_checkpoints.dir/checkpoints.cpp.o
+.PHONY : checkpoints.cpp.o
 
-midl.i: midl.c.i
+checkpoints.i: checkpoints.cpp.i
 
-.PHONY : midl.i
+.PHONY : checkpoints.i
 
 # target to preprocess a source file
-midl.c.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/midl.c.i
-.PHONY : midl.c.i
+checkpoints.cpp.i:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/checkpoints/CMakeFiles/obj_checkpoints.dir/build.make src/checkpoints/CMakeFiles/obj_checkpoints.dir/checkpoints.cpp.i
+.PHONY : checkpoints.cpp.i
 
-midl.s: midl.c.s
+checkpoints.s: checkpoints.cpp.s
 
-.PHONY : midl.s
+.PHONY : checkpoints.s
 
 # target to generate assembly for a file
-midl.c.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/midl.c.s
-.PHONY : midl.c.s
+checkpoints.cpp.s:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/checkpoints/CMakeFiles/obj_checkpoints.dir/build.make src/checkpoints/CMakeFiles/obj_checkpoints.dir/checkpoints.cpp.s
+.PHONY : checkpoints.cpp.s
 
 # Help Target
 help:
@@ -245,17 +233,15 @@ help:
 	@echo "... install/strip"
 	@echo "... install"
 	@echo "... list_install_components"
-	@echo "... lmdb"
 	@echo "... rebuild_cache"
+	@echo "... obj_checkpoints"
 	@echo "... edit_cache"
 	@echo "... install/local"
+	@echo "... checkpoints"
 	@echo "... test"
-	@echo "... mdb.o"
-	@echo "... mdb.i"
-	@echo "... mdb.s"
-	@echo "... midl.o"
-	@echo "... midl.i"
-	@echo "... midl.s"
+	@echo "... checkpoints.o"
+	@echo "... checkpoints.i"
+	@echo "... checkpoints.s"
 .PHONY : help
 
 

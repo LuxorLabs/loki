@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /Users/eddiewang/dev/projects/blockchain/loki/loki/src/cnh_crypto
-# Build directory: /Users/eddiewang/dev/projects/blockchain/loki/loki/src/cnh_crypto
+# Source directory: /Users/eddiewang/dev/projects/blockchain/loki/loki/src/rpc
+# Build directory: /Users/eddiewang/dev/projects/blockchain/loki/loki/src/rpc
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

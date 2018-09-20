@@ -48,10 +48,10 @@ RM = /usr/local/Cellar/cmake/3.11.1/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/nickh/code/C/loki
+CMAKE_SOURCE_DIR = /Users/eddiewang/dev/projects/blockchain/loki/loki
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/nickh/code/C/loki
+CMAKE_BINARY_DIR = /Users/eddiewang/dev/projects/blockchain/loki/loki
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,16 +79,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/local/Cellar/cmake/3.11.1/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -135,11 +125,21 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nickh/code/C/loki/CMakeFiles /Users/nickh/code/C/loki/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nickh/code/C/loki/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -166,6 +166,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named doc
+
+# Build rule for target.
+doc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 doc
+.PHONY : doc
+
+# fast build rule for target.
+doc/fast:
+	$(MAKE) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/build
+.PHONY : doc/fast
 
 #=============================================================================
 # Target rules for targets named generate_translations_header
@@ -220,6 +233,19 @@ easylogging/fast:
 .PHONY : easylogging/fast
 
 #=============================================================================
+# Target rules for targets named epee_readline
+
+# Build rule for target.
+epee_readline: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 epee_readline
+.PHONY : epee_readline
+
+# fast build rule for target.
+epee_readline/fast:
+	$(MAKE) -f contrib/epee/src/CMakeFiles/epee_readline.dir/build.make contrib/epee/src/CMakeFiles/epee_readline.dir/build
+.PHONY : epee_readline/fast
+
+#=============================================================================
 # Target rules for targets named epee
 
 # Build rule for target.
@@ -233,30 +259,30 @@ epee/fast:
 .PHONY : epee/fast
 
 #=============================================================================
-# Target rules for targets named version
+# Target rules for targets named cnh_version
 
 # Build rule for target.
-version: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 version
-.PHONY : version
+cnh_version: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cnh_version
+.PHONY : cnh_version
 
 # fast build rule for target.
-version/fast:
-	$(MAKE) -f src/CMakeFiles/version.dir/build.make src/CMakeFiles/version.dir/build
-.PHONY : version/fast
+cnh_version/fast:
+	$(MAKE) -f src/CMakeFiles/cnh_version.dir/build.make src/CMakeFiles/cnh_version.dir/build
+.PHONY : cnh_version/fast
 
 #=============================================================================
-# Target rules for targets named obj_version
+# Target rules for targets named obj_cnh_version
 
 # Build rule for target.
-obj_version: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 obj_version
-.PHONY : obj_version
+obj_cnh_version: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 obj_cnh_version
+.PHONY : obj_cnh_version
 
 # fast build rule for target.
-obj_version/fast:
-	$(MAKE) -f src/CMakeFiles/obj_version.dir/build.make src/CMakeFiles/obj_version.dir/build
-.PHONY : obj_version/fast
+obj_cnh_version/fast:
+	$(MAKE) -f src/CMakeFiles/obj_cnh_version.dir/build.make src/CMakeFiles/obj_cnh_version.dir/build
+.PHONY : obj_cnh_version/fast
 
 #=============================================================================
 # Target rules for targets named genversion
@@ -942,18 +968,20 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install"
-	@echo "... generate_translations_header"
-	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... install/local"
 	@echo "... test"
+	@echo "... doc"
+	@echo "... list_install_components"
+	@echo "... generate_translations_header"
 	@echo "... libminiupnpc-static"
 	@echo "... lmdb"
 	@echo "... easylogging"
+	@echo "... epee_readline"
 	@echo "... epee"
-	@echo "... version"
-	@echo "... obj_version"
+	@echo "... cnh_version"
+	@echo "... obj_cnh_version"
 	@echo "... genversion"
 	@echo "... common"
 	@echo "... obj_common"
