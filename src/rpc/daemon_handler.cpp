@@ -52,7 +52,7 @@ namespace rpc
   {
     std::list<std::pair<blobdata, std::list<blobdata> > > blocks;
 
-    if(!m_core.find_blockchain_supplement(req.start_height, req.block_ids, blocks, res.current_height, res.start_height, COMMAND_RPC_GET_BLOCKS_FAST_MAX_COUNT))
+    if(!m_core.find_blockchain_supplement(req.start_height, req.block_ids, blocks, res.current_height, res.start_height, req.prune, COMMAND_RPC_GET_BLOCKS_FAST_MAX_COUNT))
     {
       res.status = Message::STATUS_FAILED;
       res.error_details = "core::find_blockchain_supplement() returned false";
@@ -380,6 +380,11 @@ namespace rpc
       {
         if (!res.error_details.empty()) res.error_details += " and ";
         res.error_details = "tx is not ringct";
+      }
+      if (tvc.m_invalid_version)
+      {
+        if (!res.error_details.empty()) res.error_details += " and ";
+        res.error_details = "tx is not version 2 or later";
       }
       if (res.error_details.empty())
       {
