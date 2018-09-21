@@ -43,7 +43,8 @@ using namespace epee;
 #include "cnh_crypto/crypto.h"
 #include "cnh_crypto/cnh_hash.h"
 #include "ringct/rctSigs.h"
-
+#include "cnh_cryptonote_basic/verification_context.h"
+#include "cnh_cryptonote_core/service_node_deregister.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY
 #define LOKI_DEFAULT_LOG_CATEGORY "cn"
