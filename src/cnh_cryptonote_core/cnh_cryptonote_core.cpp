@@ -36,6 +36,8 @@
 using namespace epee;
 
 #include <unordered_set>
+#include <iomanip>
+
 #include "cnh_cryptonote_core.h"
 #include "common/command_line.h"
 #include "common/util.h"
@@ -55,6 +57,8 @@ using namespace epee;
 #include "blockchain_db/blockchain_db.h"
 #include "ringct/rctSigs.h"
 #include "version.h"
+#include "wipeable_string.h"
+#include "common/i18n.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY
 #define LOKI_DEFAULT_LOG_CATEGORY "cn"
