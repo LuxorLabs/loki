@@ -44,6 +44,7 @@ loki_add_executable(simplewallet
 target_link_libraries(simplewallet
   PRIVATE
     wallet
+    daemonizer
     rpc_base
     cnh_cryptonote_core
     cnhcrypto
