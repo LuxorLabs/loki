@@ -31,7 +31,7 @@
 #include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 #include "cnh_cryptonote_basic/verification_context.h"
 #include "cnh_cryptonote_basic/connection_context.h"
-#include "cnh_cryptonote_protocol/cryptonote_protocol_defs.h"
+#include "cryptonote_protocol/cryptonote_protocol_defs.h"
 #include "cnh_cryptonote_core/service_node_list.h"
 #include "cnh_cryptonote_core/blockchain.h"
 
