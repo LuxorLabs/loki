@@ -42,6 +42,7 @@ using namespace epee;
 #include "cnh_crypto/cnh_hash.h"
 #include "ringct/rctSigs.h"
 #include "multisig/multisig.h"
+#include "common/int-util.h"
 
 using namespace crypto;
 
