@@ -29,7 +29,7 @@
 #include "service_node_deregister.h"
 #include "service_node_list.h"
 #include "cryptonote_config.h"
-#include "cryptonote_core.h"
+#include "cnh_cryptonote_core.h"
 #include "quorum_cop.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY
