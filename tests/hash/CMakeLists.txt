@@ -37,7 +37,7 @@ add_executable(hash-tests
 target_link_libraries(hash-tests
   PRIVATE
     common
-    cncrypto
+    cnhcrypto
     ${EXTRA_LIBRARIES})
 set_property(TARGET hash-tests
   PROPERTY

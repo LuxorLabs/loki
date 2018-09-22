@@ -37,18 +37,18 @@ set(crypto_sources
 set(crypto_headers
   crypto-tests.h)
 
-add_executable(cncrypto-tests
+add_executable(cnhcrypto-tests
   ${crypto_sources}
   ${crypto_headers})
-target_link_libraries(cncrypto-tests
+target_link_libraries(cnhcrypto-tests
   PRIVATE
     common
     ${Boost_SYSTEM_LIBRARY}
     ${EXTRA_LIBRARIES})
-set_property(TARGET cncrypto-tests
+set_property(TARGET cnhcrypto-tests
   PROPERTY
     FOLDER "tests")
 
 add_test(
-  NAME    cncrypto
-  COMMAND cncrypto-tests "${CMAKE_CURRENT_SOURCE_DIR}/tests.txt")
+  NAME    cnhcrypto
+  COMMAND cnhcrypto-tests "${CMAKE_CURRENT_SOURCE_DIR}/tests.txt")

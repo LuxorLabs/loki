@@ -39,7 +39,7 @@ target_link_libraries(transfers
     useragent
     rpc
     cnh_cryptonote_core
-    cncrypto
+    cnhcrypto
     common
     epee
     ${GTEST_LIBRARIES})

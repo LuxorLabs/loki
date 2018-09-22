@@ -67,7 +67,7 @@ loki_add_library(cnh_cryptonote_basic
 target_link_libraries(cnh_cryptonote_basic
   PUBLIC
     common
-    cncrypto
+    cnhcrypto
     checkpoints
     device
     ${Boost_DATE_TIME_LIBRARY}

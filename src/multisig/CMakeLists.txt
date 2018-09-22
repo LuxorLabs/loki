@@ -48,6 +48,6 @@ target_link_libraries(multisig
     ringct
     cnh_cryptonote_basic
     common
-    cncrypto
+    cnhcrypto
   PRIVATE
     ${EXTRA_LIBRARIES})

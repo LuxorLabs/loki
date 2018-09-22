@@ -47,7 +47,7 @@ target_link_libraries(simplewallet
     daemonizer
     rpc_base
     cnh_cryptonote_core
-    cncrypto
+    cnhcrypto
     common
     mnemonics
     epee

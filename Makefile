@@ -324,30 +324,30 @@ obj_common/fast:
 .PHONY : obj_common/fast
 
 #=============================================================================
-# Target rules for targets named cncrypto
+# Target rules for targets named cnhcrypto
 
 # Build rule for target.
-cncrypto: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cncrypto
-.PHONY : cncrypto
+cnhcrypto: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cnhcrypto
+.PHONY : cnhcrypto
 
 # fast build rule for target.
-cncrypto/fast:
-	$(MAKE) -f src/cnh_crypto/CMakeFiles/cncrypto.dir/build.make src/cnh_crypto/CMakeFiles/cncrypto.dir/build
-.PHONY : cncrypto/fast
+cnhcrypto/fast:
+	$(MAKE) -f src/cnh_crypto/CMakeFiles/cnhcrypto.dir/build.make src/cnh_crypto/CMakeFiles/cnhcrypto.dir/build
+.PHONY : cnhcrypto/fast
 
 #=============================================================================
-# Target rules for targets named obj_cncrypto
+# Target rules for targets named obj_cnhcrypto
 
 # Build rule for target.
-obj_cncrypto: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 obj_cncrypto
-.PHONY : obj_cncrypto
+obj_cnhcrypto: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 obj_cnhcrypto
+.PHONY : obj_cnhcrypto
 
 # fast build rule for target.
-obj_cncrypto/fast:
-	$(MAKE) -f src/cnh_crypto/CMakeFiles/obj_cncrypto.dir/build.make src/cnh_crypto/CMakeFiles/obj_cncrypto.dir/build
-.PHONY : obj_cncrypto/fast
+obj_cnhcrypto/fast:
+	$(MAKE) -f src/cnh_crypto/CMakeFiles/obj_cnhcrypto.dir/build.make src/cnh_crypto/CMakeFiles/obj_cnhcrypto.dir/build
+.PHONY : obj_cnhcrypto/fast
 
 #=============================================================================
 # Target rules for targets named obj_ringct
@@ -985,8 +985,8 @@ help:
 	@echo "... genversion"
 	@echo "... common"
 	@echo "... obj_common"
-	@echo "... cncrypto"
-	@echo "... obj_cncrypto"
+	@echo "... cnhcrypto"
+	@echo "... obj_cnhcrypto"
 	@echo "... obj_ringct"
 	@echo "... obj_ringct_basic"
 	@echo "... ringct"

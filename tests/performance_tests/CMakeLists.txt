@@ -55,7 +55,7 @@ target_link_libraries(performance_tests
     wallet
     cnh_cryptonote_core
     common
-    cncrypto
+    cnhcrypto
     epee
     ${Boost_CHRONO_LIBRARY}
     ${CMAKE_THREAD_LIBS_INIT}

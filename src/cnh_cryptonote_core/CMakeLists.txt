@@ -64,7 +64,7 @@ target_link_libraries(cnh_cryptonote_core
   PUBLIC
     version
     common
-    cncrypto
+    cnhcrypto
     blockchain_db
     multisig
     ringct
