@@ -1,6 +1,19 @@
 {
   "files.associations": {
     "typeindex": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "__config": "cpp",
+    "__nullptr": "cpp",
+    "exception": "cpp",
+    "initializer_list": "cpp",
+    "new": "cpp",
+    "stdexcept": "cpp",
+    "algorithm": "cpp",
+    "cfenv": "cpp",
+    "functional": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp",
+    "*.ipp": "cpp"
   }
 }
