@@ -29,10 +29,10 @@
 
 #include <unordered_set>
 #include "include_base_utils.h"
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 #include "ringct/rctOps.h"
-#include "cryptonote_basic/account.h"
-#include "cryptonote_basic/cryptonote_format_utils.h"
+#include "cnh_cryptonote_basic/account.h"
+#include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 #include "multisig.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

@@ -46,7 +46,7 @@ loki_add_library(multisig
 target_link_libraries(multisig
   PUBLIC
     ringct
-    cryptonote_basic
+    cnh_cryptonote_basic
     common
     cncrypto
   PRIVATE

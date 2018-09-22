@@ -43,7 +43,7 @@
 
 #include "common/common_fwd.h"
 #include "common/rpc_client.h"
-#include "cryptonote_basic/cryptonote_basic.h"
+#include "cnh_cryptonote_basic/cryptonote_basic.h"
 #include "rpc/core_rpc_server.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

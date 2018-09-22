@@ -31,7 +31,7 @@
 #include <assert.h>
 #include <stdint.h>
 
-#include "crypto/crypto-ops.h"
+#include "cnh_crypto/crypto-ops.h"
 
 //DISABLE_VS_WARNINGS(4146 4244)
 

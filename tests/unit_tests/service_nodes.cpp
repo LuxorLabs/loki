@@ -29,9 +29,9 @@
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
 #include "gtest/gtest.h"
-#include "cryptonote_core/service_node_list.h"
-#include "cryptonote_core/service_node_deregister.h"
-#include "cryptonote_basic/cryptonote_basic.h"
+#include "cnh_cryptonote_core/service_node_list.h"
+#include "cnh_cryptonote_core/service_node_deregister.h"
+#include "cnh_cryptonote_basic/cryptonote_basic.h"
 #include "cryptonote_config.h"
 
 TEST(service_nodes, staking_requirement)

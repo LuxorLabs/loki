@@ -33,8 +33,8 @@
 #include "common/scoped_message_writer.h"
 #include "common/password.h"
 #include "common/util.h"
-#include "cryptonote_core/cryptonote_core.h"
-#include "cryptonote_basic/miner.h"
+#include "cnh_cryptonote_core/cnh_cryptonote_core.h"
+#include "cnh_cryptonote_basic/miner.h"
 #include "daemon/command_server.h"
 #include "daemon/daemon.h"
 #include "daemon/executor.h"
@@ -57,9 +57,10 @@
 namespace po = boost::program_options;
 namespace bf = boost::filesystem;
 
-int main(int argc, char const * argv[])
+int main(int argc, char const *argv[])
 {
-  try {
+  try
+  {
 
     // TODO parse the debug options like set log level right here at start
 
@@ -106,22 +107,24 @@ int main(int argc, char const * argv[])
 
     // Do command line parsing
     po::variables_map vm;
-    bool ok = command_line::handle_error_helper(visible_options, [&]()
-    {
+    bool ok = command_line::handle_error_helper(visible_options, [&]() {
       boost::program_options::store(
-        boost::program_options::command_line_parser(argc, argv)
-          .options(all_options).positional(positional_options).run()
-      , vm
-      );
+          boost::program_options::command_line_parser(argc, argv)
+              .options(all_options)
+              .positional(positional_options)
+              .run(),
+          vm);
 
       return true;
     });
-    if (!ok) return 1;
+    if (!ok)
+      return 1;
 
     if (command_line::get_arg(vm, command_line::arg_help))
     {
       std::cout << "Loki '" << LOKI_RELEASE_NAME << "' (v" << LOKI_VERSION_FULL << ")" << ENDL << ENDL;
-      std::cout << "Usage: " + std::string{argv[0]} + " [options|settings] [daemon_command...]" << std::endl << std::endl;
+      std::cout << "Usage: " + std::string{argv[0]} + " [options|settings] [daemon_command...]" << std::endl
+                << std::endl;
       std::cout << visible_options << std::endl;
       return 0;
     }
@@ -173,10 +176,9 @@ int main(int argc, char const * argv[])
     std::string db_type = command_line::get_arg(vm, cryptonote::arg_db_type);
 
     // verify that blockchaindb type is valid
-    if(!cryptonote::blockchain_valid_db_type(db_type))
+    if (!cryptonote::blockchain_valid_db_type(db_type))
     {
-      std::cout << "Invalid database type (" << db_type << "), available types are: " <<
-        cryptonote::blockchain_db_types(", ") << std::endl;
+      std::cout << "Invalid database type (" << db_type << "), available types are: " << cryptonote::blockchain_db_types(", ") << std::endl;
       return 0;
     }
 
@@ -201,7 +203,7 @@ int main(int argc, char const * argv[])
     //   if log-file argument given:
     //     absolute path
     //     relative path: relative to data_dir
-    bf::path log_file_path {data_dir / std::string(CRYPTONOTE_NAME ".log")};
+    bf::path log_file_path{data_dir / std::string(CRYPTONOTE_NAME ".log")};
     if (!command_line::is_arg_defaulted(vm, daemon_args::arg_log_file))
       log_file_path = command_line::get_arg(vm, daemon_args::arg_log_file);
     log_file_path = bf::absolute(log_file_path, relative_path_base);
@@ -243,13 +245,12 @@ int main(int argc, char const * argv[])
         if (command_line::has_arg(vm, arg.rpc_login))
         {
           login = tools::login::parse(
-            command_line::get_arg(vm, arg.rpc_login), false, [](bool verify) {
+              command_line::get_arg(vm, arg.rpc_login), false, [](bool verify) {
 #ifdef HAVE_READLINE
-        rdln::suspend_readline pause_readline;
+                rdln::suspend_readline pause_readline;
 #endif
-              return tools::password_container::prompt(verify, "Daemon client password");
-            }
-          );
+                return tools::password_container::prompt(verify, "Daemon client password");
+              });
           if (!login)
           {
             std::cerr << "Failed to obtain password" << std::endl;
@@ -284,7 +285,7 @@ int main(int argc, char const * argv[])
 
     return daemonizer::daemonize(argc, argv, daemonize::t_executor{}, vm) ? 0 : 1;
   }
-  catch (std::exception const & ex)
+  catch (std::exception const &ex)
   {
     LOG_ERROR("Exception in main! " << ex.what());
   }

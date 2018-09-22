@@ -1,21 +1,21 @@
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -25,7 +25,7 @@
 // INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-// 
+//
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
 #include "gtest/gtest.h"
@@ -33,7 +33,7 @@
 #include <cstdint>
 #include <vector>
 
-#include "cryptonote_basic/cryptonote_format_utils.h"
+#include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 
 #define VEC_FROM_ARR(vec)                                               \
   std::vector<uint64_t> vec;                                            \
@@ -44,41 +44,40 @@
 
 namespace
 {
-  struct chunk_handler_t
+struct chunk_handler_t
+{
+  void operator()(uint64_t chunk) const
   {
-    void operator()(uint64_t chunk) const
-    {
-      m_chunks.push_back(chunk);
-    }
+    m_chunks.push_back(chunk);
+  }
 
-    mutable std::vector<uint64_t> m_chunks;
-  };
+  mutable std::vector<uint64_t> m_chunks;
+};
 
-  struct dust_handler_t
+struct dust_handler_t
+{
+  dust_handler_t()
+      : m_dust(0), m_has_dust(false)
   {
-    dust_handler_t()
-      : m_dust(0)
-      , m_has_dust(false)
-    {
-    }
+  }
 
-    void operator()(uint64_t dust) const
-    {
-      m_dust = dust;
-      m_has_dust = true;
-    }
-
-    mutable uint64_t m_dust;
-    mutable bool m_has_dust;
-  };
-
-  class decompose_amount_into_digits_test : public ::testing::Test
+  void operator()(uint64_t dust) const
   {
-  protected:
-    chunk_handler_t m_chunk_handler;
-    dust_handler_t m_dust_handler;
-  };
-}
+    m_dust = dust;
+    m_has_dust = true;
+  }
+
+  mutable uint64_t m_dust;
+  mutable bool m_has_dust;
+};
+
+class decompose_amount_into_digits_test : public ::testing::Test
+{
+protected:
+  chunk_handler_t m_chunk_handler;
+  dust_handler_t m_dust_handler;
+};
+} // namespace
 
 TEST_F(decompose_amount_into_digits_test, is_correct_0)
 {

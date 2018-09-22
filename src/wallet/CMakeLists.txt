@@ -88,7 +88,7 @@ target_link_libraries(wallet_rpc_server
     wallet
     epee
     rpc_base
-    cryptonote_core
+    cnh_cryptonote_core
     cncrypto
     common
     version
@@ -110,8 +110,8 @@ if (BUILD_GUI_DEPS)
             wallet_api
             wallet
             multisig
-            cryptonote_core
-            cryptonote_basic
+            cnh_cryptonote_core
+            cnh_cryptonote_basic
             mnemonics
             common
             cncrypto

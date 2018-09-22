@@ -43,7 +43,7 @@
 #include <vector>
 #include <unordered_map>
 #include <boost/algorithm/string.hpp>
-#include "crypto/crypto.h"  // for declaration of crypto::secret_key
+#include "cnh_crypto/crypto.h"  // for declaration of crypto::secret_key
 #include <fstream>
 #include "mnemonics/electrum-words.h"
 #include <stdexcept>

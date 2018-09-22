@@ -28,7 +28,7 @@
 #include <db_cxx.h>
 
 #include "blockchain_db/blockchain_db.h"
-#include "cryptonote_basic/blobdatatype.h" // for type blobdata
+#include "cnh_cryptonote_basic/blobdatatype.h" // for type blobdata
 
 #include <unordered_map>
 #include <condition_variable>

@@ -1,21 +1,21 @@
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -25,7 +25,7 @@
 // INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-// 
+//
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
 #include "gtest/gtest.h"
@@ -33,7 +33,7 @@
 #include <cstdint>
 
 #include "common/base58.cpp"
-#include "cryptonote_basic/cryptonote_basic_impl.h"
+#include "cnh_cryptonote_basic/cryptonote_basic_impl.h"
 #include "serialization/binary_utils.h"
 
 using namespace tools;
@@ -42,85 +42,85 @@ using namespace tools;
 
 namespace
 {
-  void do_test_uint_8be_to_64(uint64_t expected, const uint8_t* data, size_t size)
-  {
-    uint64_t val = base58::uint_8be_to_64(data, size);
-    ASSERT_EQ(val, expected);
-  }
-
-  void do_test_uint_64_to_8be(uint64_t num, const std::string& expected_str)
-  {
-    std::string data(expected_str.size(), '\x0');
-    base58::uint_64_to_8be(num, data.size(), reinterpret_cast<uint8_t*>(&data[0]));
-    ASSERT_EQ(data, expected_str);
-  }
-
-  void do_test_encode_block(const std::string& block, const std::string& expected)
-  {
-    ASSERT_TRUE(1 <= block.size() && block.size() <= base58::full_block_size);
-    std::string enc(base58::encoded_block_sizes[block.size()], base58::alphabet[0]);
-    base58::encode_block(block.data(), block.size(), &enc[0]);
-    ASSERT_EQ(enc, expected);
-
-    std::string dec(block.size(), '\0');
-    ASSERT_TRUE(base58::decode_block(enc.data(), enc.size(), &dec[0]));
-    ASSERT_EQ(block, dec);
-  }
-
-  void do_test_decode_block_pos(const std::string& enc, const std::string& expected)
-  {
-    std::string data(base58::decoded_block_sizes::instance(enc.size()), '\0');
-    ASSERT_TRUE(base58::decode_block(enc.data(), enc.size(), &data[0]));
-    ASSERT_EQ(data, expected);
-  }
-
-  void do_test_decode_block_neg(const std::string& enc)
-  {
-    std::string data(base58::full_block_size, '\0');
-    ASSERT_FALSE(base58::decode_block(enc.data(), enc.size(), &data[0]));
-  }
-
-  void do_test_encode(const std::string& data, const std::string& expected)
-  {
-    std::string enc = base58::encode(data);
-    ASSERT_EQ(enc, expected);
-
-    std::string dec;
-    ASSERT_TRUE(base58::decode(enc, dec));
-    ASSERT_EQ(dec, data);
-  }
-
-  void do_test_decode_pos(const std::string& enc, const std::string& expected)
-  {
-    std::string dec;
-    ASSERT_TRUE(base58::decode(enc, dec));
-    ASSERT_EQ(dec, expected);
-  }
-
-  void do_test_decode_neg(const std::string& enc)
-  {
-    std::string dec;
-    ASSERT_FALSE(base58::decode(enc, dec));
-  }
-
-  void do_test_encode_decode_addr(uint64_t tag, const std::string& data, const std::string& expected)
-  {
-    std::string addr = base58::encode_addr(tag, data);
-    ASSERT_EQ(addr, expected);
-
-    uint64_t dec_tag;
-    std::string dec_data;
-    ASSERT_TRUE(base58::decode_addr(addr, dec_tag, dec_data));
-    ASSERT_EQ(tag, dec_tag);
-    ASSERT_EQ(data, dec_data);
-  }
+void do_test_uint_8be_to_64(uint64_t expected, const uint8_t *data, size_t size)
+{
+  uint64_t val = base58::uint_8be_to_64(data, size);
+  ASSERT_EQ(val, expected);
 }
 
-#define TEST_uint_8be_to_64(expected, str)                                                        \
-  TEST(base58_uint_8be_to_64, handles_bytes_##expected)                                           \
-  {                                                                                               \
-    std::string data = str;                                                                       \
-    do_test_uint_8be_to_64(expected, reinterpret_cast<const uint8_t*>(data.data()), data.size()); \
+void do_test_uint_64_to_8be(uint64_t num, const std::string &expected_str)
+{
+  std::string data(expected_str.size(), '\x0');
+  base58::uint_64_to_8be(num, data.size(), reinterpret_cast<uint8_t *>(&data[0]));
+  ASSERT_EQ(data, expected_str);
+}
+
+void do_test_encode_block(const std::string &block, const std::string &expected)
+{
+  ASSERT_TRUE(1 <= block.size() && block.size() <= base58::full_block_size);
+  std::string enc(base58::encoded_block_sizes[block.size()], base58::alphabet[0]);
+  base58::encode_block(block.data(), block.size(), &enc[0]);
+  ASSERT_EQ(enc, expected);
+
+  std::string dec(block.size(), '\0');
+  ASSERT_TRUE(base58::decode_block(enc.data(), enc.size(), &dec[0]));
+  ASSERT_EQ(block, dec);
+}
+
+void do_test_decode_block_pos(const std::string &enc, const std::string &expected)
+{
+  std::string data(base58::decoded_block_sizes::instance(enc.size()), '\0');
+  ASSERT_TRUE(base58::decode_block(enc.data(), enc.size(), &data[0]));
+  ASSERT_EQ(data, expected);
+}
+
+void do_test_decode_block_neg(const std::string &enc)
+{
+  std::string data(base58::full_block_size, '\0');
+  ASSERT_FALSE(base58::decode_block(enc.data(), enc.size(), &data[0]));
+}
+
+void do_test_encode(const std::string &data, const std::string &expected)
+{
+  std::string enc = base58::encode(data);
+  ASSERT_EQ(enc, expected);
+
+  std::string dec;
+  ASSERT_TRUE(base58::decode(enc, dec));
+  ASSERT_EQ(dec, data);
+}
+
+void do_test_decode_pos(const std::string &enc, const std::string &expected)
+{
+  std::string dec;
+  ASSERT_TRUE(base58::decode(enc, dec));
+  ASSERT_EQ(dec, expected);
+}
+
+void do_test_decode_neg(const std::string &enc)
+{
+  std::string dec;
+  ASSERT_FALSE(base58::decode(enc, dec));
+}
+
+void do_test_encode_decode_addr(uint64_t tag, const std::string &data, const std::string &expected)
+{
+  std::string addr = base58::encode_addr(tag, data);
+  ASSERT_EQ(addr, expected);
+
+  uint64_t dec_tag;
+  std::string dec_data;
+  ASSERT_TRUE(base58::decode_addr(addr, dec_tag, dec_data));
+  ASSERT_EQ(tag, dec_tag);
+  ASSERT_EQ(data, dec_data);
+}
+} // namespace
+
+#define TEST_uint_8be_to_64(expected, str)                                                         \
+  TEST(base58_uint_8be_to_64, handles_bytes_##expected)                                            \
+  {                                                                                                \
+    std::string data = str;                                                                        \
+    do_test_uint_8be_to_64(expected, reinterpret_cast<const uint8_t *>(data.data()), data.size()); \
   }
 
 TEST_uint_8be_to_64(0x0000000000000001, "\x1");
@@ -131,7 +131,6 @@ TEST_uint_8be_to_64(0x0000000102030405, "\x1\x2\x3\x4\x5");
 TEST_uint_8be_to_64(0x0000010203040506, "\x1\x2\x3\x4\x5\x6");
 TEST_uint_8be_to_64(0x0001020304050607, "\x1\x2\x3\x4\x5\x6\x7");
 TEST_uint_8be_to_64(0x0102030405060708, "\x1\x2\x3\x4\x5\x6\x7\x8");
-
 
 #define TEST_uint_64_to_8be(num, expected_str)     \
   TEST(base58_uint_64_to_8be, handles_bytes_##num) \
@@ -159,11 +158,10 @@ TEST(reverse_alphabet, is_correct)
   ASSERT_EQ(-1, base58::reverse_alphabet::instance('I'));
   ASSERT_EQ(-1, base58::reverse_alphabet::instance('O'));
   ASSERT_EQ(-1, base58::reverse_alphabet::instance('l'));
-  ASSERT_EQ(0,  base58::reverse_alphabet::instance('1'));
-  ASSERT_EQ(8,  base58::reverse_alphabet::instance('9'));
+  ASSERT_EQ(0, base58::reverse_alphabet::instance('1'));
+  ASSERT_EQ(8, base58::reverse_alphabet::instance('9'));
   ASSERT_EQ(base58::alphabet_size - 1, base58::reverse_alphabet::instance('z'));
 }
-
 
 #define TEST_encode_block(block, expected)            \
   TEST(base58_encode_block, handles_##expected)       \
@@ -171,28 +169,28 @@ TEST(reverse_alphabet, is_correct)
     do_test_encode_block(MAKE_STR(block), #expected); \
   }
 
-TEST_encode_block("\x00",                             11);
-TEST_encode_block("\x39",                             1z);
-TEST_encode_block("\xFF",                             5Q);
+TEST_encode_block("\x00", 11);
+TEST_encode_block("\x39", 1z);
+TEST_encode_block("\xFF", 5Q);
 
-TEST_encode_block("\x00\x00",                         111);
-TEST_encode_block("\x00\x39",                         11z);
-TEST_encode_block("\x01\x00",                         15R);
-TEST_encode_block("\xFF\xFF",                         LUv);
+TEST_encode_block("\x00\x00", 111);
+TEST_encode_block("\x00\x39", 11z);
+TEST_encode_block("\x01\x00", 15R);
+TEST_encode_block("\xFF\xFF", LUv);
 
-TEST_encode_block("\x00\x00\x00",                     11111);
-TEST_encode_block("\x00\x00\x39",                     1111z);
-TEST_encode_block("\x01\x00\x00",                     11LUw);
-TEST_encode_block("\xFF\xFF\xFF",                     2UzHL);
+TEST_encode_block("\x00\x00\x00", 11111);
+TEST_encode_block("\x00\x00\x39", 1111z);
+TEST_encode_block("\x01\x00\x00", 11LUw);
+TEST_encode_block("\xFF\xFF\xFF", 2UzHL);
 
-TEST_encode_block("\x00\x00\x00\x39",                 11111z);
-TEST_encode_block("\xFF\xFF\xFF\xFF",                 7YXq9G);
-TEST_encode_block("\x00\x00\x00\x00\x39",             111111z);
-TEST_encode_block("\xFF\xFF\xFF\xFF\xFF",             VtB5VXc);
-TEST_encode_block("\x00\x00\x00\x00\x00\x39",         11111111z);
-TEST_encode_block("\xFF\xFF\xFF\xFF\xFF\xFF",         3CUsUpv9t);
-TEST_encode_block("\x00\x00\x00\x00\x00\x00\x39",     111111111z);
-TEST_encode_block("\xFF\xFF\xFF\xFF\xFF\xFF\xFF",     Ahg1opVcGW);
+TEST_encode_block("\x00\x00\x00\x39", 11111z);
+TEST_encode_block("\xFF\xFF\xFF\xFF", 7YXq9G);
+TEST_encode_block("\x00\x00\x00\x00\x39", 111111z);
+TEST_encode_block("\xFF\xFF\xFF\xFF\xFF", VtB5VXc);
+TEST_encode_block("\x00\x00\x00\x00\x00\x39", 11111111z);
+TEST_encode_block("\xFF\xFF\xFF\xFF\xFF\xFF", 3CUsUpv9t);
+TEST_encode_block("\x00\x00\x00\x00\x00\x00\x39", 111111111z);
+TEST_encode_block("\xFF\xFF\xFF\xFF\xFF\xFF\xFF", Ahg1opVcGW);
 TEST_encode_block("\x00\x00\x00\x00\x00\x00\x00\x39", 1111111111z);
 TEST_encode_block("\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF", jpXCZedGfVQ);
 
@@ -204,7 +202,6 @@ TEST_encode_block("\x00\x00\x00\x00\x00\x00\x00\x3A", 11111111121);
 TEST_encode_block("\x00\xFF\xFF\xFF\xFF\xFF\xFF\xFF", 1Ahg1opVcGW);
 TEST_encode_block("\x06\x15\x60\x13\x76\x28\x79\xF7", 22222222222);
 TEST_encode_block("\x05\xE0\x22\xBA\x37\x4B\x2A\x00", 1z111111111);
-
 
 #define TEST_decode_block_pos(enc, expected)            \
   TEST(base58_decode_block, handles_pos_##enc)          \
@@ -222,44 +219,44 @@ TEST_encode_block("\x05\xE0\x22\xBA\x37\x4B\x2A\x00", 1z111111111);
 TEST_decode_block_neg(1);
 TEST_decode_block_neg(z);
 // 2-bytes block
-TEST_decode_block_pos(11,          "\x00");
-TEST_decode_block_pos(5Q,          "\xFF");
+TEST_decode_block_pos(11, "\x00");
+TEST_decode_block_pos(5Q, "\xFF");
 TEST_decode_block_neg(5R);
 TEST_decode_block_neg(zz);
 // 3-bytes block
-TEST_decode_block_pos(111,         "\x00\x00");
-TEST_decode_block_pos(LUv,         "\xFF\xFF");
+TEST_decode_block_pos(111, "\x00\x00");
+TEST_decode_block_pos(LUv, "\xFF\xFF");
 TEST_decode_block_neg(LUw);
 TEST_decode_block_neg(zzz);
 // 4-bytes block
 TEST_decode_block_neg(1111);
 TEST_decode_block_neg(zzzz);
 // 5-bytes block
-TEST_decode_block_pos(11111,       "\x00\x00\x00");
-TEST_decode_block_pos(2UzHL,       "\xFF\xFF\xFF");
+TEST_decode_block_pos(11111, "\x00\x00\x00");
+TEST_decode_block_pos(2UzHL, "\xFF\xFF\xFF");
 TEST_decode_block_neg(2UzHM);
 TEST_decode_block_neg(zzzzz);
 // 6-bytes block
-TEST_decode_block_pos(111111,      "\x00\x00\x00\x00");
-TEST_decode_block_pos(7YXq9G,      "\xFF\xFF\xFF\xFF");
+TEST_decode_block_pos(111111, "\x00\x00\x00\x00");
+TEST_decode_block_pos(7YXq9G, "\xFF\xFF\xFF\xFF");
 TEST_decode_block_neg(7YXq9H);
 TEST_decode_block_neg(zzzzzz);
 // 7-bytes block
-TEST_decode_block_pos(1111111,     "\x00\x00\x00\x00\x00");
-TEST_decode_block_pos(VtB5VXc,     "\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_block_pos(1111111, "\x00\x00\x00\x00\x00");
+TEST_decode_block_pos(VtB5VXc, "\xFF\xFF\xFF\xFF\xFF");
 TEST_decode_block_neg(VtB5VXd);
 TEST_decode_block_neg(zzzzzzz);
 // 8-bytes block
 TEST_decode_block_neg(11111111);
 TEST_decode_block_neg(zzzzzzzz);
 // 9-bytes block
-TEST_decode_block_pos(111111111,   "\x00\x00\x00\x00\x00\x00");
-TEST_decode_block_pos(3CUsUpv9t,   "\xFF\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_block_pos(111111111, "\x00\x00\x00\x00\x00\x00");
+TEST_decode_block_pos(3CUsUpv9t, "\xFF\xFF\xFF\xFF\xFF\xFF");
 TEST_decode_block_neg(3CUsUpv9u);
 TEST_decode_block_neg(zzzzzzzzz);
 // 10-bytes block
-TEST_decode_block_pos(1111111111,  "\x00\x00\x00\x00\x00\x00\x00");
-TEST_decode_block_pos(Ahg1opVcGW,  "\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_block_pos(1111111111, "\x00\x00\x00\x00\x00\x00\x00");
+TEST_decode_block_pos(Ahg1opVcGW, "\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
 TEST_decode_block_neg(Ahg1opVcGX);
 TEST_decode_block_neg(zzzzzzzzzz);
 // 11-bytes block
@@ -276,31 +273,29 @@ TEST_decode_block_neg(O1111111111);
 TEST_decode_block_neg(l1111111111);
 TEST_decode_block_neg(_1111111111);
 
-
 #define TEST_encode(expected, data)            \
   TEST(base58_encode, handles_##expected)      \
   {                                            \
     do_test_encode(MAKE_STR(data), #expected); \
   }
 
-TEST_encode(11,                     "\x00");
-TEST_encode(111,                    "\x00\x00");
-TEST_encode(11111,                  "\x00\x00\x00");
-TEST_encode(111111,                 "\x00\x00\x00\x00");
-TEST_encode(1111111,                "\x00\x00\x00\x00\x00");
-TEST_encode(111111111,              "\x00\x00\x00\x00\x00\x00");
-TEST_encode(1111111111,             "\x00\x00\x00\x00\x00\x00\x00");
-TEST_encode(11111111111,            "\x00\x00\x00\x00\x00\x00\x00\x00");
-TEST_encode(1111111111111,          "\x00\x00\x00\x00\x00\x00\x00\x00\x00");
-TEST_encode(11111111111111,         "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
-TEST_encode(1111111111111111,       "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
-TEST_encode(11111111111111111,      "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
-TEST_encode(111111111111111111,     "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
-TEST_encode(11111111111111111111,   "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
-TEST_encode(111111111111111111111,  "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
+TEST_encode(11, "\x00");
+TEST_encode(111, "\x00\x00");
+TEST_encode(11111, "\x00\x00\x00");
+TEST_encode(111111, "\x00\x00\x00\x00");
+TEST_encode(1111111, "\x00\x00\x00\x00\x00");
+TEST_encode(111111111, "\x00\x00\x00\x00\x00\x00");
+TEST_encode(1111111111, "\x00\x00\x00\x00\x00\x00\x00");
+TEST_encode(11111111111, "\x00\x00\x00\x00\x00\x00\x00\x00");
+TEST_encode(1111111111111, "\x00\x00\x00\x00\x00\x00\x00\x00\x00");
+TEST_encode(11111111111111, "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
+TEST_encode(1111111111111111, "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
+TEST_encode(11111111111111111, "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
+TEST_encode(111111111111111111, "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
+TEST_encode(11111111111111111111, "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
+TEST_encode(111111111111111111111, "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
 TEST_encode(1111111111111111111111, "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00");
-TEST_encode(22222222222VtB5VXc,     "\x06\x15\x60\x13\x76\x28\x79\xF7\xFF\xFF\xFF\xFF\xFF");
-
+TEST_encode(22222222222VtB5VXc, "\x06\x15\x60\x13\x76\x28\x79\xF7\xFF\xFF\xFF\xFF\xFF");
 
 #define TEST_decode_pos(enc, expected)            \
   TEST(base58_decode_pos, handles_pos_##enc)      \
@@ -314,22 +309,22 @@ TEST_encode(22222222222VtB5VXc,     "\x06\x15\x60\x13\x76\x28\x79\xF7\xFF\xFF\xF
     do_test_decode_neg(#enc);                \
   }
 
-TEST_decode_pos(,                       "");
-TEST_decode_pos(5Q,                     "\xFF");
-TEST_decode_pos(LUv,                    "\xFF\xFF");
-TEST_decode_pos(2UzHL,                  "\xFF\xFF\xFF");
-TEST_decode_pos(7YXq9G,                 "\xFF\xFF\xFF\xFF");
-TEST_decode_pos(VtB5VXc,                "\xFF\xFF\xFF\xFF\xFF");
-TEST_decode_pos(3CUsUpv9t,              "\xFF\xFF\xFF\xFF\xFF\xFF");
-TEST_decode_pos(Ahg1opVcGW,             "\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
-TEST_decode_pos(jpXCZedGfVQ,            "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
-TEST_decode_pos(jpXCZedGfVQ5Q,          "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
-TEST_decode_pos(jpXCZedGfVQLUv,         "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
-TEST_decode_pos(jpXCZedGfVQ2UzHL,       "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
-TEST_decode_pos(jpXCZedGfVQ7YXq9G,      "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
-TEST_decode_pos(jpXCZedGfVQVtB5VXc,     "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
-TEST_decode_pos(jpXCZedGfVQ3CUsUpv9t,   "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
-TEST_decode_pos(jpXCZedGfVQAhg1opVcGW,  "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_pos(, "");
+TEST_decode_pos(5Q, "\xFF");
+TEST_decode_pos(LUv, "\xFF\xFF");
+TEST_decode_pos(2UzHL, "\xFF\xFF\xFF");
+TEST_decode_pos(7YXq9G, "\xFF\xFF\xFF\xFF");
+TEST_decode_pos(VtB5VXc, "\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_pos(3CUsUpv9t, "\xFF\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_pos(Ahg1opVcGW, "\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_pos(jpXCZedGfVQ, "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_pos(jpXCZedGfVQ5Q, "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_pos(jpXCZedGfVQLUv, "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_pos(jpXCZedGfVQ2UzHL, "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_pos(jpXCZedGfVQ7YXq9G, "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_pos(jpXCZedGfVQVtB5VXc, "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_pos(jpXCZedGfVQ3CUsUpv9t, "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
+TEST_decode_pos(jpXCZedGfVQAhg1opVcGW, "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
 TEST_decode_pos(jpXCZedGfVQjpXCZedGfVQ, "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
 // Invalid length
 TEST_decode_neg(1);
@@ -391,7 +386,6 @@ TEST_decode_neg(1111111111110);
 TEST_decode_neg(111111111111l1111);
 TEST_decode_neg(111111111111_111111111);
 
-
 #define TEST_encode_decode_addr(addr, tag, data)                      \
   TEST(base58_encode_decode_addr, handles_##addr)                     \
   {                                                                   \
@@ -416,22 +410,21 @@ TEST_encode_decode_addr(PuT7GAdgbA83qvSEivPLYo1111111111111111111111111111111111
 TEST_encode_decode_addr(PuT7GAdgbA841d7FXjswpJjpXCZedGfVQjpXCZedGfVQjpXCZedGfVQjpXCZedGfVQjpXCZedGfVQjpXCZedGfVQjpXCZedGfVQVq4LL1v, 0x1122334455667788,
                         "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF"
                         "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF");
-TEST_encode_decode_addr(PuT7GAdgbA819VwdWVDP,            0x1122334455667788, "\x11");
-TEST_encode_decode_addr(PuT7GAdgbA81efAfdCjPg,           0x1122334455667788, "\x22\x22");
-TEST_encode_decode_addr(PuT7GAdgbA83sryEt3YC8Q,          0x1122334455667788, "\x33\x33\x33");
-TEST_encode_decode_addr(PuT7GAdgbA83tWUuc54PFP3b,        0x1122334455667788, "\x44\x44\x44\x44");
-TEST_encode_decode_addr(PuT7GAdgbA83u9zaKrtRKZ1J6,       0x1122334455667788, "\x55\x55\x55\x55\x55");
-TEST_encode_decode_addr(PuT7GAdgbA83uoWF3eanGG1aRoG,     0x1122334455667788, "\x66\x66\x66\x66\x66\x66");
-TEST_encode_decode_addr(PuT7GAdgbA83vT1umSHMYJ4oNVdu,    0x1122334455667788, "\x77\x77\x77\x77\x77\x77\x77");
-TEST_encode_decode_addr(PuT7GAdgbA83w6XaVDyvpoGQBEWbB,   0x1122334455667788, "\x88\x88\x88\x88\x88\x88\x88\x88");
+TEST_encode_decode_addr(PuT7GAdgbA819VwdWVDP, 0x1122334455667788, "\x11");
+TEST_encode_decode_addr(PuT7GAdgbA81efAfdCjPg, 0x1122334455667788, "\x22\x22");
+TEST_encode_decode_addr(PuT7GAdgbA83sryEt3YC8Q, 0x1122334455667788, "\x33\x33\x33");
+TEST_encode_decode_addr(PuT7GAdgbA83tWUuc54PFP3b, 0x1122334455667788, "\x44\x44\x44\x44");
+TEST_encode_decode_addr(PuT7GAdgbA83u9zaKrtRKZ1J6, 0x1122334455667788, "\x55\x55\x55\x55\x55");
+TEST_encode_decode_addr(PuT7GAdgbA83uoWF3eanGG1aRoG, 0x1122334455667788, "\x66\x66\x66\x66\x66\x66");
+TEST_encode_decode_addr(PuT7GAdgbA83vT1umSHMYJ4oNVdu, 0x1122334455667788, "\x77\x77\x77\x77\x77\x77\x77");
+TEST_encode_decode_addr(PuT7GAdgbA83w6XaVDyvpoGQBEWbB, 0x1122334455667788, "\x88\x88\x88\x88\x88\x88\x88\x88");
 TEST_encode_decode_addr(PuT7GAdgbA83wk3FD1gW7J2KVGofA1r, 0x1122334455667788, "\x99\x99\x99\x99\x99\x99\x99\x99\x99");
-TEST_encode_decode_addr(15p2yAV,                         0, "");
-TEST_encode_decode_addr(FNQ3D6A,                         0x7F, "");
-TEST_encode_decode_addr(26k9QWweu,                       0x80, "");
-TEST_encode_decode_addr(3BzAD7n3y,                       0xFF, "");
-TEST_encode_decode_addr(11efCaY6UjG7JrxuB,               0, "\x11\x22\x33\x44\x55\x66\x77");
-TEST_encode_decode_addr(21rhHRT48LN4PriP9,               6, "\x11\x22\x33\x44\x55\x66\x77");
-
+TEST_encode_decode_addr(15p2yAV, 0, "");
+TEST_encode_decode_addr(FNQ3D6A, 0x7F, "");
+TEST_encode_decode_addr(26k9QWweu, 0x80, "");
+TEST_encode_decode_addr(3BzAD7n3y, 0xFF, "");
+TEST_encode_decode_addr(11efCaY6UjG7JrxuB, 0, "\x11\x22\x33\x44\x55\x66\x77");
+TEST_encode_decode_addr(21rhHRT48LN4PriP9, 6, "\x11\x22\x33\x44\x55\x66\x77");
 
 #define TEST_decode_addr_neg(addr, test_name)                     \
   TEST(base58_decode_addr_neg, test_name)                         \
@@ -461,14 +454,14 @@ TEST_decode_addr_neg("ZZZZZZ", decode_fails_due_address_too_short_5);
 
 namespace
 {
-  std::string test_serialized_keys = MAKE_STR(
+std::string test_serialized_keys = MAKE_STR(
     "\x12\x3a\x93\x42\xd6\xa2\x7e\x8e\xee\x0d\x53\x9a\x6f\xa3\x00\x33"
     "\xc6\xa9\x07\x69\x6a\x52\xa5\x23\xe7\xbf\xe5\xae\xce\x38\x8d\x1d"
     "\x80\x08\xec\x7d\x8f\x78\x0d\x8a\xe0\x72\x27\x7a\xd3\x63\x7b\xea"
     "\x92\x96\x7e\x66\x66\x97\x6a\x2e\xc7\xad\x82\xa2\x53\x29\xb0\xe9");
-  // DON'T ever use this as a destination for funds, as the keys are right above this comment...
-  std::string test_keys_addr_str = "L5dkQUgpdssQubjyfnkLTh9fHx2ScppAQ71Kv3jdn7rL5wBvMZ4GQWxQEH9QPcn8bLgEebMZqSeZF8pppfi2FGWbTPeQFoL";
-}
+// DON'T ever use this as a destination for funds, as the keys are right above this comment...
+std::string test_keys_addr_str = "L5dkQUgpdssQubjyfnkLTh9fHx2ScppAQ71Kv3jdn7rL5wBvMZ4GQWxQEH9QPcn8bLgEebMZqSeZF8pppfi2FGWbTPeQFoL";
+} // namespace
 
 TEST(get_account_address_as_str, works_correctly)
 {

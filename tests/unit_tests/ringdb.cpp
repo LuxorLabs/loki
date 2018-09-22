@@ -1,21 +1,21 @@
 // Copyright (c) 2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -36,9 +36,9 @@
 #include "gtest/gtest.h"
 
 #include "string_tools.h"
-#include "crypto/crypto.h"
-#include "crypto/random.h"
-#include "crypto/chacha.h"
+#include "cnh_crypto/crypto.h"
+#include "cnh_crypto/random.h"
+#include "cnh_crypto/chacha.h"
 #include "wallet/ringdb.h"
 
 static crypto::chacha_key generate_chacha_key()
@@ -60,18 +60,22 @@ static crypto::public_key generate_output()
   return crypto::rand<crypto::public_key>();
 }
 
-
 static const crypto::chacha_key KEY_1 = generate_chacha_key();
 static const crypto::chacha_key KEY_2 = generate_chacha_key();
 static const crypto::key_image KEY_IMAGE_1 = generate_key_image();
 static const crypto::public_key OUTPUT_1 = generate_output();
 static const crypto::public_key OUTPUT_2 = generate_output();
 
-class RingDB: public tools::ringdb
+class RingDB : public tools::ringdb
 {
 public:
-  RingDB(const char *genesis = ""): tools::ringdb(make_filename(), genesis) { }
-  ~RingDB() { close(); boost::filesystem::remove_all(filename); free(filename); }
+  RingDB(const char *genesis = "") : tools::ringdb(make_filename(), genesis) {}
+  ~RingDB()
+  {
+    close();
+    boost::filesystem::remove_all(filename);
+    free(filename);
+  }
 
 private:
   std::string make_filename()
@@ -104,7 +108,9 @@ TEST(ringdb, found)
 {
   RingDB ringdb;
   std::vector<uint64_t> outs, outs2;
-  outs.push_back(43); outs.push_back(7320); outs.push_back(8429);
+  outs.push_back(43);
+  outs.push_back(7320);
+  outs.push_back(8429);
   ASSERT_TRUE(ringdb.set_ring(KEY_1, KEY_IMAGE_1, outs, false));
   ASSERT_TRUE(ringdb.get_ring(KEY_1, KEY_IMAGE_1, outs2));
   ASSERT_EQ(outs, outs2);
@@ -114,20 +120,24 @@ TEST(ringdb, convert)
 {
   RingDB ringdb;
   std::vector<uint64_t> outs, outs2;
-  outs.push_back(43); outs.push_back(7320); outs.push_back(8429);
+  outs.push_back(43);
+  outs.push_back(7320);
+  outs.push_back(8429);
   ASSERT_TRUE(ringdb.set_ring(KEY_1, KEY_IMAGE_1, outs, true));
   ASSERT_TRUE(ringdb.get_ring(KEY_1, KEY_IMAGE_1, outs2));
   ASSERT_EQ(outs2.size(), 3);
   ASSERT_EQ(outs2[0], 43);
-  ASSERT_EQ(outs2[1], 43+7320);
-  ASSERT_EQ(outs2[2], 43+7320+8429);
+  ASSERT_EQ(outs2[1], 43 + 7320);
+  ASSERT_EQ(outs2[2], 43 + 7320 + 8429);
 }
 
 TEST(ringdb, different_genesis)
 {
   RingDB ringdb;
   std::vector<uint64_t> outs, outs2;
-  outs.push_back(43); outs.push_back(7320); outs.push_back(8429);
+  outs.push_back(43);
+  outs.push_back(7320);
+  outs.push_back(8429);
   ASSERT_TRUE(ringdb.set_ring(KEY_1, KEY_IMAGE_1, outs, false));
   ASSERT_FALSE(ringdb.get_ring(KEY_2, KEY_IMAGE_1, outs2));
 }
@@ -161,4 +171,3 @@ TEST(blackball, clear)
   ASSERT_TRUE(ringdb.clear_blackballs());
   ASSERT_FALSE(ringdb.blackballed(OUTPUT_1));
 }
-

@@ -33,7 +33,7 @@
 #include <vector>
 
 #include "common/util.h"
-#include "cryptonote_core/cryptonote_tx_utils.h"
+#include "cnh_cryptonote_core/cryptonote_tx_utils.h"
 
 namespace
 {

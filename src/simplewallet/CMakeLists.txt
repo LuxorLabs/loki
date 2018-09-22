@@ -46,7 +46,7 @@ target_link_libraries(simplewallet
     wallet
     daemonizer
     rpc_base
-    cryptonote_core
+    cnh_cryptonote_core
     cncrypto
     common
     mnemonics
