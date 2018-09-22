@@ -38,7 +38,7 @@ add_executable(net_load_tests_clt
 target_link_libraries(net_load_tests_clt
   PRIVATE
     p2p
-    cryptonote_core
+    cnh_cryptonote_core
     epee
     ${GTEST_LIBRARIES}
     ${Boost_CHRONO_LIBRARY}
@@ -60,7 +60,7 @@ add_executable(net_load_tests_srv
 target_link_libraries(net_load_tests_srv
   PRIVATE
     p2p
-    cryptonote_core
+    cnh_cryptonote_core
     epee
     ${GTEST_LIBRARIES}
     ${Boost_CHRONO_LIBRARY}

@@ -36,7 +36,7 @@ add_executable(difficulty-tests
   ${difficulty_headers})
 target_link_libraries(difficulty-tests
   PRIVATE
-    cryptonote_core
+    cnh_cryptonote_core
     ${EXTRA_LIBRARIES})
 set_property(TARGET difficulty-tests
   PROPERTY

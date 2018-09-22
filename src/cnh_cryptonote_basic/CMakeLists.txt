@@ -33,7 +33,7 @@ if(APPLE)
   list(APPEND EXTRA_LIBRARIES ${IOKIT_LIBRARY})
 endif()
 
-set(cryptonote_basic_sources
+set(cnh_cryptonote_basic_sources
   account.cpp
   cryptonote_basic_impl.cpp
   cryptonote_format_utils.cpp
@@ -41,9 +41,9 @@ set(cryptonote_basic_sources
   hardfork.cpp
   miner.cpp)
 
-set(cryptonote_basic_headers)
+set(cnh_cryptonote_basic_headers)
 
-set(cryptonote_basic_private_headers
+set(cnh_cryptonote_basic_private_headers
   account.h
   account_boost_serialization.h
   connection_context.h
@@ -58,13 +58,13 @@ set(cryptonote_basic_private_headers
   tx_extra.h
   verification_context.h)
 
-loki_private_headers(cryptonote_basic
-  ${cryptonote_basic_private_headers})
-loki_add_library(cryptonote_basic
-  ${cryptonote_basic_sources}
-  ${cryptonote_basic_headers}
-  ${cryptonote_basic_private_headers})
-target_link_libraries(cryptonote_basic
+loki_private_headers(cnh_cryptonote_basic
+  ${cnh_cryptonote_basic_private_headers})
+loki_add_library(cnh_cryptonote_basic
+  ${cnh_cryptonote_basic_sources}
+  ${cnh_cryptonote_basic_headers}
+  ${cnh_cryptonote_basic_private_headers})
+target_link_libraries(cnh_cryptonote_basic
   PUBLIC
     common
     cncrypto

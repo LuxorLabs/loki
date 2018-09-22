@@ -428,56 +428,56 @@ checkpoints/fast:
 .PHONY : checkpoints/fast
 
 #=============================================================================
-# Target rules for targets named cryptonote_basic
+# Target rules for targets named obj_cnh_cryptonote_basic
 
 # Build rule for target.
-cryptonote_basic: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cryptonote_basic
-.PHONY : cryptonote_basic
+obj_cnh_cryptonote_basic: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 obj_cnh_cryptonote_basic
+.PHONY : obj_cnh_cryptonote_basic
 
 # fast build rule for target.
-cryptonote_basic/fast:
-	$(MAKE) -f src/cnh_cryptonote_basic/CMakeFiles/cryptonote_basic.dir/build.make src/cnh_cryptonote_basic/CMakeFiles/cryptonote_basic.dir/build
-.PHONY : cryptonote_basic/fast
+obj_cnh_cryptonote_basic/fast:
+	$(MAKE) -f src/cnh_cryptonote_basic/CMakeFiles/obj_cnh_cryptonote_basic.dir/build.make src/cnh_cryptonote_basic/CMakeFiles/obj_cnh_cryptonote_basic.dir/build
+.PHONY : obj_cnh_cryptonote_basic/fast
 
 #=============================================================================
-# Target rules for targets named obj_cryptonote_basic
+# Target rules for targets named cnh_cryptonote_basic
 
 # Build rule for target.
-obj_cryptonote_basic: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 obj_cryptonote_basic
-.PHONY : obj_cryptonote_basic
+cnh_cryptonote_basic: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cnh_cryptonote_basic
+.PHONY : cnh_cryptonote_basic
 
 # fast build rule for target.
-obj_cryptonote_basic/fast:
-	$(MAKE) -f src/cnh_cryptonote_basic/CMakeFiles/obj_cryptonote_basic.dir/build.make src/cnh_cryptonote_basic/CMakeFiles/obj_cryptonote_basic.dir/build
-.PHONY : obj_cryptonote_basic/fast
+cnh_cryptonote_basic/fast:
+	$(MAKE) -f src/cnh_cryptonote_basic/CMakeFiles/cnh_cryptonote_basic.dir/build.make src/cnh_cryptonote_basic/CMakeFiles/cnh_cryptonote_basic.dir/build
+.PHONY : cnh_cryptonote_basic/fast
 
 #=============================================================================
-# Target rules for targets named cryptonote_core
+# Target rules for targets named cnh_cryptonote_core
 
 # Build rule for target.
-cryptonote_core: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cryptonote_core
-.PHONY : cryptonote_core
+cnh_cryptonote_core: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cnh_cryptonote_core
+.PHONY : cnh_cryptonote_core
 
 # fast build rule for target.
-cryptonote_core/fast:
-	$(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/cryptonote_core.dir/build
-.PHONY : cryptonote_core/fast
+cnh_cryptonote_core/fast:
+	$(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/build
+.PHONY : cnh_cryptonote_core/fast
 
 #=============================================================================
-# Target rules for targets named obj_cryptonote_core
+# Target rules for targets named obj_cnh_cryptonote_core
 
 # Build rule for target.
-obj_cryptonote_core: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 obj_cryptonote_core
-.PHONY : obj_cryptonote_core
+obj_cnh_cryptonote_core: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 obj_cnh_cryptonote_core
+.PHONY : obj_cnh_cryptonote_core
 
 # fast build rule for target.
-obj_cryptonote_core/fast:
-	$(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build
-.PHONY : obj_cryptonote_core/fast
+obj_cnh_cryptonote_core/fast:
+	$(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build
+.PHONY : obj_cnh_cryptonote_core/fast
 
 #=============================================================================
 # Target rules for targets named multisig
@@ -993,10 +993,10 @@ help:
 	@echo "... ringct_basic"
 	@echo "... obj_checkpoints"
 	@echo "... checkpoints"
-	@echo "... cryptonote_basic"
-	@echo "... obj_cryptonote_basic"
-	@echo "... cryptonote_core"
-	@echo "... obj_cryptonote_core"
+	@echo "... obj_cnh_cryptonote_basic"
+	@echo "... cnh_cryptonote_basic"
+	@echo "... cnh_cryptonote_core"
+	@echo "... obj_cnh_cryptonote_core"
 	@echo "... multisig"
 	@echo "... obj_multisig"
 	@echo "... obj_blockchain_db"

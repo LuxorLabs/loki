@@ -61,7 +61,7 @@
 #define WITH_DEVICE_LEDGER
 #endif
 
-// forward declaration needed because this header is included by headers in libcryptonote_basic which depends on libdevice
+// forward declaration needed because this header is included by headers in libcnh_cryptonote_basic which depends on libdevice
 namespace cryptonote
 {
     struct account_public_address;

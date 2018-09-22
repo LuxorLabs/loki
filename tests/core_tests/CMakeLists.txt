@@ -68,7 +68,7 @@ add_executable(core_tests
 target_link_libraries(core_tests
   PRIVATE
     multisig
-    cryptonote_core
+    cnh_cryptonote_core
     p2p
     version
     epee

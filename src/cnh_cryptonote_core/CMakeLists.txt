@@ -27,7 +27,7 @@
 # STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 # THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-set(cryptonote_core_sources
+set(cnh_cryptonote_core_sources
   blockchain.cpp
   cnh_cryptonote_core.cpp
   service_node_list.cpp
@@ -36,9 +36,9 @@ set(cryptonote_core_sources
   tx_pool.cpp
   cryptonote_tx_utils.cpp)
 
-set(cryptonote_core_headers)
+set(cnh_cryptonote_core_headers)
 
-set(cryptonote_core_private_headers
+set(cnh_cryptonote_core_private_headers
   blockchain_storage_boost_serialization.h
   blockchain.h
   service_node_list.h
@@ -54,13 +54,13 @@ else()
   set(Blocks "")
 endif()
 
-loki_private_headers(cryptonote_core
-  ${cryptonote_core_private_headers})
-loki_add_library(cryptonote_core
-  ${cryptonote_core_sources}
-  ${cryptonote_core_headers}
-  ${cryptonote_core_private_headers})
-target_link_libraries(cryptonote_core
+loki_private_headers(cnh_cryptonote_core
+  ${cnh_cryptonote_core_private_headers})
+loki_add_library(cnh_cryptonote_core
+  ${cnh_cryptonote_core_sources}
+  ${cnh_cryptonote_core_headers}
+  ${cnh_cryptonote_core_private_headers})
+target_link_libraries(cnh_cryptonote_core
   PUBLIC
     version
     common

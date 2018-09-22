@@ -99,7 +99,7 @@ loki_add_executable(blockchain_import
 
 target_link_libraries(blockchain_import
   PRIVATE
-    cryptonote_core
+    cnh_cryptonote_core
     blockchain_db
     p2p
     version
@@ -126,7 +126,7 @@ loki_add_executable(blockchain_export
 
 target_link_libraries(blockchain_export
   PRIVATE
-    cryptonote_core
+    cnh_cryptonote_core
     blockchain_db
     p2p
     version
@@ -149,7 +149,7 @@ loki_add_executable(blockchain_blackball
 target_link_libraries(blockchain_blackball
   PRIVATE
     wallet
-    cryptonote_core
+    cnh_cryptonote_core
     blockchain_db
     p2p
     version
@@ -172,7 +172,7 @@ loki_add_executable(blockchain_usage
 
 target_link_libraries(blockchain_usage
   PRIVATE
-    cryptonote_core
+    cnh_cryptonote_core
     blockchain_db
     p2p
     version

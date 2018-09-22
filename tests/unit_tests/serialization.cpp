@@ -1,21 +1,21 @@
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -25,7 +25,7 @@
 // INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-// 
+//
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
 #include <cstring>
@@ -61,7 +61,8 @@ struct Struct
 template <class Archive>
 struct serializer<Archive, Struct>
 {
-  static bool serialize(Archive &ar, Struct &s) {
+  static bool serialize(Archive &ar, Struct &s)
+  {
     ar.begin_object();
     ar.tag("a");
     ar.serialize_int(s.a);
@@ -80,8 +81,8 @@ struct Struct1
   vector<int16_t> vi;
 
   BEGIN_SERIALIZE_OBJECT()
-    FIELD(si)
-    FIELD(vi)
+  FIELD(si)
+  FIELD(vi)
   END_SERIALIZE()
   /*template <bool W, template <bool> class Archive>
   bool do_serialize(Archive<W> &ar)
@@ -100,7 +101,7 @@ struct Blob
   uint64_t a;
   uint32_t b;
 
-  bool operator==(const Blob& rhs) const
+  bool operator==(const Blob &rhs) const
   {
     return a == rhs.a;
   }
@@ -122,7 +123,8 @@ bool try_parse(const string &blob)
   return serialization::parse_binary(blob, s1);
 }
 
-TEST(Serialization, BinaryArchiveInts) {
+TEST(Serialization, BinaryArchiveInts)
+{
   uint64_t x = 0xff00000000, x1;
 
   ostringstream oss;
@@ -141,7 +143,8 @@ TEST(Serialization, BinaryArchiveInts) {
   ASSERT_EQ(x, x1);
 }
 
-TEST(Serialization, BinaryArchiveVarInts) {
+TEST(Serialization, BinaryArchiveVarInts)
+{
   uint64_t x = 0xff00000000, x1;
 
   ostringstream oss;
@@ -158,7 +161,8 @@ TEST(Serialization, BinaryArchiveVarInts) {
   ASSERT_EQ(x, x1);
 }
 
-TEST(Serialization, Test1) {
+TEST(Serialization, Test1)
+{
   ostringstream str;
   binary_archive<true> ar(str);
 
@@ -186,8 +190,9 @@ TEST(Serialization, Test1) {
   ASSERT_FALSE(try_parse(blob));
 }
 
-TEST(Serialization, Overflow) {
-  Blob x = { 0xff00000000 };
+TEST(Serialization, Overflow)
+{
+  Blob x = {0xff00000000};
   Blob x1;
 
   string blob;
@@ -292,17 +297,17 @@ TEST(Serialization, serializes_vector_int64_as_fixed_int)
 
 namespace
 {
-  template<typename T>
-  std::vector<T> linearize_vector2(const std::vector< std::vector<T> >& vec_vec)
+template <typename T>
+std::vector<T> linearize_vector2(const std::vector<std::vector<T>> &vec_vec)
+{
+  std::vector<T> res;
+  BOOST_FOREACH (const auto &vec, vec_vec)
   {
-    std::vector<T> res;
-    BOOST_FOREACH(const auto& vec, vec_vec)
-    {
-      res.insert(res.end(), vec.begin(), vec.end());
-    }
-    return res;
+    res.insert(res.end(), vec.begin(), vec.end());
   }
+  return res;
 }
+} // namespace
 
 TEST(Serialization, serializes_transacion_signatures_correctly)
 {
@@ -681,8 +686,9 @@ TEST(Serialization, portability_wallet)
     w.load(wallet_file.string(), password);
     r = true;
   }
-  catch (const exception& e)
-  {}
+  catch (const exception &e)
+  {
+  }
   ASSERT_TRUE(r);
   /*
   fields of tools::wallet2 to be checked: 
@@ -737,19 +743,19 @@ TEST(Serialization, portability_wallet)
 
     ASSERT_TRUE(epee::string_tools::pod_to_hex(pd0->first) == "0000000000000000000000000000000000000000000000000000000000000000");
     ASSERT_TRUE(epee::string_tools::pod_to_hex(pd0->second.m_tx_hash) == "b77633fe663a07283b071d16c3b783fe838389273fde373a569ad08cb214ab1b");
-    ASSERT_TRUE(pd0->second.m_amount       == 100000000000);
+    ASSERT_TRUE(pd0->second.m_amount == 100000000000);
     ASSERT_TRUE(pd0->second.m_block_height == 8478);
-    ASSERT_TRUE(pd0->second.m_unlock_time  == 0);
-    ASSERT_TRUE(pd0->second.m_timestamp    == 1524445103);
+    ASSERT_TRUE(pd0->second.m_unlock_time == 0);
+    ASSERT_TRUE(pd0->second.m_timestamp == 1524445103);
   }
 
   // tx keys
   ASSERT_TRUE(w.m_tx_keys.size() == 1);
   {
     const std::vector<std::pair<std::string, std::string>> txid_txkey =
-    {
-      {"d986bc2e49ed83a990424ac42b2db9be0264be54c7ce13f7a8dca5177aa4781c", "b99125ba84a13ed3ee74a3327fd4f34ac11cd580f05e8560b49e755f2586a30b"},
-    };
+        {
+            {"d986bc2e49ed83a990424ac42b2db9be0264be54c7ce13f7a8dca5177aa4781c", "b99125ba84a13ed3ee74a3327fd4f34ac11cd580f05e8560b49e755f2586a30b"},
+        };
 
     for (size_t i = 0; i < txid_txkey.size(); ++i)
     {
@@ -825,11 +831,11 @@ TEST(Serialization, portability_outputs)
   // check public view/spend keys
   const size_t headerlen = 2 * sizeof(crypto::public_key);
   ASSERT_FALSE(data.size() < headerlen);
-  const crypto::public_key &public_spend_key = *(const crypto::public_key*)&data[0];
-  const crypto::public_key &public_view_key = *(const crypto::public_key*)&data[sizeof(crypto::public_key)];
+  const crypto::public_key &public_spend_key = *(const crypto::public_key *)&data[0];
+  const crypto::public_key &public_view_key = *(const crypto::public_key *)&data[sizeof(crypto::public_key)];
 
   ASSERT_TRUE(epee::string_tools::pod_to_hex(public_spend_key) == "efb5d51e3ab4a7c09c207f85650c970eeb671f03d98defcb70265930c0d86240");
-  ASSERT_TRUE(epee::string_tools::pod_to_hex(public_view_key)  == "fa871f6af764d2b3fc43eddb9f311b73b387652809992afa5ca3acacc6ff44b0");
+  ASSERT_TRUE(epee::string_tools::pod_to_hex(public_view_key) == "fa871f6af764d2b3fc43eddb9f311b73b387652809992afa5ca3acacc6ff44b0");
   r = false;
   std::vector<tools::wallet2::transfer_details> outputs;
 
@@ -849,7 +855,8 @@ TEST(Serialization, portability_outputs)
     }
   }
   catch (...)
-  { }
+  {
+  }
   ASSERT_TRUE(r);
   /*
   fields of tools::wallet2::transfer_details to be checked: 
@@ -868,9 +875,9 @@ TEST(Serialization, portability_outputs)
     size_t                          m_pk_index
   */
   ASSERT_TRUE(outputs.size() == 3);
-  auto& td0 = outputs[0];
-  auto& td1 = outputs[1];
-  auto& td2 = outputs[2];
+  auto &td0 = outputs[0];
+  auto &td1 = outputs[1];
+  auto &td2 = outputs[2];
 
   ASSERT_TRUE(td0.m_block_height == 8478);
   ASSERT_TRUE(td1.m_block_height == 11034);
@@ -916,7 +923,7 @@ TEST(Serialization, portability_unsigned_tx)
   const bool restricted = false;
   tools::wallet2 w(cryptonote::TESTNET, restricted);
 
-  const boost::filesystem::path filename    = unit_test::data_dir / "unsigned_loki_tx";
+  const boost::filesystem::path filename = unit_test::data_dir / "unsigned_loki_tx";
   const boost::filesystem::path wallet_file = unit_test::data_dir / "wallet_testnet";
   const string password = "test";
   w.load(wallet_file.string(), password);
@@ -981,24 +988,24 @@ TEST(Serialization, portability_unsigned_tx)
 
   // txes
   ASSERT_TRUE(exported_txs.txes.size() == 1);
-  auto& tcd = exported_txs.txes[0];
+  auto &tcd = exported_txs.txes[0];
 
   // tcd.sources
   ASSERT_TRUE(tcd.sources.size() == 1);
-  auto& tse = tcd.sources[0];
+  auto &tse = tcd.sources[0];
 
   // tcd.sources[0].outputs
   ASSERT_TRUE(tse.outputs.size() == 10);
-  auto& out0 = tse.outputs[0];
-  auto& out1 = tse.outputs[1];
-  auto& out2 = tse.outputs[2];
-  auto& out3 = tse.outputs[3];
-  auto& out4 = tse.outputs[4];
-  auto& out5 = tse.outputs[5];
-  auto& out6 = tse.outputs[6];
-  auto& out7 = tse.outputs[7];
-  auto& out8 = tse.outputs[8];
-  auto& out9 = tse.outputs[9];
+  auto &out0 = tse.outputs[0];
+  auto &out1 = tse.outputs[1];
+  auto &out2 = tse.outputs[2];
+  auto &out3 = tse.outputs[3];
+  auto &out4 = tse.outputs[4];
+  auto &out5 = tse.outputs[5];
+  auto &out6 = tse.outputs[6];
+  auto &out7 = tse.outputs[7];
+  auto &out8 = tse.outputs[8];
+  auto &out9 = tse.outputs[9];
 
   ASSERT_TRUE(out0.first == 4905);
   ASSERT_TRUE(out1.first == 7366);
@@ -1039,8 +1046,8 @@ TEST(Serialization, portability_unsigned_tx)
 
   // tcd.splitted_dsts
   ASSERT_TRUE(tcd.splitted_dsts.size() == 2);
-  auto& splitted_dst0 = tcd.splitted_dsts[0];
-  auto& splitted_dst1 = tcd.splitted_dsts[1];
+  auto &splitted_dst0 = tcd.splitted_dsts[0];
+  auto &splitted_dst1 = tcd.splitted_dsts[1];
 
   ASSERT_TRUE(splitted_dst0.amount == 10000000000);
   ASSERT_TRUE(splitted_dst1.amount == 25396028820);
@@ -1061,15 +1068,15 @@ TEST(Serialization, portability_unsigned_tx)
 
   // tcd.dests
   ASSERT_TRUE(tcd.dests.size() == 1);
-  auto& dest = tcd.dests[0];
+  auto &dest = tcd.dests[0];
   ASSERT_TRUE(dest.amount == 10000000000);
   ASSERT_TRUE(cryptonote::get_account_address_as_str(nettype, false, dest.addr) == "T6TQ8id855U7YZFtT2wvCkPqCGhFujMfaE5NE15UWNKjMrxCHGsFLQPYbcSLjoF9xwYGFzbC6LdDw8Fhr5DNsjJe2cDkK1fSM");
 
   // transfers
   ASSERT_TRUE(exported_txs.transfers.size() == 3);
-  auto& td0 = exported_txs.transfers[0];
-  auto& td1 = exported_txs.transfers[1];
-  auto& td2 = exported_txs.transfers[2];
+  auto &td0 = exported_txs.transfers[0];
+  auto &td1 = exported_txs.transfers[1];
+  auto &td2 = exported_txs.transfers[2];
 
   ASSERT_TRUE(td0.m_block_height == 8478);
   ASSERT_TRUE(td1.m_block_height == 11034);
@@ -1115,7 +1122,7 @@ TEST(Serialization, portability_signed_tx)
   const bool restricted = false;
   tools::wallet2 w(cryptonote::TESTNET, restricted);
 
-  const boost::filesystem::path filename    = unit_test::data_dir / "signed_loki_tx";
+  const boost::filesystem::path filename = unit_test::data_dir / "signed_loki_tx";
   const boost::filesystem::path wallet_file = unit_test::data_dir / "wallet_testnet";
   const string password = "test";
   w.load(wallet_file.string(), password);
@@ -1168,11 +1175,11 @@ TEST(Serialization, portability_signed_tx)
   */
   // ptx
   ASSERT_TRUE(exported_txs.ptx.size() == 1);
-  auto& ptx = exported_txs.ptx[0];
+  auto &ptx = exported_txs.ptx[0];
 
   // ptx.{dust, fee, dust_added_to_fee}
-  ASSERT_TRUE (ptx.dust == 0);
-  ASSERT_TRUE (ptx.fee == 67975320);
+  ASSERT_TRUE(ptx.dust == 0);
+  ASSERT_TRUE(ptx.fee == 67975320);
   ASSERT_FALSE(ptx.dust_added_to_fee);
 
   // ptx.change.{amount, addr}
@@ -1193,22 +1200,22 @@ TEST(Serialization, portability_signed_tx)
   ASSERT_TRUE(cryptonote::get_account_address_as_str(nettype, false, ptx.dests[0].addr) == "T6TQ8id855U7YZFtT2wvCkPqCGhFujMfaE5NE15UWNKjMrxCHGsFLQPYbcSLjoF9xwYGFzbC6LdDw8Fhr5DNsjJe2cDkK1fSM");
 
   // ptx.construction_data
-  auto& tcd = ptx.construction_data;
+  auto &tcd = ptx.construction_data;
   ASSERT_TRUE(tcd.sources.size() == 1);
-  auto& tse = tcd.sources[0];
+  auto &tse = tcd.sources[0];
 
   // ptx.construction_data.sources[0].outputs
   ASSERT_TRUE(tse.outputs.size() == 10);
-  auto& out0 = tse.outputs[0];
-  auto& out1 = tse.outputs[1];
-  auto& out2 = tse.outputs[2];
-  auto& out3 = tse.outputs[3];
-  auto& out4 = tse.outputs[4];
-  auto& out5 = tse.outputs[5];
-  auto& out6 = tse.outputs[6];
-  auto& out7 = tse.outputs[7];
-  auto& out8 = tse.outputs[8];
-  auto& out9 = tse.outputs[9];
+  auto &out0 = tse.outputs[0];
+  auto &out1 = tse.outputs[1];
+  auto &out2 = tse.outputs[2];
+  auto &out3 = tse.outputs[3];
+  auto &out4 = tse.outputs[4];
+  auto &out5 = tse.outputs[5];
+  auto &out6 = tse.outputs[6];
+  auto &out7 = tse.outputs[7];
+  auto &out8 = tse.outputs[8];
+  auto &out9 = tse.outputs[9];
 
   ASSERT_TRUE(out0.first == 4905);
   ASSERT_TRUE(out1.first == 7366);
@@ -1246,8 +1253,8 @@ TEST(Serialization, portability_signed_tx)
 
   // ptx.construction_data.splitted_dsts
   ASSERT_TRUE(tcd.splitted_dsts.size() == 2);
-  auto& splitted_dst0 = tcd.splitted_dsts[0];
-  auto& splitted_dst1 = tcd.splitted_dsts[1];
+  auto &splitted_dst0 = tcd.splitted_dsts[0];
+  auto &splitted_dst1 = tcd.splitted_dsts[1];
   ASSERT_TRUE(splitted_dst0.amount == 10000000000);
   ASSERT_TRUE(splitted_dst1.amount == 25396028820);
   ASSERT_TRUE(cryptonote::get_account_address_as_str(nettype, false, splitted_dst0.addr) == "T6TQ8id855U7YZFtT2wvCkPqCGhFujMfaE5NE15UWNKjMrxCHGsFLQPYbcSLjoF9xwYGFzbC6LdDw8Fhr5DNsjJe2cDkK1fSM");
@@ -1266,15 +1273,15 @@ TEST(Serialization, portability_signed_tx)
 
   // ptx.construction_data.dests
   ASSERT_TRUE(tcd.dests.size() == 1);
-  auto& dest = tcd.dests[0];
+  auto &dest = tcd.dests[0];
   ASSERT_TRUE(dest.amount == 10000000000);
   ASSERT_TRUE(cryptonote::get_account_address_as_str(nettype, false, dest.addr) == "T6TQ8id855U7YZFtT2wvCkPqCGhFujMfaE5NE15UWNKjMrxCHGsFLQPYbcSLjoF9xwYGFzbC6LdDw8Fhr5DNsjJe2cDkK1fSM");
 
   // key_images
   ASSERT_TRUE(exported_txs.key_images.size() == 3);
-  auto& ki0 = exported_txs.key_images[0];
-  auto& ki1 = exported_txs.key_images[1];
-  auto& ki2 = exported_txs.key_images[2];
+  auto &ki0 = exported_txs.key_images[0];
+  auto &ki1 = exported_txs.key_images[1];
+  auto &ki2 = exported_txs.key_images[2];
 
   ASSERT_TRUE(epee::string_tools::pod_to_hex(ki0) == "05e1050df8262068682951b459a722495bfd5d070300e96a8d52c6255e300f11");
   ASSERT_TRUE(epee::string_tools::pod_to_hex(ki1) == "21dfe89b3dbde221eccd9b71e7f6383c81f9ada224a670956c895b230749a8d8");

@@ -80,16 +80,6 @@ install/fast: preinstall/fast
 	/usr/local/Cellar/cmake/3.11.1/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -135,6 +125,16 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles /Users/eddiewang/dev/projects/blockchain/loki/loki/src/cnh_cryptonote_core/CMakeFiles/progress.marks
@@ -168,34 +168,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/cnh_cryptonote_core/CMakeFiles/cryptonote_core.dir/rule:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_cryptonote_core/CMakeFiles/cryptonote_core.dir/rule
-.PHONY : src/cnh_cryptonote_core/CMakeFiles/cryptonote_core.dir/rule
+src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/rule
+.PHONY : src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/rule
 
 # Convenience name for target.
-cryptonote_core: src/cnh_cryptonote_core/CMakeFiles/cryptonote_core.dir/rule
+cnh_cryptonote_core: src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/rule
 
-.PHONY : cryptonote_core
+.PHONY : cnh_cryptonote_core
 
 # fast build rule for target.
-cryptonote_core/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/cryptonote_core.dir/build
-.PHONY : cryptonote_core/fast
+cnh_cryptonote_core/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/cnh_cryptonote_core.dir/build
+.PHONY : cnh_cryptonote_core/fast
 
 # Convenience name for target.
-src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/rule:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/rule
-.PHONY : src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/rule
+src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/rule
+.PHONY : src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/rule
 
 # Convenience name for target.
-obj_cryptonote_core: src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/rule
+obj_cnh_cryptonote_core: src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/rule
 
-.PHONY : obj_cryptonote_core
+.PHONY : obj_cnh_cryptonote_core
 
 # fast build rule for target.
-obj_cryptonote_core/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build
-.PHONY : obj_cryptonote_core/fast
+obj_cnh_cryptonote_core/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build
+.PHONY : obj_cnh_cryptonote_core/fast
 
 blockchain.o: blockchain.cpp.o
 
@@ -203,7 +203,7 @@ blockchain.o: blockchain.cpp.o
 
 # target to build an object file
 blockchain.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/blockchain.cpp.o
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/blockchain.cpp.o
 .PHONY : blockchain.cpp.o
 
 blockchain.i: blockchain.cpp.i
@@ -212,7 +212,7 @@ blockchain.i: blockchain.cpp.i
 
 # target to preprocess a source file
 blockchain.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/blockchain.cpp.i
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/blockchain.cpp.i
 .PHONY : blockchain.cpp.i
 
 blockchain.s: blockchain.cpp.s
@@ -221,7 +221,7 @@ blockchain.s: blockchain.cpp.s
 
 # target to generate assembly for a file
 blockchain.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/blockchain.cpp.s
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/blockchain.cpp.s
 .PHONY : blockchain.cpp.s
 
 cnh_cryptonote_core.o: cnh_cryptonote_core.cpp.o
@@ -230,7 +230,7 @@ cnh_cryptonote_core.o: cnh_cryptonote_core.cpp.o
 
 # target to build an object file
 cnh_cryptonote_core.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/cnh_cryptonote_core.cpp.o
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cnh_cryptonote_core.cpp.o
 .PHONY : cnh_cryptonote_core.cpp.o
 
 cnh_cryptonote_core.i: cnh_cryptonote_core.cpp.i
@@ -239,7 +239,7 @@ cnh_cryptonote_core.i: cnh_cryptonote_core.cpp.i
 
 # target to preprocess a source file
 cnh_cryptonote_core.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/cnh_cryptonote_core.cpp.i
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cnh_cryptonote_core.cpp.i
 .PHONY : cnh_cryptonote_core.cpp.i
 
 cnh_cryptonote_core.s: cnh_cryptonote_core.cpp.s
@@ -248,7 +248,7 @@ cnh_cryptonote_core.s: cnh_cryptonote_core.cpp.s
 
 # target to generate assembly for a file
 cnh_cryptonote_core.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/cnh_cryptonote_core.cpp.s
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cnh_cryptonote_core.cpp.s
 .PHONY : cnh_cryptonote_core.cpp.s
 
 cryptonote_tx_utils.o: cryptonote_tx_utils.cpp.o
@@ -257,7 +257,7 @@ cryptonote_tx_utils.o: cryptonote_tx_utils.cpp.o
 
 # target to build an object file
 cryptonote_tx_utils.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/cryptonote_tx_utils.cpp.o
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cryptonote_tx_utils.cpp.o
 .PHONY : cryptonote_tx_utils.cpp.o
 
 cryptonote_tx_utils.i: cryptonote_tx_utils.cpp.i
@@ -266,7 +266,7 @@ cryptonote_tx_utils.i: cryptonote_tx_utils.cpp.i
 
 # target to preprocess a source file
 cryptonote_tx_utils.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/cryptonote_tx_utils.cpp.i
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cryptonote_tx_utils.cpp.i
 .PHONY : cryptonote_tx_utils.cpp.i
 
 cryptonote_tx_utils.s: cryptonote_tx_utils.cpp.s
@@ -275,7 +275,7 @@ cryptonote_tx_utils.s: cryptonote_tx_utils.cpp.s
 
 # target to generate assembly for a file
 cryptonote_tx_utils.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/cryptonote_tx_utils.cpp.s
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/cryptonote_tx_utils.cpp.s
 .PHONY : cryptonote_tx_utils.cpp.s
 
 quorum_cop.o: quorum_cop.cpp.o
@@ -284,7 +284,7 @@ quorum_cop.o: quorum_cop.cpp.o
 
 # target to build an object file
 quorum_cop.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/quorum_cop.cpp.o
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/quorum_cop.cpp.o
 .PHONY : quorum_cop.cpp.o
 
 quorum_cop.i: quorum_cop.cpp.i
@@ -293,7 +293,7 @@ quorum_cop.i: quorum_cop.cpp.i
 
 # target to preprocess a source file
 quorum_cop.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/quorum_cop.cpp.i
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/quorum_cop.cpp.i
 .PHONY : quorum_cop.cpp.i
 
 quorum_cop.s: quorum_cop.cpp.s
@@ -302,7 +302,7 @@ quorum_cop.s: quorum_cop.cpp.s
 
 # target to generate assembly for a file
 quorum_cop.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/quorum_cop.cpp.s
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/quorum_cop.cpp.s
 .PHONY : quorum_cop.cpp.s
 
 service_node_deregister.o: service_node_deregister.cpp.o
@@ -311,7 +311,7 @@ service_node_deregister.o: service_node_deregister.cpp.o
 
 # target to build an object file
 service_node_deregister.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/service_node_deregister.cpp.o
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/service_node_deregister.cpp.o
 .PHONY : service_node_deregister.cpp.o
 
 service_node_deregister.i: service_node_deregister.cpp.i
@@ -320,7 +320,7 @@ service_node_deregister.i: service_node_deregister.cpp.i
 
 # target to preprocess a source file
 service_node_deregister.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/service_node_deregister.cpp.i
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/service_node_deregister.cpp.i
 .PHONY : service_node_deregister.cpp.i
 
 service_node_deregister.s: service_node_deregister.cpp.s
@@ -329,7 +329,7 @@ service_node_deregister.s: service_node_deregister.cpp.s
 
 # target to generate assembly for a file
 service_node_deregister.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/service_node_deregister.cpp.s
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/service_node_deregister.cpp.s
 .PHONY : service_node_deregister.cpp.s
 
 service_node_list.o: service_node_list.cpp.o
@@ -338,7 +338,7 @@ service_node_list.o: service_node_list.cpp.o
 
 # target to build an object file
 service_node_list.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/service_node_list.cpp.o
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/service_node_list.cpp.o
 .PHONY : service_node_list.cpp.o
 
 service_node_list.i: service_node_list.cpp.i
@@ -347,7 +347,7 @@ service_node_list.i: service_node_list.cpp.i
 
 # target to preprocess a source file
 service_node_list.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/service_node_list.cpp.i
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/service_node_list.cpp.i
 .PHONY : service_node_list.cpp.i
 
 service_node_list.s: service_node_list.cpp.s
@@ -356,7 +356,7 @@ service_node_list.s: service_node_list.cpp.s
 
 # target to generate assembly for a file
 service_node_list.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/service_node_list.cpp.s
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/service_node_list.cpp.s
 .PHONY : service_node_list.cpp.s
 
 tx_pool.o: tx_pool.cpp.o
@@ -365,7 +365,7 @@ tx_pool.o: tx_pool.cpp.o
 
 # target to build an object file
 tx_pool.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/tx_pool.cpp.o
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/tx_pool.cpp.o
 .PHONY : tx_pool.cpp.o
 
 tx_pool.i: tx_pool.cpp.i
@@ -374,7 +374,7 @@ tx_pool.i: tx_pool.cpp.i
 
 # target to preprocess a source file
 tx_pool.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/tx_pool.cpp.i
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/tx_pool.cpp.i
 .PHONY : tx_pool.cpp.i
 
 tx_pool.s: tx_pool.cpp.s
@@ -383,7 +383,7 @@ tx_pool.s: tx_pool.cpp.s
 
 # target to generate assembly for a file
 tx_pool.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cryptonote_core.dir/tx_pool.cpp.s
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/build.make src/cnh_cryptonote_core/CMakeFiles/obj_cnh_cryptonote_core.dir/tx_pool.cpp.s
 .PHONY : tx_pool.cpp.s
 
 # Help Target
@@ -394,13 +394,13 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... cryptonote_core"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... install/local"
 	@echo "... test"
-	@echo "... obj_cryptonote_core"
+	@echo "... list_install_components"
+	@echo "... cnh_cryptonote_core"
+	@echo "... obj_cnh_cryptonote_core"
 	@echo "... blockchain.o"
 	@echo "... blockchain.i"
 	@echo "... blockchain.s"

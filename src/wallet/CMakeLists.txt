@@ -56,7 +56,7 @@ target_link_libraries(wallet
   PUBLIC
     multisig
     common
-    cryptonote_core
+    cnh_cryptonote_core
     mnemonics
     ${LMDB_LIBRARY}
     ${Boost_CHRONO_LIBRARY}
