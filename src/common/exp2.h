@@ -29,4 +29,10 @@
 
 #pragma once
 
-double loki_exp2(double);
+namespace tools
+{
+  namespace loki_exp2
+  {
+    double loki_exp2(double);
+  }
+}

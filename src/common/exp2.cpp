@@ -39,8 +39,12 @@
 // different results from math functions across different std libraries.
 static_assert(std::numeric_limits<double>::is_iec559, "We require IEEE standard compliant doubles.");
 
-double
-loki_exp2 (double x)
+namespace tools 
+{
+namespace loki_exp2 
+{
+
+double loki_exp2(double x)
 {
   /* exp2(x) = exp(x*log(2)).
      If we would compute it like this, there would be rounding errors for
@@ -393,4 +397,6 @@ loki_exp2 (double x)
       ret *= 2;
     return ret;
   }
+}
+}
 }
