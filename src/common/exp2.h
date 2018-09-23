@@ -31,7 +31,7 @@
 
 namespace tools
 {
-  namespace loki_exp2
+  namespace exp2
   {
     double loki_exp2(double);
   }

@@ -42,7 +42,7 @@ static_assert(std::numeric_limits<double>::is_iec559, "We require IEEE standard 
 
 namespace tools 
 {
-  namespace loki_exp2 
+  namespace exp2 
   {
     double loki_exp2(double x)
     {
