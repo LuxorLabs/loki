@@ -98,7 +98,7 @@ namespace tools
           truncate the series after the z^5 term.  */
 
       {
-        double nm = loki_round (x * 256.0); /* = 256 * n + m */
+        double nm = tools::round::loki_round (x * 256.0); /* = 256 * n + m */
         double z = (x * 256.0 - nm) * (LOG2_BY_256 * 0.5);
 
     /* Coefficients of the power series for tanh(z).  */
@@ -120,7 +120,7 @@ namespace tools
 
         double exp_y = (1.0 + tanh_z) / (1.0 - tanh_z);
 
-        int n = (int) loki_round (nm * (1.0 / 256.0));
+        int n = (int) tools::round::loki_round (nm * (1.0 / 256.0));
         int m = (int) nm - 256 * n;
 
         /* exp_table[i] = exp((i - 128) * log(2)/256).
