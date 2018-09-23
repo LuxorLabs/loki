@@ -29,4 +29,10 @@
 
 #pragma once
 
-double loki_round(double);
+namespace tools 
+{
+  namespace round
+  {
+    double loki_round(double round);
+  }
+}
