@@ -16,7 +16,6 @@
 
 /* Specification.  */
 
-#include "exp2.h"
 #include <limits>
 #include <cfloat>
 #include <cmath>
@@ -38,6 +37,10 @@
 // different results from math functions across different std libraries.
 static_assert(std::numeric_limits<double>::is_iec559, "We require IEEE standard compliant doubles.");
 
+namespace tools 
+{
+  namespace exp2 
+  {
     double loki_exp2(double x)
     {
       /* exp2(x) = exp(x*log(2)).
@@ -392,3 +395,5 @@ static_assert(std::numeric_limits<double>::is_iec559, "We require IEEE standard 
         return ret;
       }
     }
+  }
+}

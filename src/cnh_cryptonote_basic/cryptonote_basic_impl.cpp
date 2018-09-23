@@ -40,7 +40,6 @@ using namespace epee;
 #include "cryptonote_config.h"
 #include "misc_language.h"
 #include "common/base58.h"
-#include "common/exp2.h"
 #include "cnh_crypto/cnh_hash.h"
 #include "common/int-util.h"
 #include "common/dns_utils.h"
@@ -109,7 +108,7 @@ namespace cryptonote {
     }
 
     if (version >= 8)
-      base_reward = 28000000000.0 + 100000000000.0 / tools::exp2::loki_exp2(height / (720.0 * 90.0)); // halve every 90 days.
+      base_reward = 28000000000.0 + 100000000000.0 / loki_exp2(height / (720.0 * 90.0)); // halve every 90 days.
 
     uint64_t full_reward_zone = get_min_block_size(version);
 
