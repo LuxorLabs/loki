@@ -24,7 +24,6 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-
 #ifndef _MLOG_H_
 #define _MLOG_H_
 
@@ -40,7 +39,7 @@
 
 #define MLOG_BASE_FORMAT "%datetime{%Y-%M-%d %H:%m:%s.%g}\t%thread\t%level\t%logger\t%loc\t%msg"
 
-#define MLOG_LOG(x) CINFO(el::base::Writer,el::base::DispatchAction::FileOnlyLog,LOKI_DEFAULT_LOG_CATEGORY) << x
+#define MLOG_LOG(x) CINFO(el::base::Writer, el::base::DispatchAction::FileOnlyLog, LOKI_DEFAULT_LOG_CATEGORY) << x
 
 using namespace epee;
 
@@ -52,9 +51,9 @@ static std::string generate_log_filename(const char *base)
   time_t now = time(NULL);
   if
 #ifdef WIN32
-  (!gmtime_s(&tm, &now))
+      (!gmtime_s(&tm, &now))
 #else
-  (!gmtime_r(&now, &tm))
+      (!gmtime_r(&now, &tm))
 #endif
     strcpy(tmp, "unknown");
   else
@@ -71,9 +70,9 @@ std::string mlog_get_default_log_path(const char *default_filename)
   std::string default_log_folder = epee::string_tools::get_current_module_folder();
   std::string default_log_file = process_name;
   std::string::size_type a = default_log_file.rfind('.');
-  if ( a != std::string::npos )
-    default_log_file.erase( a, default_log_file.size());
-  if ( ! default_log_file.empty() )
+  if (a != std::string::npos)
+    default_log_file.erase(a, default_log_file.size());
+  if (!default_log_file.empty())
     default_log_file += ".log";
   else
     default_log_file = default_filename;
@@ -83,7 +82,7 @@ std::string mlog_get_default_log_path(const char *default_filename)
 
 static void mlog_set_common_prefix()
 {
-  static const char * const expected_filename = "contrib/epee/src/mlog.cpp";
+  static const char *const expected_filename = "contrib/epee/src/mlog.cpp";
   const char *path = __FILE__, *expected_ptr = strstr(path, expected_filename);
   if (!expected_ptr)
     return;
@@ -95,23 +94,23 @@ static const char *get_default_categories(int level)
   const char *categories = "";
   switch (level)
   {
-    case 0:
-      categories = "*:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO";
-      break;
-    case 1:
-      categories = "*:INFO,global:INFO,stacktrace:INFO,logging:INFO,msgwriter:INFO";
-      break;
-    case 2:
-      categories = "*:DEBUG";
-      break;
-    case 3:
-      categories = "*:TRACE";
-      break;
-    case 4:
-      categories = "*:TRACE";
-      break;
-    default:
-      break;
+  case 0:
+    categories = "*:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO";
+    break;
+  case 1:
+    categories = "*:INFO,global:INFO,stacktrace:INFO,logging:INFO,msgwriter:INFO";
+    break;
+  case 2:
+    categories = "*:DEBUG";
+    break;
+  case 3:
+    categories = "*:TRACE";
+    break;
+  case 4:
+    categories = "*:TRACE";
+    break;
+  default:
+    break;
   }
   return categories;
 }
@@ -134,7 +133,7 @@ void mlog_configure(const std::string &filename_base, bool console, const std::s
   el::Loggers::addFlag(el::LoggingFlag::DisableApplicationAbortOnFatalLog);
   el::Loggers::addFlag(el::LoggingFlag::ColoredTerminalOutput);
   el::Loggers::addFlag(el::LoggingFlag::StrictLogFileSizeCheck);
-  el::Helpers::installPreRollOutCallback([filename_base, max_log_files](const char *name, size_t){
+  el::Helpers::installPreRollOutCallback([filename_base, max_log_files](const char *name, size_t) {
     std::string rname = generate_log_filename(filename_base.c_str());
     rename(name, rname.c_str());
     if (max_log_files != 0)
@@ -218,7 +217,7 @@ void mlog_set_categories(const char *categories)
       new_categories = mlog_get_categories();
       std::vector<std::string> single_categories;
       boost::split(single_categories, categories, boost::is_any_of(","), boost::token_compress_on);
-      for (const std::string &s: single_categories)
+      for (const std::string &s : single_categories)
       {
         size_t pos = new_categories.find(s);
         if (pos != std::string::npos)
@@ -260,11 +259,13 @@ void mlog_set_log(const char *log)
   if (ptr && *ptr)
   {
     // we can have a default level, eg, 2,foo:ERROR
-    if (*ptr == ',') {
+    if (*ptr == ',')
+    {
       std::string new_categories = std::string(get_default_categories(level)) + ptr;
       mlog_set_categories(new_categories.c_str());
     }
-    else {
+    else
+    {
       mlog_set_categories(log);
     }
   }
@@ -304,121 +305,121 @@ void set_console_color(int color, bool bright)
   if (!is_stdout_a_tty())
     return;
 
-  switch(color)
+  switch (color)
   {
   case console_color_default:
-    {
+  {
 #ifdef WIN32
-      HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
-      SetConsoleTextAttribute(h_stdout, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE| (bright ? FOREGROUND_INTENSITY:0));
+    HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(h_stdout, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | (bright ? FOREGROUND_INTENSITY : 0));
 #else
-      if(bright)
-        std::cout << "\033[1;37m";
-      else
-        std::cout << "\033[0m";
+    if (bright)
+      std::cout << "\033[1;37m";
+    else
+      std::cout << "\033[0m";
 #endif
-    }
-    break;
+  }
+  break;
   case console_color_white:
-    {
+  {
 #ifdef WIN32
-      HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
-      SetConsoleTextAttribute(h_stdout, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | (bright ? FOREGROUND_INTENSITY:0));
+    HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(h_stdout, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | (bright ? FOREGROUND_INTENSITY : 0));
 #else
-      if(bright)
-        std::cout << "\033[1;37m";
-      else
-        std::cout << "\033[0;37m";
+    if (bright)
+      std::cout << "\033[1;37m";
+    else
+      std::cout << "\033[0;37m";
 #endif
-    }
-    break;
+  }
+  break;
   case console_color_red:
-    {
+  {
 #ifdef WIN32
-      HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
-      SetConsoleTextAttribute(h_stdout, FOREGROUND_RED | (bright ? FOREGROUND_INTENSITY:0));
+    HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(h_stdout, FOREGROUND_RED | (bright ? FOREGROUND_INTENSITY : 0));
 #else
-      if(bright)
-        std::cout << "\033[1;31m";
-      else
-        std::cout << "\033[0;31m";
+    if (bright)
+      std::cout << "\033[1;31m";
+    else
+      std::cout << "\033[0;31m";
 #endif
-    }
-    break;
+  }
+  break;
   case console_color_green:
-    {
+  {
 #ifdef WIN32
-      HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
-      SetConsoleTextAttribute(h_stdout, FOREGROUND_GREEN | (bright ? FOREGROUND_INTENSITY:0));
+    HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(h_stdout, FOREGROUND_GREEN | (bright ? FOREGROUND_INTENSITY : 0));
 #else
-      if(bright)
-        std::cout << "\033[1;32m";
-      else
-        std::cout << "\033[0;32m";
+    if (bright)
+      std::cout << "\033[1;32m";
+    else
+      std::cout << "\033[0;32m";
 #endif
-    }
-    break;
+  }
+  break;
 
   case console_color_blue:
-    {
+  {
 #ifdef WIN32
-      HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
-      SetConsoleTextAttribute(h_stdout, FOREGROUND_BLUE | FOREGROUND_INTENSITY);//(bright ? FOREGROUND_INTENSITY:0));
+    HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(h_stdout, FOREGROUND_BLUE | FOREGROUND_INTENSITY); //(bright ? FOREGROUND_INTENSITY:0));
 #else
-      if(bright)
-        std::cout << "\033[1;34m";
-      else
-        std::cout << "\033[0;34m";
+    if (bright)
+      std::cout << "\033[1;34m";
+    else
+      std::cout << "\033[0;34m";
 #endif
-    }
-    break;
+  }
+  break;
 
   case console_color_cyan:
-    {
+  {
 #ifdef WIN32
-      HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
-      SetConsoleTextAttribute(h_stdout, FOREGROUND_GREEN | FOREGROUND_BLUE | (bright ? FOREGROUND_INTENSITY:0));
+    HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(h_stdout, FOREGROUND_GREEN | FOREGROUND_BLUE | (bright ? FOREGROUND_INTENSITY : 0));
 #else
-      if(bright)
-        std::cout << "\033[1;36m";
-      else
-        std::cout << "\033[0;36m";
+    if (bright)
+      std::cout << "\033[1;36m";
+    else
+      std::cout << "\033[0;36m";
 #endif
-    }
-    break;
+  }
+  break;
 
   case console_color_magenta:
-    {
+  {
 #ifdef WIN32
-      HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
-      SetConsoleTextAttribute(h_stdout, FOREGROUND_BLUE | FOREGROUND_RED | (bright ? FOREGROUND_INTENSITY:0));
+    HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(h_stdout, FOREGROUND_BLUE | FOREGROUND_RED | (bright ? FOREGROUND_INTENSITY : 0));
 #else
-      if(bright)
-        std::cout << "\033[1;35m";
-      else
-        std::cout << "\033[0;35m";
+    if (bright)
+      std::cout << "\033[1;35m";
+    else
+      std::cout << "\033[0;35m";
 #endif
-    }
-    break;
+  }
+  break;
 
   case console_color_yellow:
-    {
+  {
 #ifdef WIN32
-      HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
-      SetConsoleTextAttribute(h_stdout, FOREGROUND_RED | FOREGROUND_GREEN | (bright ? FOREGROUND_INTENSITY:0));
+    HANDLE h_stdout = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(h_stdout, FOREGROUND_RED | FOREGROUND_GREEN | (bright ? FOREGROUND_INTENSITY : 0));
 #else
-      if(bright)
-        std::cout << "\033[1;33m";
-      else
-        std::cout << "\033[0;33m";
+    if (bright)
+      std::cout << "\033[1;33m";
+    else
+      std::cout << "\033[0;33m";
 #endif
-    }
-    break;
-
+  }
+  break;
   }
 }
 
-void reset_console_color() {
+void reset_console_color()
+{
   if (!is_stdout_a_tty())
     return;
 
@@ -431,6 +432,6 @@ void reset_console_color() {
 #endif
 }
 
-}
+} // namespace epee
 
 #endif //_MLOG_H_
