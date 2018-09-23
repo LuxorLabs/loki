@@ -28,9 +28,9 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <boost/filesystem.hpp>
-#include "cryptonote_basic/cryptonote_basic.h"
-#include "cryptonote_basic/tx_extra.h"
-#include "cryptonote_core/blockchain.h"
+#include "cnh_cryptonote_basic/cryptonote_basic.h"
+#include "cnh_cryptonote_basic/tx_extra.h"
+#include "cnh_cryptonote_core/blockchain.h"
 #include "common/command_line.h"
 #include "version.h"
 
@@ -48,17 +48,23 @@ static void print_extra_fields(const std::vector<cryptonote::tx_extra_field> &fi
   for (size_t n = 0; n < fields.size(); ++n)
   {
     std::cout << "field " << n << ": ";
-    if (typeid(cryptonote::tx_extra_padding) == fields[n].type()) std::cout << "extra padding: " << boost::get<cryptonote::tx_extra_padding>(fields[n]).size << " bytes";
-    else if (typeid(cryptonote::tx_extra_pub_key) == fields[n].type()) std::cout << "extra pub key: " << boost::get<cryptonote::tx_extra_pub_key>(fields[n]).pub_key;
-    else if (typeid(cryptonote::tx_extra_nonce) == fields[n].type()) std::cout << "extra nonce: " << epee::string_tools::buff_to_hex_nodelimer(boost::get<cryptonote::tx_extra_nonce>(fields[n]).nonce);
-    else if (typeid(cryptonote::tx_extra_merge_mining_tag) == fields[n].type()) std::cout << "extra merge mining tag: depth " << boost::get<cryptonote::tx_extra_merge_mining_tag>(fields[n]).depth << ", merkle root " << boost::get<cryptonote::tx_extra_merge_mining_tag>(fields[n]).merkle_root;
-    else if (typeid(cryptonote::tx_extra_mysterious_minergate) == fields[n].type()) std::cout << "extra minergate custom: " << epee::string_tools::buff_to_hex_nodelimer(boost::get<cryptonote::tx_extra_mysterious_minergate>(fields[n]).data);
-    else std::cout << "unknown";
+    if (typeid(cryptonote::tx_extra_padding) == fields[n].type())
+      std::cout << "extra padding: " << boost::get<cryptonote::tx_extra_padding>(fields[n]).size << " bytes";
+    else if (typeid(cryptonote::tx_extra_pub_key) == fields[n].type())
+      std::cout << "extra pub key: " << boost::get<cryptonote::tx_extra_pub_key>(fields[n]).pub_key;
+    else if (typeid(cryptonote::tx_extra_nonce) == fields[n].type())
+      std::cout << "extra nonce: " << epee::string_tools::buff_to_hex_nodelimer(boost::get<cryptonote::tx_extra_nonce>(fields[n]).nonce);
+    else if (typeid(cryptonote::tx_extra_merge_mining_tag) == fields[n].type())
+      std::cout << "extra merge mining tag: depth " << boost::get<cryptonote::tx_extra_merge_mining_tag>(fields[n]).depth << ", merkle root " << boost::get<cryptonote::tx_extra_merge_mining_tag>(fields[n]).merkle_root;
+    else if (typeid(cryptonote::tx_extra_mysterious_minergate) == fields[n].type())
+      std::cout << "extra minergate custom: " << epee::string_tools::buff_to_hex_nodelimer(boost::get<cryptonote::tx_extra_mysterious_minergate>(fields[n]).data);
+    else
+      std::cout << "unknown";
     std::cout << std::endl;
   }
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
   uint32_t log_level = 0;
   std::string input;
@@ -70,7 +76,7 @@ int main(int argc, char* argv[])
   po::options_description desc_cmd_only("Command line options");
   po::options_description desc_cmd_sett("Command line options and settings options");
   const command_line::arg_descriptor<std::string> arg_output_file = {"output-file", "Specify output file", "", true};
-  const command_line::arg_descriptor<uint32_t> arg_log_level  = {"log-level",  "", log_level};
+  const command_line::arg_descriptor<uint32_t> arg_log_level = {"log-level", "", log_level};
   const command_line::arg_descriptor<std::string> arg_input = {"input", "Specify input has a hexadecimal string", ""};
 
   command_line::add_arg(desc_cmd_sett, arg_output_file);
@@ -83,13 +89,12 @@ int main(int argc, char* argv[])
   desc_options.add(desc_cmd_only).add(desc_cmd_sett);
 
   po::variables_map vm;
-  bool r = command_line::handle_error_helper(desc_options, [&]()
-  {
+  bool r = command_line::handle_error_helper(desc_options, [&]() {
     po::store(po::parse_command_line(argc, argv, desc_options), vm);
     po::notify(vm);
     return true;
   });
-  if (! r)
+  if (!r)
     return 1;
 
   if (command_line::get_arg(vm, command_line::arg_help))
@@ -99,8 +104,8 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  log_level    = command_line::get_arg(vm, arg_log_level);
-  input        = command_line::get_arg(vm, arg_input);
+  log_level = command_line::get_arg(vm, arg_log_level);
+  input = command_line::get_arg(vm, arg_input);
   if (input.empty())
   {
     std::cerr << "--input is mandatory" << std::endl;
@@ -194,8 +199,6 @@ int main(int argc, char* argv[])
     std::cerr << "Not a recognized CN type" << std::endl;
     return 1;
   }
-
-
 
   if (output->fail())
     return 1;

@@ -35,7 +35,7 @@
 #include "common/perf_timer.h"
 extern "C"
 {
-#include "crypto/crypto-ops.h"
+#include "cnh_crypto/crypto-ops.h"
 }
 #include "rctOps.h"
 #include "bulletproofs.h"

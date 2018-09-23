@@ -1,0 +1,11 @@
+#define DEF_LOKI_VERSION_TAG "release"
+#define DEF_LOKI_VERSION "1.0.1"
+#define DEF_LOKI_RELEASE_NAME "Magic Mani"
+#define DEF_LOKI_VERSION_FULL DEF_LOKI_VERSION "-" DEF_LOKI_VERSION_TAG
+
+#include "version.h"
+
+const char* const LOKI_VERSION_TAG = DEF_LOKI_VERSION_TAG;
+const char* const LOKI_VERSION = DEF_LOKI_VERSION;
+const char* const LOKI_RELEASE_NAME = DEF_LOKI_RELEASE_NAME;
+const char* const LOKI_VERSION_FULL = DEF_LOKI_VERSION_FULL;

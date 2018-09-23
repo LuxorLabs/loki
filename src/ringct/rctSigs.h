@@ -39,13 +39,13 @@
 #include <vector>
 #include <tuple>
 
-#include "crypto/generic-ops.h"
+#include "cnh_crypto/generic-ops.h"
 
 extern "C" {
-#include "crypto/random.h"
-#include "crypto/keccak.h"
+#include "cnh_crypto/random.h"
+#include "cnh_crypto/keccak.h"
 }
-#include "crypto/crypto.h"
+#include "cnh_crypto/crypto.h"
 
 
 #include "rctTypes.h"

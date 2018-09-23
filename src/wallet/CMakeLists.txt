@@ -56,7 +56,7 @@ target_link_libraries(wallet
   PUBLIC
     multisig
     common
-    cryptonote_core
+    cnh_cryptonote_core
     mnemonics
     ${LMDB_LIBRARY}
     ${Boost_CHRONO_LIBRARY}
@@ -88,8 +88,8 @@ target_link_libraries(wallet_rpc_server
     wallet
     epee
     rpc_base
-    cryptonote_core
-    cncrypto
+    cnh_cryptonote_core
+    cnhcrypto
     common
     version
     ${Boost_CHRONO_LIBRARY}
@@ -110,11 +110,11 @@ if (BUILD_GUI_DEPS)
             wallet_api
             wallet
             multisig
-            cryptonote_core
-            cryptonote_basic
+            cnh_cryptonote_core
+            cnh_cryptonote_basic
             mnemonics
             common
-            cncrypto
+            cnhcrypto
             device
             ringct
             ringct_basic

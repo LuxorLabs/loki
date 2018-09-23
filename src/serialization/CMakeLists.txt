@@ -43,7 +43,7 @@ loki_add_library(serialization
   ${serialization_private_headers})
 target_link_libraries(serialization
   LINK_PRIVATE
-    cryptonote_core
+    cnh_cryptonote_core
     cryptonote_protocol
     ${Boost_CHRONO_LIBRARY}
     ${Boost_REGEX_LIBRARY}

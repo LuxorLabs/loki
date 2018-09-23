@@ -35,8 +35,8 @@ loki_add_executable(gen_multisig
 target_link_libraries(gen_multisig
   PRIVATE
     wallet
-    cryptonote_core
-    cncrypto
+    cnh_cryptonote_core
+    cnhcrypto
     common
     epee
     ${EPEE_READLINE}

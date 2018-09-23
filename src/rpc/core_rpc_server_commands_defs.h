@@ -30,12 +30,12 @@
 
 #pragma once
 #include "cryptonote_protocol/cryptonote_protocol_defs.h"
-#include "cryptonote_basic/cryptonote_basic.h"
-#include "cryptonote_basic/verification_context.h"
-#include "cryptonote_basic/difficulty.h"
-#include "crypto/hash.h"
+#include "cnh_cryptonote_basic/cryptonote_basic.h"
+#include "cnh_cryptonote_basic/verification_context.h"
+#include "cnh_cryptonote_basic/difficulty.h"
+#include "cnh_crypto/cnh_hash.h"
 #include "cryptonote_config.h"
-#include "cryptonote_core/service_node_deregister.h"
+#include "cnh_cryptonote_core/service_node_deregister.h"
 
 namespace cryptonote
 {
