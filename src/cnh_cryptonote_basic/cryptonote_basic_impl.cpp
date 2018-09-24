@@ -33,6 +33,7 @@
 using namespace epee;
 
 #include "cryptonote_basic_impl.h"
+#include "exp2.cpp"
 #include "string_tools.h"
 #include "serialization/binary_utils.h"
 #include "serialization/container.h"

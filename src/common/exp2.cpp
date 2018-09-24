@@ -17,6 +17,7 @@
 /* Specification.  */
 
 #include "exp2.h"
+#include "round.h"
 #include <limits>
 #include <cfloat>
 #include <cmath>

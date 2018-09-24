@@ -34,10 +34,8 @@
 #include <cstddef>
 #include <cstdint>
 #include <vector>
-#include <boost/math/special_functions/round.hpp>
 
 #include "common/int-util.h"
-#include "common/round.h"
 #include "cnh_crypto/cnh_hash.h"
 #include "cryptonote_config.h"
 #include "difficulty.h"
@@ -191,8 +189,8 @@ namespace cryptonote {
     harmonic_mean_D = N / sum_inverse_D;
 
     // Keep LWMA sane in case something unforeseen occurs.
-    if (static_cast<int64_t>(tools::round::loki_round(LWMA)) < T / 20)
-      LWMA = static_cast<double>(T / 20);
+    //if (static_cast<int64_t>(loki_round(LWMA)) < T / 20)
+    // LWMA = static_cast<double>(T / 20);
 
     nextDifficulty = harmonic_mean_D * T / LWMA * adjust;
 

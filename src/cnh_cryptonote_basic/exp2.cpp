@@ -19,6 +19,7 @@
 #include <limits>
 #include <cfloat>
 #include <cmath>
+#include "round.cpp"
 
 /* Best possible approximation of log(2) as a 'double'.  */
 #define LOG2 0.693147180559945309417232121458176568075
@@ -37,10 +38,6 @@
 // different results from math functions across different std libraries.
 static_assert(std::numeric_limits<double>::is_iec559, "We require IEEE standard compliant doubles.");
 
-namespace tools 
-{
-  namespace exp2 
-  {
     double loki_exp2(double x)
     {
       /* exp2(x) = exp(x*log(2)).
@@ -95,7 +92,7 @@ namespace tools
           truncate the series after the z^5 term.  */
 
       {
-        double nm = tools::round::loki_round (x * 256.0); /* = 256 * n + m */
+        double nm = loki_round (x * 256.0); /* = 256 * n + m */
         double z = (x * 256.0 - nm) * (LOG2_BY_256 * 0.5);
 
     /* Coefficients of the power series for tanh(z).  */
@@ -117,7 +114,7 @@ namespace tools
 
         double exp_y = (1.0 + tanh_z) / (1.0 - tanh_z);
 
-        int n = (int) tools::round::loki_round (nm * (1.0 / 256.0));
+        int n = (int) loki_round (nm * (1.0 / 256.0));
         int m = (int) nm - 256 * n;
 
         /* exp_table[i] = exp((i - 128) * log(2)/256).
@@ -395,5 +392,3 @@ namespace tools
         return ret;
       }
     }
-  }
-}
