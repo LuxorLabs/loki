@@ -50,7 +50,7 @@
 #undef LOKI_DEFAULT_LOG_CATEGORY
 #define LOKI_DEFAULT_LOG_CATEGORY "stacktrace"
 
-#define ST_LOG(x) CINFO(el::base::Writer,el::base::DispatchAction::FileOnlyLog,LOKI_DEFAULT_LOG_CATEGORY) << x
+#define ST_LOG(x) CINFO(el::base::Writer, el::base::DispatchAction::FileOnlyLog, LOKI_DEFAULT_LOG_CATEGORY) << x
 
 // from http://stackoverflow.com/questions/11665829/how-can-i-print-stack-trace-for-caught-exceptions-in-c-code-injection-in-c
 
@@ -65,40 +65,39 @@
 #ifdef STATICLIB
 #define CXA_THROW __wrap___cxa_throw
 extern "C"
-__attribute__((noreturn))
-void __real___cxa_throw(void *ex, CXA_THROW_INFO_T *info, void (*dest)(void*));
+    __attribute__((noreturn)) void
+    __real___cxa_throw(void *ex, CXA_THROW_INFO_T *info, void (*dest)(void *));
 #else // !STATICLIB
 #define CXA_THROW __cxa_throw
-extern "C"
-typedef
+extern "C" typedef
 #ifdef __clang__ // only clang, not GCC, lets apply the attr in typedef
-__attribute__((noreturn))
-#endif // __clang__
-void (cxa_throw_t)(void *ex, CXA_THROW_INFO_T *info, void (*dest)(void*));
-#endif // !STATICLIB
+    __attribute__((noreturn))
+#endif           // __clang__
+    void(cxa_throw_t)(void *ex, CXA_THROW_INFO_T *info, void (*dest)(void *));
+#endif           // !STATICLIB
 
 extern "C"
-__attribute__((noreturn))
-void CXA_THROW(void *ex, CXA_THROW_INFO_T *info, void (*dest)(void*))
+    __attribute__((noreturn)) void
+    CXA_THROW(void *ex, CXA_THROW_INFO_T *info, void (*dest)(void *))
 {
 
   int status;
-  char *dsym = abi::__cxa_demangle(((const std::type_info*)info)->name(), NULL, NULL, &status);
-  tools::log_stack_trace((std::string("Exception: ")+((!status && dsym) ? dsym : (const char*)info)).c_str());
+  char *dsym = abi::__cxa_demangle(((const std::type_info *)info)->name(), NULL, NULL, &status);
+  tools::log_stack_trace((std::string("Exception: ") + ((!status && dsym) ? dsym : (const char *)info)).c_str());
   free(dsym);
 
 #ifndef STATICLIB
 #ifndef __clang__ // for GCC the attr can't be applied in typedef like for clang
   __attribute__((noreturn))
 #endif // !__clang__
-   cxa_throw_t *__real___cxa_throw = (cxa_throw_t*)dlsym(RTLD_NEXT, "__cxa_throw");
+  cxa_throw_t *__real___cxa_throw = (cxa_throw_t *)dlsym(RTLD_NEXT, "__cxa_throw");
 #endif // !STATICLIB
   __real___cxa_throw(ex, info, dest);
 }
 
 namespace
 {
-  std::string stack_trace_log;
+std::string stack_trace_log;
 }
 
 namespace tools
@@ -126,32 +125,39 @@ void log_stack_trace(const char *msg)
   ST_LOG("Unwound call stack:");
 
 #ifdef USE_UNWIND
-  if (unw_getcontext(&ctx) < 0) {
+  if (unw_getcontext(&ctx) < 0)
+  {
     ST_LOG("Failed to create unwind context");
     return;
   }
-  if (unw_init_local(&cur, &ctx) < 0) {
+  if (unw_init_local(&cur, &ctx) < 0)
+  {
     ST_LOG("Failed to find the first unwind frame");
     return;
   }
-  for (level = 1; level < 999; ++level) { // 999 for safety
+  for (level = 1; level < 999; ++level)
+  { // 999 for safety
     int ret = unw_step(&cur);
-    if (ret < 0) {
+    if (ret < 0)
+    {
       ST_LOG("Failed to find the next frame");
       return;
     }
     if (ret == 0)
       break;
-    if (unw_get_reg(&cur, UNW_REG_IP, &ip) < 0) {
+    if (unw_get_reg(&cur, UNW_REG_IP, &ip) < 0)
+    {
       ST_LOG("  " << std::setw(4) << level);
       continue;
     }
-    if (unw_get_proc_name(&cur, sym, sizeof(sym), &off) < 0) {
+    if (unw_get_proc_name(&cur, sym, sizeof(sym), &off) < 0)
+    {
       ST_LOG("  " << std::setw(4) << level << std::setbase(16) << std::setw(20) << "0x" << ip);
       continue;
     }
     dsym = abi::__cxa_demangle(sym, NULL, NULL, &status);
-    ST_LOG("  " << std::setw(4) << level << std::setbase(16) << std::setw(20) << "0x" << ip << " " << (!status && dsym ? dsym : sym) << " + " << "0x" << off);
+    ST_LOG("  " << std::setw(4) << level << std::setbase(16) << std::setw(20) << "0x" << ip << " " << (!status && dsym ? dsym : sym) << " + "
+                << "0x" << off);
     free(dsym);
   }
 #else
@@ -160,9 +166,9 @@ void log_stack_trace(const char *msg)
   std::vector<std::string> lines;
   std::string s = ss.str();
   boost::split(lines, s, boost::is_any_of("\n"));
-  for (const auto &line: lines)
+  for (const auto &line : lines)
     ST_LOG(line);
 #endif
 }
 
-}  // namespace tools
+} // namespace tools
