@@ -62,7 +62,7 @@ release-test:
 
 release-all:
 	mkdir -p build/release
-	cd build/release && cmake -D BUILD_TESTS=OFF -D BUILD_SHARED_LIBS=ON -D CMAKE_BUILD_TYPE=release ../.. && $(MAKE)
+	cd build/release && cmake -D BUILD_TESTS=OFF -D BUILD_SHARED_LIBS=ON -D BUILD_TAG="linux-x64" -D ARCH="x86-64" -D BUILD_64=ON -D CMAKE_BUILD_TYPE=release ../.. && $(MAKE)
 
 release-static:
 	mkdir -p build/release
