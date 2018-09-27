@@ -137,14 +137,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles /Users/eddiewang/dev/projects/blockchain/loki/loki/src/blockchain_db/CMakeFiles/progress.marks
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/blockchain_db/all
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles /Users/eddiewang/dev/projects/blockchain/loki/loki/src/loki_blockchain_db/CMakeFiles/progress.marks
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/loki_blockchain_db/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/eddiewang/dev/projects/blockchain/loki/loki/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/blockchain_db/clean
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/loki_blockchain_db/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,12 +154,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/blockchain_db/preinstall
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/loki_blockchain_db/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/blockchain_db/preinstall
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/loki_blockchain_db/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -168,61 +168,61 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/rule:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/rule
-.PHONY : src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/rule
+src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/rule
+.PHONY : src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/rule
 
 # Convenience name for target.
-obj_blockchain_db: src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/rule
+obj_loki_blockchain_db: src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/rule
 
-.PHONY : obj_blockchain_db
+.PHONY : obj_loki_blockchain_db
 
 # fast build rule for target.
-obj_blockchain_db/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/build.make src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/build
-.PHONY : obj_blockchain_db/fast
+obj_loki_blockchain_db/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/build.make src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/build
+.PHONY : obj_loki_blockchain_db/fast
 
 # Convenience name for target.
-src/blockchain_db/CMakeFiles/blockchain_db.dir/rule:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/blockchain_db/CMakeFiles/blockchain_db.dir/rule
-.PHONY : src/blockchain_db/CMakeFiles/blockchain_db.dir/rule
+src/loki_blockchain_db/CMakeFiles/loki_blockchain_db.dir/rule:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f CMakeFiles/Makefile2 src/loki_blockchain_db/CMakeFiles/loki_blockchain_db.dir/rule
+.PHONY : src/loki_blockchain_db/CMakeFiles/loki_blockchain_db.dir/rule
 
 # Convenience name for target.
-blockchain_db: src/blockchain_db/CMakeFiles/blockchain_db.dir/rule
+loki_blockchain_db: src/loki_blockchain_db/CMakeFiles/loki_blockchain_db.dir/rule
 
-.PHONY : blockchain_db
+.PHONY : loki_blockchain_db
 
 # fast build rule for target.
-blockchain_db/fast:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/blockchain_db/CMakeFiles/blockchain_db.dir/build.make src/blockchain_db/CMakeFiles/blockchain_db.dir/build
-.PHONY : blockchain_db/fast
+loki_blockchain_db/fast:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/loki_blockchain_db/CMakeFiles/loki_blockchain_db.dir/build.make src/loki_blockchain_db/CMakeFiles/loki_blockchain_db.dir/build
+.PHONY : loki_blockchain_db/fast
 
-blockchain_db.o: blockchain_db.cpp.o
+loki_blockchain_db.o: loki_blockchain_db.cpp.o
 
-.PHONY : blockchain_db.o
+.PHONY : loki_blockchain_db.o
 
 # target to build an object file
-blockchain_db.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/build.make src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/blockchain_db.cpp.o
-.PHONY : blockchain_db.cpp.o
+loki_blockchain_db.cpp.o:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/build.make src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/loki_blockchain_db.cpp.o
+.PHONY : loki_blockchain_db.cpp.o
 
-blockchain_db.i: blockchain_db.cpp.i
+loki_blockchain_db.i: loki_blockchain_db.cpp.i
 
-.PHONY : blockchain_db.i
+.PHONY : loki_blockchain_db.i
 
 # target to preprocess a source file
-blockchain_db.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/build.make src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/blockchain_db.cpp.i
-.PHONY : blockchain_db.cpp.i
+loki_blockchain_db.cpp.i:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/build.make src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/loki_blockchain_db.cpp.i
+.PHONY : loki_blockchain_db.cpp.i
 
-blockchain_db.s: blockchain_db.cpp.s
+loki_blockchain_db.s: loki_blockchain_db.cpp.s
 
-.PHONY : blockchain_db.s
+.PHONY : loki_blockchain_db.s
 
 # target to generate assembly for a file
-blockchain_db.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/build.make src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/blockchain_db.cpp.s
-.PHONY : blockchain_db.cpp.s
+loki_blockchain_db.cpp.s:
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/build.make src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/loki_blockchain_db.cpp.s
+.PHONY : loki_blockchain_db.cpp.s
 
 lmdb/db_lmdb.o: lmdb/db_lmdb.cpp.o
 
@@ -230,7 +230,7 @@ lmdb/db_lmdb.o: lmdb/db_lmdb.cpp.o
 
 # target to build an object file
 lmdb/db_lmdb.cpp.o:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/build.make src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/lmdb/db_lmdb.cpp.o
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/build.make src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/lmdb/db_lmdb.cpp.o
 .PHONY : lmdb/db_lmdb.cpp.o
 
 lmdb/db_lmdb.i: lmdb/db_lmdb.cpp.i
@@ -239,7 +239,7 @@ lmdb/db_lmdb.i: lmdb/db_lmdb.cpp.i
 
 # target to preprocess a source file
 lmdb/db_lmdb.cpp.i:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/build.make src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/lmdb/db_lmdb.cpp.i
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/build.make src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/lmdb/db_lmdb.cpp.i
 .PHONY : lmdb/db_lmdb.cpp.i
 
 lmdb/db_lmdb.s: lmdb/db_lmdb.cpp.s
@@ -248,7 +248,7 @@ lmdb/db_lmdb.s: lmdb/db_lmdb.cpp.s
 
 # target to generate assembly for a file
 lmdb/db_lmdb.cpp.s:
-	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/build.make src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/lmdb/db_lmdb.cpp.s
+	cd /Users/eddiewang/dev/projects/blockchain/loki/loki && $(MAKE) -f src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/build.make src/loki_blockchain_db/CMakeFiles/obj_loki_blockchain_db.dir/lmdb/db_lmdb.cpp.s
 .PHONY : lmdb/db_lmdb.cpp.s
 
 # Help Target
@@ -263,12 +263,12 @@ help:
 	@echo "... install/local"
 	@echo "... test"
 	@echo "... rebuild_cache"
-	@echo "... obj_blockchain_db"
+	@echo "... obj_loki_blockchain_db"
 	@echo "... edit_cache"
-	@echo "... blockchain_db"
-	@echo "... blockchain_db.o"
-	@echo "... blockchain_db.i"
-	@echo "... blockchain_db.s"
+	@echo "... loki_blockchain_db"
+	@echo "... loki_blockchain_db.o"
+	@echo "... loki_blockchain_db.i"
+	@echo "... loki_blockchain_db.s"
 	@echo "... lmdb/db_lmdb.o"
 	@echo "... lmdb/db_lmdb.i"
 	@echo "... lmdb/db_lmdb.s"

@@ -27,57 +27,41 @@
 # STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 # THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-set(blockchain_db_sources
-  blockchain_db.cpp
+set(loki_blockchain_db_sources
+  loki_blockchain_db.cpp
   lmdb/db_lmdb.cpp
   )
 
 if (BERKELEY_DB)
-  set(blockchain_db_sources
-  ${blockchain_db_sources}
+  set(loki_blockchain_db_sources
+  ${loki_blockchain_db_sources}
   berkeleydb/db_bdb.cpp
   )
 endif()
 
 
-set(blockchain_db_headers)
+set(loki_blockchain_db_headers)
 
-set(blockchain_db_private_headers
-  blockchain_db.h
+set(loki_blockchain_db_private_headers
+  loki_blockchain_db.h
   lmdb/db_lmdb.h
   )
 
 if (BERKELEY_DB)
-  set(blockchain_db_private_headers
-  ${blockchain_db_private_headers}
+  set(loki_blockchain_db_private_headers
+  ${loki_blockchain_db_private_headers}
   berkeleydb/db_bdb.h
   )
 endif()
 
-loki_private_headers(blockchain_db
+loki_private_headers(loki_blockchain_db
   ${crypto_private_headers})
-loki_add_library(blockchain_db
-  ${blockchain_db_sources}
-  ${blockchain_db_headers}
-  ${blockchain_db_private_headers})
-add_library(loki_blockchain_db
-  ${blockchain_db_sources}
-  ${blockchain_db_headers}
-  ${blockchain_db_private_headers})
+loki_add_library(loki_blockchain_db
+  ${loki_blockchain_db_sources}
+  ${loki_blockchain_db_headers}
+  ${loki_blockchain_db_private_headers})
 
 target_link_libraries(loki_blockchain_db
-  PUBLIC
-    common
-    cnhcrypto
-    ringct
-    ${LMDB_LIBRARY}
-    ${BDB_LIBRARY}
-    ${Boost_FILESYSTEM_LIBRARY}
-    ${Boost_THREAD_LIBRARY}
-  PRIVATE
-    ${EXTRA_LIBRARIES})
-
-target_link_libraries(blockchain_db
   PUBLIC
     common
     cnhcrypto

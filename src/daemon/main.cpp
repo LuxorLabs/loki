@@ -44,7 +44,7 @@
 #include "rpc/core_rpc_server.h"
 #include "rpc/rpc_args.h"
 #include "daemon/command_line_args.h"
-#include "blockchain_db/db_types.h"
+#include "loki_blockchain_db/db_types.h"
 #include "version.h"
 
 #ifdef STACK_TRACE
@@ -178,7 +178,7 @@ int main(int argc, char const *argv[])
     // verify that blockchaindb type is valid
     if (!cryptonote::blockchain_valid_db_type(db_type))
     {
-      std::cout << "Invalid database type (" << db_type << "), available types are: " << cryptonote::blockchain_db_types(", ") << std::endl;
+      std::cout << "Invalid database type (" << db_type << "), available types are: " << cryptonote::loki_blockchain_db_types(", ") << std::endl;
       return 0;
     }
 

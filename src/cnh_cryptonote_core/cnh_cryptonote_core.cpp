@@ -54,7 +54,7 @@ using namespace epee;
 #include <csignal>
 #include "checkpoints/checkpoints.h"
 #include "ringct/rctTypes.h"
-#include "blockchain_db/blockchain_db.h"
+#include "loki_blockchain_db/loki_blockchain_db.h"
 #include "ringct/rctSigs.h"
 #include "version.h"
 #include "wipeable_string.h"
@@ -399,7 +399,7 @@ bool core::init(const boost::program_options::variables_map &vm, const char *con
 
   const std::string filename = folder.string();
   // default to fast:async:1
-  blockchain_db_sync_mode sync_mode = db_defaultsync;
+  loki_blockchain_db_sync_mode sync_mode = db_defaultsync;
   uint64_t blocks_per_sync = 1;
 
   try

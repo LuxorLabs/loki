@@ -39,7 +39,7 @@
 #include "cnh_cryptonote_basic/cryptonote_basic_impl.h"
 #include "tx_pool.h"
 #include "blockchain.h"
-#include "blockchain_db/blockchain_db.h"
+#include "loki_blockchain_db/loki_blockchain_db.h"
 #include "cnh_cryptonote_basic/cryptonote_boost_serialization.h"
 #include "cnh_cryptonote_core/service_node_deregister.h"
 #include "cryptonote_config.h"
@@ -4550,7 +4550,7 @@ bool Blockchain::for_all_txpool_txes(std::function<bool(const crypto::hash &, co
   return m_db->for_all_txpool_txes(f, include_blob, include_unrelayed_txes);
 }
 
-void Blockchain::set_user_options(uint64_t maxthreads, uint64_t blocks_per_sync, blockchain_db_sync_mode sync_mode, bool fast_sync)
+void Blockchain::set_user_options(uint64_t maxthreads, uint64_t blocks_per_sync, loki_blockchain_db_sync_mode sync_mode, bool fast_sync)
 {
   if (sync_mode == db_defaultsync)
   {

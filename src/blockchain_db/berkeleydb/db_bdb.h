@@ -27,7 +27,7 @@
 
 #include <db_cxx.h>
 
-#include "blockchain_db/blockchain_db.h"
+#include "loki_blockchain_db/loki_blockchain_db.h"
 #include "cnh_cryptonote_basic/blobdatatype.h" // for type blobdata
 
 #include <unordered_map>

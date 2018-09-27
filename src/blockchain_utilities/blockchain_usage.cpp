@@ -34,8 +34,8 @@
 #include "cnh_cryptonote_core/tx_pool.h"
 #include "cnh_cryptonote_core/cnh_cryptonote_core.h"
 #include "cnh_cryptonote_core/blockchain.h"
-#include "blockchain_db/blockchain_db.h"
-#include "blockchain_db/db_types.h"
+#include "loki_blockchain_db/loki_blockchain_db.h"
+#include "loki_blockchain_db/db_types.h"
 #include "version.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY
@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 
   std::string default_db_type = "lmdb";
 
-  std::string available_dbs = cryptonote::blockchain_db_types(", ");
+  std::string available_dbs = cryptonote::loki_blockchain_db_types(", ");
   available_dbs = "available: " + available_dbs;
 
   uint32_t log_level = 0;

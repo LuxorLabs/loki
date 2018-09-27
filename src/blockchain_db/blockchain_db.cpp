@@ -1,22 +1,22 @@
 // Copyright (c) 2014-2018, The Monero Project
 // Copyright (c)      2018, The Loki Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -30,7 +30,7 @@
 #include <boost/range/adaptor/reversed.hpp>
 
 #include "string_tools.h"
-#include "blockchain_db.h"
+#include "loki_blockchain_db.h"
 #include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 #include "profile_tools.h"
 #include "ringct/rctOps.h"
@@ -41,12 +41,11 @@
 #endif
 
 static const char *db_types[] = {
-  "lmdb",
+    "lmdb",
 #ifdef BERKELEY_DB
-  "berkeley",
+    "berkeley",
 #endif
-  NULL
-};
+    NULL};
 
 #undef LOKI_DEFAULT_LOG_CATEGORY
 #define LOKI_DEFAULT_LOG_CATEGORY "blockchain.db"
@@ -56,10 +55,10 @@ using epee::string_tools::pod_to_hex;
 namespace cryptonote
 {
 
-bool blockchain_valid_db_type(const std::string& db_type)
+bool blockchain_valid_db_type(const std::string &db_type)
 {
   int i;
-  for (i=0; db_types[i]; i++)
+  for (i = 0; db_types[i]; i++)
   {
     if (db_types[i] == db_type)
       return true;
@@ -67,11 +66,11 @@ bool blockchain_valid_db_type(const std::string& db_type)
   return false;
 }
 
-std::string blockchain_db_types(const std::string& sep)
+std::string loki_blockchain_db_types(const std::string &sep)
 {
   int i;
   std::string ret = "";
-  for (i=0; db_types[i]; i++)
+  for (i = 0; db_types[i]; i++)
   {
     if (i)
       ret += sep;
@@ -80,24 +79,15 @@ std::string blockchain_db_types(const std::string& sep)
   return ret;
 }
 
-std::string arg_db_type_description = "Specify database type, available: " + cryptonote::blockchain_db_types(", ");
+std::string arg_db_type_description = "Specify database type, available: " + cryptonote::loki_blockchain_db_types(", ");
 const command_line::arg_descriptor<std::string> arg_db_type = {
-  "db-type"
-, arg_db_type_description.c_str()
-, DEFAULT_DB_TYPE
-};
+    "db-type", arg_db_type_description.c_str(), DEFAULT_DB_TYPE};
 const command_line::arg_descriptor<std::string> arg_db_sync_mode = {
-  "db-sync-mode"
-, "Specify sync option, using format [safe|fast|fastest]:[sync|async]:[nblocks_per_sync]." 
-, "fast:async:1000"
-};
-const command_line::arg_descriptor<bool> arg_db_salvage  = {
-  "db-salvage"
-, "Try to salvage a blockchain database if it seems corrupted"
-, false
-};
+    "db-sync-mode", "Specify sync option, using format [safe|fast|fastest]:[sync|async]:[nblocks_per_sync].", "fast:async:1000"};
+const command_line::arg_descriptor<bool> arg_db_salvage = {
+    "db-salvage", "Try to salvage a blockchain database if it seems corrupted", false};
 
-BlockchainDB *new_db(const std::string& db_type)
+BlockchainDB *new_db(const std::string &db_type)
 {
   if (db_type == "lmdb")
     return new BlockchainLMDB();
@@ -108,7 +98,7 @@ BlockchainDB *new_db(const std::string& db_type)
   return NULL;
 }
 
-void BlockchainDB::init_options(boost::program_options::options_description& desc)
+void BlockchainDB::init_options(boost::program_options::options_description &desc)
 {
   command_line::add_arg(desc, arg_db_type);
   command_line::add_arg(desc, arg_db_sync_mode);
@@ -122,7 +112,7 @@ void BlockchainDB::pop_block()
   pop_block(blk, txs);
 }
 
-void BlockchainDB::add_transaction(const crypto::hash& blk_hash, const transaction& tx, const crypto::hash* tx_hash_ptr, const crypto::hash* tx_prunable_hash_ptr)
+void BlockchainDB::add_transaction(const crypto::hash &blk_hash, const transaction &tx, const crypto::hash *tx_hash_ptr, const crypto::hash *tx_prunable_hash_ptr)
 {
   bool miner_tx = false;
   crypto::hash tx_hash, tx_prunable_hash;
@@ -144,7 +134,7 @@ void BlockchainDB::add_transaction(const crypto::hash& blk_hash, const transacti
       tx_prunable_hash = *tx_prunable_hash_ptr;
   }
 
-  for (const txin_v& tx_input : tx.vin)
+  for (const txin_v &tx_input : tx.vin)
   {
     if (tx_input.type() == typeid(txin_to_key))
     {
@@ -158,7 +148,7 @@ void BlockchainDB::add_transaction(const crypto::hash& blk_hash, const transacti
     else
     {
       LOG_PRINT_L1("Unsupported input type, removing key images and aborting transaction addition");
-      for (const txin_v& tx_input : tx.vin)
+      for (const txin_v &tx_input : tx.vin)
       {
         if (tx_input.type() == typeid(txin_to_key))
         {
@@ -195,23 +185,18 @@ void BlockchainDB::add_transaction(const crypto::hash& blk_hash, const transacti
       const rct::key commitment = rct::zeroCommit(vout.amount);
       vout.amount = 0;
       amount_output_indices.push_back(add_output(tx_hash, vout, i, unlock_time,
-        &commitment));
+                                                 &commitment));
     }
     else
     {
       amount_output_indices.push_back(add_output(tx_hash, tx.vout[i], i, unlock_time,
-        tx.version > 1 ? &tx.rct_signatures.outPk[i].mask : NULL));
+                                                 tx.version > 1 ? &tx.rct_signatures.outPk[i].mask : NULL));
     }
   }
   add_tx_amount_output_indices(tx_id, amount_output_indices);
 }
 
-uint64_t BlockchainDB::add_block( const block& blk
-                                , const size_t& block_size
-                                , const difficulty_type& cumulative_difficulty
-                                , const uint64_t& coins_generated
-                                , const std::vector<transaction>& txs
-                                )
+uint64_t BlockchainDB::add_block(const block &blk, const size_t &block_size, const difficulty_type &cumulative_difficulty, const uint64_t &coins_generated, const std::vector<transaction> &txs)
 {
   // sanity
   if (blk.tx_hashes.size() != txs.size())
@@ -232,7 +217,7 @@ uint64_t BlockchainDB::add_block( const block& blk
   add_transaction(blk_hash, blk.miner_tx);
   int tx_i = 0;
   crypto::hash tx_hash = crypto::null_hash;
-  for (const transaction& tx : txs)
+  for (const transaction &tx : txs)
   {
     tx_hash = blk.tx_hashes[tx_i];
     add_transaction(blk_hash, tx, &tx_hash);
@@ -256,18 +241,18 @@ uint64_t BlockchainDB::add_block( const block& blk
   return prev_height;
 }
 
-void BlockchainDB::set_hard_fork(HardFork* hf)
+void BlockchainDB::set_hard_fork(HardFork *hf)
 {
   m_hardfork = hf;
 }
 
-void BlockchainDB::pop_block(block& blk, std::vector<transaction>& txs)
+void BlockchainDB::pop_block(block &blk, std::vector<transaction> &txs)
 {
   blk = get_top_block();
 
   remove_block();
 
-  for (const auto& h : boost::adaptors::reverse(blk.tx_hashes))
+  for (const auto &h : boost::adaptors::reverse(blk.tx_hashes))
   {
     txs.push_back(get_tx(h));
     remove_transaction(h);
@@ -280,11 +265,11 @@ bool BlockchainDB::is_open() const
   return m_open;
 }
 
-void BlockchainDB::remove_transaction(const crypto::hash& tx_hash)
+void BlockchainDB::remove_transaction(const crypto::hash &tx_hash)
 {
   transaction tx = get_tx(tx_hash);
 
-  for (const txin_v& tx_input : tx.vin)
+  for (const txin_v &tx_input : tx.vin)
   {
     if (tx_input.type() == typeid(txin_to_key))
     {
@@ -296,7 +281,7 @@ void BlockchainDB::remove_transaction(const crypto::hash& tx_hash)
   remove_transaction_data(tx_hash, tx);
 }
 
-block BlockchainDB::get_block_from_height(const uint64_t& height) const
+block BlockchainDB::get_block_from_height(const uint64_t &height) const
 {
   blobdata bd = get_block_blob_from_height(height);
   block b;
@@ -306,7 +291,7 @@ block BlockchainDB::get_block_from_height(const uint64_t& height) const
   return b;
 }
 
-block BlockchainDB::get_block(const crypto::hash& h) const
+block BlockchainDB::get_block(const crypto::hash &h) const
 {
   blobdata bd = get_block_blob(h);
   block b;
@@ -316,7 +301,7 @@ block BlockchainDB::get_block(const crypto::hash& h) const
   return b;
 }
 
-bool BlockchainDB::get_tx(const crypto::hash& h, cryptonote::transaction &tx) const
+bool BlockchainDB::get_tx(const crypto::hash &h, cryptonote::transaction &tx) const
 {
   blobdata bd;
   if (!get_tx_blob(h, bd))
@@ -327,7 +312,7 @@ bool BlockchainDB::get_tx(const crypto::hash& h, cryptonote::transaction &tx) co
   return true;
 }
 
-transaction BlockchainDB::get_tx(const crypto::hash& h) const
+transaction BlockchainDB::get_tx(const crypto::hash &h) const
 {
   transaction tx;
   if (!get_tx(h, tx))
@@ -355,28 +340,28 @@ void BlockchainDB::reset_stats()
 void BlockchainDB::show_stats()
 {
   LOG_PRINT_L1(ENDL
-    << "*********************************"
-    << ENDL
-    << "num_calls: " << num_calls
-    << ENDL
-    << "time_blk_hash: " << time_blk_hash << "ms"
-    << ENDL
-    << "time_tx_exists: " << time_tx_exists << "ms"
-    << ENDL
-    << "time_add_block1: " << time_add_block1 << "ms"
-    << ENDL
-    << "time_add_transaction: " << time_add_transaction << "ms"
-    << ENDL
-    << "time_commit1: " << time_commit1 << "ms"
-    << ENDL
-    << "*********************************"
-    << ENDL
-  );
+               << "*********************************"
+               << ENDL
+               << "num_calls: " << num_calls
+               << ENDL
+               << "time_blk_hash: " << time_blk_hash << "ms"
+               << ENDL
+               << "time_tx_exists: " << time_tx_exists << "ms"
+               << ENDL
+               << "time_add_block1: " << time_add_block1 << "ms"
+               << ENDL
+               << "time_add_transaction: " << time_add_transaction << "ms"
+               << ENDL
+               << "time_commit1: " << time_commit1 << "ms"
+               << ENDL
+               << "*********************************"
+               << ENDL);
 }
 
 void BlockchainDB::fixup()
 {
-  if (is_read_only()) {
+  if (is_read_only())
+  {
     LOG_PRINT_L1("Database is opened read only - skipping fixup check");
     return;
   }
@@ -384,4 +369,4 @@ void BlockchainDB::fixup()
   set_batch_transactions(true);
 }
 
-}  // namespace cryptonote
+} // namespace cryptonote

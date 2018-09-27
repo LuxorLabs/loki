@@ -38,7 +38,7 @@
 #include "cnh_cryptonote_basic/cryptonote_basic.h"
 #include "cnh_cryptonote_basic/cryptonote_boost_serialization.h"
 #include "cnh_cryptonote_core/blockchain.h"
-#include "blockchain_db/blockchain_db.h"
+#include "loki_blockchain_db/loki_blockchain_db.h"
 
 #include <algorithm>
 #include <cstdio>

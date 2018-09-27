@@ -38,7 +38,7 @@ loki_add_executable(cn_deserialize
 target_link_libraries(cn_deserialize
   LINK_PRIVATE
     cnh_cryptonote_core
-    blockchain_db
+    loki_blockchain_db
     device
     ringct
     p2p
@@ -61,7 +61,7 @@ loki_add_executable(object_sizes
 target_link_libraries(object_sizes
   LINK_PRIVATE
     cnh_cryptonote_core
-    blockchain_db
+    loki_blockchain_db
     p2p
     epee
     ${CMAKE_THREAD_LIBS_INIT})
