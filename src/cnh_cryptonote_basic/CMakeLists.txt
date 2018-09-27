@@ -66,7 +66,7 @@ loki_add_library(cnh_cryptonote_basic
   ${cnh_cryptonote_basic_private_headers})
 target_link_libraries(cnh_cryptonote_basic
   PUBLIC
-    common
+    loki_common
     cnhcrypto
     checkpoints
     device
@@ -76,5 +76,6 @@ target_link_libraries(cnh_cryptonote_basic
     ${Boost_FILESYSTEM_LIBRARY}
     ${Boost_SYSTEM_LIBRARY}
     ${Boost_THREAD_LIBRARY}
+    ${Boost_REGEX_LIBRARY}
   PRIVATE
     ${EXTRA_LIBRARIES})

@@ -82,7 +82,30 @@ loki_add_library(common
   ${common_sources}
   ${common_headers}
   ${common_private_headers}
-  DEPENDS generate_translations_header)
+  )
+
+add_library(loki_common
+  ${common_sources}
+  ${common_headers}
+  ${common_private_headers}
+)
+
+target_link_libraries(loki_common
+  PUBLIC
+    epee
+    cnhcrypto
+    ${UNBOUND_LIBRARY}
+    ${LIBUNWIND_LIBRARIES}
+    ${Boost_DATE_TIME_LIBRARY}
+    ${Boost_FILESYSTEM_LIBRARY}
+    ${Boost_SYSTEM_LIBRARY}
+    ${Boost_THREAD_LIBRARY}
+    ${Boost_REGEX_LIBRARY}
+    ${Boost_CHRONO_LIBRARY}
+  PRIVATE
+    ${OPENSSL_LIBRARIES}
+    ${EXTRA_LIBRARIES})
+
 target_link_libraries(common
   PUBLIC
     epee

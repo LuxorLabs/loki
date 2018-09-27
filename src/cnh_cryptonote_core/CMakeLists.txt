@@ -62,10 +62,10 @@ loki_add_library(cnh_cryptonote_core
   ${cnh_cryptonote_core_private_headers})
 target_link_libraries(cnh_cryptonote_core
   PUBLIC
-    version
-    common
+    loki_version
+    loki_common
     cnhcrypto
-    blockchain_db
+    loki_blockchain_db
     multisig
     ringct
     device
@@ -75,6 +75,5 @@ target_link_libraries(cnh_cryptonote_core
     ${Boost_FILESYSTEM_LIBRARY}
     ${Boost_SYSTEM_LIBRARY}
     ${Boost_THREAD_LIBRARY}
-  PRIVATE
-    ${Blocks}
-    ${EXTRA_LIBRARIES})
+    ${EXTRA_LIBRARIES}
+    ${Blocks})

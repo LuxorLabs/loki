@@ -60,6 +60,23 @@ loki_add_library(blockchain_db
   ${blockchain_db_sources}
   ${blockchain_db_headers}
   ${blockchain_db_private_headers})
+add_library(loki_blockchain_db
+  ${blockchain_db_sources}
+  ${blockchain_db_headers}
+  ${blockchain_db_private_headers})
+
+target_link_libraries(loki_blockchain_db
+  PUBLIC
+    common
+    cnhcrypto
+    ringct
+    ${LMDB_LIBRARY}
+    ${BDB_LIBRARY}
+    ${Boost_FILESYSTEM_LIBRARY}
+    ${Boost_THREAD_LIBRARY}
+  PRIVATE
+    ${EXTRA_LIBRARIES})
+
 target_link_libraries(blockchain_db
   PUBLIC
     common
