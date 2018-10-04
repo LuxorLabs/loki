@@ -66,7 +66,7 @@ loki_add_library(cnh_cryptonote_basic
   ${cnh_cryptonote_basic_private_headers})
 target_link_libraries(cnh_cryptonote_basic
   PUBLIC
-    common
+    cnh_common
     cnhcrypto
     checkpoints
     device

@@ -39,7 +39,7 @@
 #include <boost/thread/lock_guard.hpp>
 #include <boost/shared_ptr.hpp>
 
-#include "common/varint.h"
+#include "cnh_common/varint.h"
 #include "warnings.h"
 #include "crypto.h"
 #include "cnh_hash.h"

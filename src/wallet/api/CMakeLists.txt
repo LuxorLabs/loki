@@ -67,7 +67,7 @@ loki_add_library(wallet_api
 target_link_libraries(wallet_api
   PUBLIC
     wallet
-    common
+    cnh_common
     cnh_cryptonote_core
     mnemonics
     ${LMDB_LIBRARY}

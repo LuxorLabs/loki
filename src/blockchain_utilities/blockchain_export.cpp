@@ -29,7 +29,7 @@
 
 #include "bootstrap_file.h"
 #include "blocksdat_file.h"
-#include "common/command_line.h"
+#include "cnh_common/command_line.h"
 #include "cnh_cryptonote_core/tx_pool.h"
 #include "cnh_cryptonote_core/cnh_cryptonote_core.h"
 #include "blockchain_db/blockchain_db.h"

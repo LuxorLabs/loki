@@ -45,8 +45,8 @@
 #include "cnh_cryptonote_basic/cryptonote_basic_impl.h"
 #include "wallet/wallet2.h"
 #include "console_handler.h"
-#include "common/i18n.h"
-#include "common/password.h"
+#include "cnh_common/i18n.h"
+#include "cnh_common/password.h"
 #include "cnh_crypto/crypto.h"  // for definition of crypto::secret_key
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

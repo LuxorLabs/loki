@@ -31,8 +31,8 @@
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/format.hpp>
-#include "common/i18n.h"
-#include "common/util.h"
+#include "cnh_common/i18n.h"
+#include "cnh_common/util.h"
 #include "misc_log_ex.h"
 #include "string_tools.h"
 #include "version.h"

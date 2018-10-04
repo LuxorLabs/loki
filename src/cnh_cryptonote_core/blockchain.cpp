@@ -45,15 +45,15 @@
 #include "misc_language.h"
 #include "profile_tools.h"
 #include "file_io_utils.h"
-#include "common/int-util.h"
-#include "common/threadpool.h"
-#include "common/rules.h"
-#include "common/boost_serialization_helper.h"
+#include "cnh_common/int-util.h"
+#include "cnh_common/threadpool.h"
+#include "cnh_common/rules.h"
+#include "cnh_common/boost_serialization_helper.h"
 #include "warnings.h"
 #include "cnh_crypto/cnh_hash.h"
 #include "cnh_cryptonote_core.h"
 #include "ringct/rctSigs.h"
-#include "common/perf_timer.h"
+#include "cnh_common/perf_timer.h"
 #if defined(PER_BLOCK_CHECKPOINT)
 #include "blocks/blocks.h"
 #endif
@@ -65,7 +65,7 @@
 
 using namespace crypto;
 
-//#include "serialization/json_archive.h"
+//#include "cnh_serialization/json_archive.h"
 
 /* TODO:
  *  Clean up code:

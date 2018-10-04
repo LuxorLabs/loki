@@ -31,7 +31,7 @@
 #include "cnh_cryptonote_basic/cryptonote_basic.h"
 #include "cnh_cryptonote_basic/tx_extra.h"
 #include "cnh_cryptonote_core/blockchain.h"
-#include "common/command_line.h"
+#include "cnh_common/command_line.h"
 #include "version.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

@@ -31,8 +31,8 @@
 #include <boost/algorithm/string.hpp>
 #include <boost/asio/ip/address.hpp>
 #include <boost/bind.hpp>
-#include "common/command_line.h"
-#include "common/i18n.h"
+#include "cnh_common/command_line.h"
+#include "cnh_common/i18n.h"
 
 namespace cryptonote
 {

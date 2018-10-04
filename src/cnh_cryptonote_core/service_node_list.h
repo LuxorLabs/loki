@@ -30,7 +30,7 @@
 
 #include "blockchain.h"
 #include <boost/variant.hpp>
-#include "serialization/serialization.h"
+#include "cnh_serialization/serialization.h"
 
 namespace service_nodes
 {

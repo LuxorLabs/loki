@@ -39,8 +39,8 @@
 #include <type_traits>
 #include <vector>
 
-#include "common/pod-class.h"
-#include "common/util.h"
+#include "cnh_common/pod-class.h"
+#include "cnh_common/util.h"
 #include "memwipe.h"
 #include "generic-ops.h"
 #include "hex.h"

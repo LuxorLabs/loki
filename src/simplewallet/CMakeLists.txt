@@ -48,7 +48,7 @@ target_link_libraries(simplewallet
     rpc_base
     cnh_cryptonote_core
     cnhcrypto
-    common
+    cnh_common
     mnemonics
     epee
     ${EPEE_READLINE}

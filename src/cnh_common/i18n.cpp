@@ -34,8 +34,8 @@
 #include <map>
 #include "include_base_utils.h"
 #include "file_io_utils.h"
-#include "common/util.h"
-#include "common/i18n.h"
+#include "cnh_common/util.h"
+#include "cnh_common/i18n.h"
 #include "translation_files.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

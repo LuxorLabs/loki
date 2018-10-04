@@ -38,7 +38,7 @@
 #include "subaddress.h"
 #include "subaddress_account.h"
 #include "common_defines.h"
-#include "common/util.h"
+#include "cnh_common/util.h"
 
 #include "mnemonics/electrum-words.h"
 #include "mnemonics/english.h"

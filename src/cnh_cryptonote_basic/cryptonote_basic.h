@@ -36,12 +36,12 @@
 #include <cstring>  // memcmp
 #include <sstream>
 #include <atomic>
-#include "serialization/variant.h"
-#include "serialization/vector.h"
-#include "serialization/binary_archive.h"
-#include "serialization/json_archive.h"
-#include "serialization/debug_archive.h"
-#include "serialization/crypto.h"
+#include "cnh_serialization/variant.h"
+#include "cnh_serialization/vector.h"
+#include "cnh_serialization/binary_archive.h"
+#include "cnh_serialization/json_archive.h"
+#include "cnh_serialization/debug_archive.h"
+#include "cnh_serialization/crypto.h"
 #include "serialization/keyvalue_serialization.h" // eepe named serialization
 #include "cryptonote_config.h"
 #include "cnh_crypto/crypto.h"
@@ -181,11 +181,8 @@ namespace cryptonote
 
     BEGIN_SERIALIZE()
       VARINT_FIELD(version)
-      if (version > 2)
-      {
-        FIELD(output_unlock_times)
-        FIELD(is_deregister)
-      }
+      FIELD(output_unlock_times)
+      FIELD(is_deregister)
       if(version == 0 || CURRENT_TRANSACTION_VERSION < version) return false;
       VARINT_FIELD(unlock_time)
       FIELD(vin)

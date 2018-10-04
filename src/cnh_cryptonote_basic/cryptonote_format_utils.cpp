@@ -34,10 +34,10 @@ using namespace epee;
 
 #include <atomic>
 #include <boost/algorithm/string.hpp>
-#include "common/i18n.h"
+#include "cnh_common/i18n.h"
 #include "wipeable_string.h"
 #include "string_tools.h"
-#include "serialization/string.h"
+#include "cnh_serialization/string.h"
 #include "cryptonote_format_utils.h"
 #include "cryptonote_config.h"
 #include "cnh_crypto/crypto.h"

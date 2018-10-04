@@ -49,7 +49,7 @@ loki_add_library(checkpoints
   ${checkpoints_private_headers})
 target_link_libraries(checkpoints
   PUBLIC
-    common
+    cnh_common
     cnhcrypto
     ${Boost_DATE_TIME_LIBRARY}
     ${Boost_PROGRAM_OPTIONS_LIBRARY}

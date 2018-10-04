@@ -30,8 +30,8 @@
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
 #include "string_tools.h"
-#include "common/password.h"
-#include "common/scoped_message_writer.h"
+#include "cnh_common/password.h"
+#include "cnh_common/scoped_message_writer.h"
 #include "daemon/rpc_command_executor.h"
 #include "rpc/core_rpc_server_commands_defs.h"
 #include "cnh_cryptonote_core/cnh_cryptonote_core.h"

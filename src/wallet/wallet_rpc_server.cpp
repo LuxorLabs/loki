@@ -38,8 +38,8 @@ using namespace epee;
 
 #include "wallet_rpc_server.h"
 #include "wallet/wallet_args.h"
-#include "common/command_line.h"
-#include "common/i18n.h"
+#include "cnh_common/command_line.h"
+#include "cnh_common/i18n.h"
 #include "cryptonote_config.h"
 #include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 #include "cnh_cryptonote_basic/account.h"

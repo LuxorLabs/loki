@@ -55,7 +55,7 @@ loki_add_library(wallet
 target_link_libraries(wallet
   PUBLIC
     multisig
-    common
+    cnh_common
     cnh_cryptonote_core
     mnemonics
     ${LMDB_LIBRARY}
@@ -90,7 +90,7 @@ target_link_libraries(wallet_rpc_server
     rpc_base
     cnh_cryptonote_core
     cnhcrypto
-    common
+    cnh_common
     cnh_version
     ${Boost_CHRONO_LIBRARY}
     ${Boost_PROGRAM_OPTIONS_LIBRARY}
@@ -113,7 +113,7 @@ if (BUILD_GUI_DEPS)
             cnh_cryptonote_core
             cnh_cryptonote_basic
             mnemonics
-            common
+            cnh_common
             cnhcrypto
             device
             ringct

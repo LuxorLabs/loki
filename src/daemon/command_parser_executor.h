@@ -39,7 +39,7 @@
 #include <boost/optional/optional.hpp>
 
 #include "daemon/rpc_command_executor.h"
-#include "common/common_fwd.h"
+#include "cnh_common/common_fwd.h"
 #include "rpc/core_rpc_server.h"
 
 namespace daemonize {

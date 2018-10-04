@@ -29,9 +29,9 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "misc_log_ex.h"
-#include "common/perf_timer.h"
-#include "common/threadpool.h"
-#include "common/util.h"
+#include "cnh_common/perf_timer.h"
+#include "cnh_common/threadpool.h"
+#include "cnh_common/util.h"
 #include "rctSigs.h"
 #include "bulletproofs.h"
 #include "cnh_cryptonote_basic/cryptonote_format_utils.h"

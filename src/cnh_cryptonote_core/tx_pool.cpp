@@ -40,11 +40,11 @@
 #include "cryptonote_config.h"
 #include "blockchain.h"
 #include "blockchain_db/blockchain_db.h"
-#include "common/boost_serialization_helper.h"
-#include "common/int-util.h"
+#include "cnh_common/boost_serialization_helper.h"
+#include "cnh_common/int-util.h"
 #include "misc_language.h"
 #include "warnings.h"
-#include "common/perf_timer.h"
+#include "cnh_common/perf_timer.h"
 #include "cnh_crypto/cnh_hash.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

@@ -46,12 +46,12 @@
 #include <boost/regex.hpp>
 #include <boost/range/adaptor/transformed.hpp>
 #include "include_base_utils.h"
-#include "common/i18n.h"
-#include "common/command_line.h"
-#include "common/util.h"
-#include "common/dns_utils.h"
-#include "common/base58.h"
-#include "common/scoped_message_writer.h"
+#include "cnh_common/i18n.h"
+#include "cnh_common/command_line.h"
+#include "cnh_common/util.h"
+#include "cnh_common/dns_utils.h"
+#include "cnh_common/base58.h"
+#include "cnh_common/scoped_message_writer.h"
 #include "cryptonote_protocol/cryptonote_protocol_handler.h"
 #include "cnh_cryptonote_core/service_node_deregister.h"
 #include "cnh_cryptonote_core/service_node_list.h"
@@ -62,14 +62,14 @@
 #include "cnh_crypto/crypto.h"  // for crypto::secret_key definition
 #include "mnemonics/electrum-words.h"
 #include "rapidjson/document.h"
-#include "common/json_util.h"
+#include "cnh_common/json_util.h"
 #include "ringct/rctSigs.h"
 #include "multisig/multisig.h"
 #include "wallet/wallet_args.h"
 #include "version.h"
 #include <stdexcept>
-#include "common/int-util.h"
-#include "common/threadpool.h"
+#include "cnh_common/int-util.h"
+#include "cnh_common/threadpool.h"
 #include "daemonizer/posix_fork.h"
 #ifndef WIN32
 #include <cstdlib>

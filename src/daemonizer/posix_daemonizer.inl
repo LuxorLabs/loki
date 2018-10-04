@@ -29,8 +29,8 @@
 
 #pragma once
 
-#include "common/scoped_message_writer.h"
-#include "common/util.h"
+#include "cnh_common/scoped_message_writer.h"
+#include "cnh_common/util.h"
 #include "daemonizer/posix_fork.h"
 
 #include <boost/filesystem/operations.hpp>

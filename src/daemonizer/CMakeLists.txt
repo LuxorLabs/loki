@@ -67,7 +67,7 @@ loki_add_library(daemonizer
   ${daemonizer_private_headers})
 target_link_libraries(daemonizer
   PUBLIC
-    common
+    cnh_common
     ${Boost_CHRONO_LIBRARY}
     ${Boost_FILESYSTEM_LIBRARY}
     ${Boost_PROGRAM_OPTIONS_LIBRARY}

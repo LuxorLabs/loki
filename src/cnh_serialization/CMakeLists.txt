@@ -35,13 +35,13 @@ set(serialization_headers)
 set(serialization_private_headers
   json_object.h)
 
-loki_private_headers(serialization
+loki_private_headers(cnh_serialization
   ${serialization_private_headers})
-loki_add_library(serialization
+loki_add_library(cnh_serialization
   ${serialization_sources}
   ${serialization_headers}
   ${serialization_private_headers})
-target_link_libraries(serialization
+target_link_libraries(cnh_serialization
   LINK_PRIVATE
     cnh_cryptonote_core
     cryptonote_protocol
@@ -50,6 +50,6 @@ target_link_libraries(serialization
     ${Boost_SYSTEM_LIBRARY}
     ${Boost_THREAD_LIBRARY}
     ${EXTRA_LIBRARIES})
-add_dependencies(serialization
+add_dependencies(cnh_serialization
 cnh_version)
 

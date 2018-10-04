@@ -44,7 +44,7 @@
 #include "syncobj.h"
 #include "string_tools.h"
 #include "cnh_cryptonote_basic/cryptonote_basic.h"
-#include "common/util.h"
+#include "cnh_common/util.h"
 #include "cryptonote_protocol/cryptonote_protocol_defs.h"
 #include "rpc/core_rpc_server_commands_defs.h"
 #include "cnh_cryptonote_basic/difficulty.h"

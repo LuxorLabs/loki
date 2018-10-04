@@ -37,8 +37,8 @@
 #include "rpc/daemon_handler.h"
 #include "rpc/zmq_server.h"
 
-#include "common/password.h"
-#include "common/util.h"
+#include "cnh_common/password.h"
+#include "cnh_common/util.h"
 #include "daemon/core.h"
 #include "daemon/p2p.h"
 #include "daemon/protocol.h"

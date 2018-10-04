@@ -33,9 +33,9 @@
 #include "wallet_manager.h"
 #include "wallet.h"
 #include "common_defines.h"
-#include "common/dns_utils.h"
-#include "common/util.h"
-#include "common/updates.h"
+#include "cnh_common/dns_utils.h"
+#include "cnh_common/util.h"
+#include "cnh_common/updates.h"
 #include "version.h"
 #include "net/http_client.h"
 #include <boost/filesystem.hpp>

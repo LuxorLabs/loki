@@ -50,7 +50,7 @@
 #include "rpc/core_rpc_server_commands_defs.h"
 #include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 #include "cnh_cryptonote_core/cryptonote_tx_utils.h"
-#include "common/unordered_containers_boost_serialization.h"
+#include "cnh_common/unordered_containers_boost_serialization.h"
 #include "cnh_crypto/chacha.h"
 #include "cnh_crypto/cnh_hash.h"
 #include "ringct/rctTypes.h"
@@ -58,7 +58,7 @@
 #include "checkpoints/checkpoints.h"
 
 #include "wallet_errors.h"
-#include "common/password.h"
+#include "cnh_common/password.h"
 #include "node_rpc_proxy.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

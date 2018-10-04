@@ -38,7 +38,7 @@
 #include <iterator>
 #include <boost/type_traits/make_unsigned.hpp>
 
-#include "common/varint.h"
+#include "cnh_common/varint.h"
 #include "warnings.h"
 
 /* I have no clue what these lines means */

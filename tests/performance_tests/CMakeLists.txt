@@ -54,7 +54,7 @@ target_link_libraries(performance_tests
   PRIVATE
     wallet
     cnh_cryptonote_core
-    common
+    cnh_common
     cnhcrypto
     epee
     ${Boost_CHRONO_LIBRARY}

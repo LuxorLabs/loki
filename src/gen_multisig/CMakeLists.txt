@@ -37,7 +37,7 @@ target_link_libraries(gen_multisig
     wallet
     cnh_cryptonote_core
     cnhcrypto
-    common
+    cnh_common
     epee
     ${EPEE_READLINE}
     ${Boost_CHRONO_LIBRARY}

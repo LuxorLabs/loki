@@ -35,15 +35,15 @@ using namespace epee;
 #include "cryptonote_basic_impl.h"
 #include "exp2.cpp"
 #include "string_tools.h"
-#include "serialization/binary_utils.h"
-#include "serialization/container.h"
+#include "cnh_serialization/binary_utils.h"
+#include "cnh_serialization/container.h"
 #include "cryptonote_format_utils.h"
 #include "cryptonote_config.h"
 #include "misc_language.h"
-#include "common/base58.h"
+#include "cnh_common/base58.h"
 #include "cnh_crypto/cnh_hash.h"
-#include "common/int-util.h"
-#include "common/dns_utils.h"
+#include "cnh_common/int-util.h"
+#include "cnh_common/dns_utils.h"
 
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

@@ -30,7 +30,7 @@
 
 #include "gtest/gtest.h"
 
-#include "common/int-util.h"
+#include "cnh_common/int-util.h"
 
 namespace
 {

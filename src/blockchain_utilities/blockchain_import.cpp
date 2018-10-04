@@ -38,8 +38,8 @@
 #include "bootstrap_file.h"
 #include "bootstrap_serialization.h"
 #include "cnh_cryptonote_basic/cryptonote_format_utils.h"
-#include "serialization/binary_utils.h" // dump_binary(), parse_binary()
-#include "serialization/json_utils.h" // dump_json()
+#include "cnh_serialization/binary_utils.h" // dump_binary(), parse_binary()
+#include "cnh_serialization/json_utils.h" // dump_json()
 #include "include_base_utils.h"
 #include "blockchain_db/db_types.h"
 #include "cnh_cryptonote_core/cnh_cryptonote_core.h"

@@ -33,7 +33,7 @@
 #include <string>
 #include <memory>
 
-#include "common/command_line.h"
+#include "cnh_common/command_line.h"
 
 #include "rpc_handler.h"
 

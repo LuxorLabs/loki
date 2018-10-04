@@ -31,7 +31,7 @@
 
 
 #include "device_default.hpp"
-#include "common/int-util.h"
+#include "cnh_common/int-util.h"
 #include "cnh_cryptonote_basic/account.h"
 #include "cnh_cryptonote_basic/subaddress_index.h"
 #include "ringct/rctOps.h"

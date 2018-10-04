@@ -31,13 +31,13 @@ include_directories(SYSTEM ${OPENSSL_INCLUDE_DIR})
 
 set(common_sources
   base58.cpp
+  exp2.cpp
   command_line.cpp
   dns_utils.cpp
   download.cpp
   util.cpp
   i18n.cpp
   round.cpp
-  exp2.cpp
   password.cpp
   perf_timer.cpp
   rules.cpp
@@ -53,13 +53,13 @@ set(common_headers)
 set(common_private_headers
   apply_permutation.h
   base58.h
+  exp2.h
   boost_serialization_helper.h
   command_line.h
   common_fwd.h
   dns_utils.h
   download.h
   round.h
-  exp2.h
   http_connection.h
   int-util.h
   pod-class.h
@@ -76,14 +76,14 @@ set(common_private_headers
   threadpool.h
   updates.h)
 
-loki_private_headers(common
+loki_private_headers(cnh_common
   ${common_private_headers})
-loki_add_library(common
+loki_add_library(cnh_common
   ${common_sources}
   ${common_headers}
   ${common_private_headers}
   DEPENDS generate_translations_header)
-target_link_libraries(common
+target_link_libraries(cnh_common
   PUBLIC
     epee
     cnhcrypto

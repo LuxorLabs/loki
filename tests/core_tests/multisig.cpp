@@ -31,7 +31,7 @@
 #include "ringct/rctSigs.h"
 #include "cnh_cryptonote_basic/cryptonote_basic.h"
 #include "multisig/multisig.h"
-#include "common/apply_permutation.h"
+#include "cnh_common/apply_permutation.h"
 #include "chaingen.h"
 #include "multisig.h"
 #include "device/device.hpp"

@@ -41,8 +41,8 @@
 #include <boost/serialization/variant.hpp>
 
 #include "include_base_utils.h"
-#include "common/boost_serialization_helper.h"
-#include "common/command_line.h"
+#include "cnh_common/boost_serialization_helper.h"
+#include "cnh_common/command_line.h"
 
 #include "cnh_cryptonote_basic/account_boost_serialization.h"
 #include "cnh_cryptonote_basic/cryptonote_basic.h"

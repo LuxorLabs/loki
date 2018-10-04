@@ -34,11 +34,11 @@
 using namespace epee;
 
 #include "core_rpc_server.h"
-#include "common/command_line.h"
-#include "common/updates.h"
-#include "common/download.h"
-#include "common/util.h"
-#include "common/perf_timer.h"
+#include "cnh_common/command_line.h"
+#include "cnh_common/updates.h"
+#include "cnh_common/download.h"
+#include "cnh_common/util.h"
+#include "cnh_common/perf_timer.h"
 #include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 #include "cnh_cryptonote_basic/account.h"
 #include "cnh_cryptonote_basic/cryptonote_basic_impl.h"

@@ -39,12 +39,12 @@ using namespace epee;
 #include <iomanip>
 
 #include "cnh_cryptonote_core.h"
-#include "common/command_line.h"
-#include "common/util.h"
-#include "common/updates.h"
-#include "common/download.h"
-#include "common/threadpool.h"
-#include "common/command_line.h"
+#include "cnh_common/command_line.h"
+#include "cnh_common/util.h"
+#include "cnh_common/updates.h"
+#include "cnh_common/download.h"
+#include "cnh_common/threadpool.h"
+#include "cnh_common/command_line.h"
 #include "warnings.h"
 #include "cnh_crypto/crypto.h"
 #include "cryptonote_config.h"
@@ -58,7 +58,7 @@ using namespace epee;
 #include "ringct/rctSigs.h"
 #include "version.h"
 #include "wipeable_string.h"
-#include "common/i18n.h"
+#include "cnh_common/i18n.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY
 #define LOKI_DEFAULT_LOG_CATEGORY "cn"

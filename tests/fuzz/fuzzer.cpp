@@ -29,8 +29,8 @@
 #include <boost/program_options.hpp>
 #include "include_base_utils.h"
 #include "string_tools.h"
-#include "common/command_line.h"
-#include "common/util.h"
+#include "cnh_common/command_line.h"
+#include "cnh_common/util.h"
 #include "fuzzer.h"
 
 #if (!defined(__clang__) || (__clang__ < 5))

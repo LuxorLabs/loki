@@ -29,8 +29,8 @@
 
 #include <boost/range/adaptor/transformed.hpp>
 #include <boost/algorithm/string.hpp>
-#include "common/command_line.h"
-#include "common/varint.h"
+#include "cnh_common/command_line.h"
+#include "cnh_common/varint.h"
 #include "cnh_cryptonote_core/tx_pool.h"
 #include "cnh_cryptonote_core/cnh_cryptonote_core.h"
 #include "cnh_cryptonote_core/blockchain.h"

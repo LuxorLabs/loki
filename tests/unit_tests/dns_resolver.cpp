@@ -31,7 +31,7 @@
 
 #include "gtest/gtest.h"
 
-#include "common/dns_utils.h"
+#include "cnh_common/dns_utils.h"
 
 TEST(DNSResolver, IPv4Success)
 {

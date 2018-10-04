@@ -41,10 +41,10 @@
 #include <boost/format.hpp>
 #include "include_base_utils.h"
 #include "cnh_crypto/crypto.h"  // for crypto::secret_key definition
-#include "common/i18n.h"
-#include "common/command_line.h"
-#include "common/util.h"
-#include "common/scoped_message_writer.h"
+#include "cnh_common/i18n.h"
+#include "cnh_common/command_line.h"
+#include "cnh_common/util.h"
+#include "cnh_common/scoped_message_writer.h"
 #include "wallet/wallet_args.h"
 #include "wallet/wallet2.h"
 

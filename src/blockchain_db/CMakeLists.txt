@@ -62,7 +62,7 @@ loki_add_library(blockchain_db
   ${blockchain_db_private_headers})
 target_link_libraries(blockchain_db
   PUBLIC
-    common
+    cnh_common
     cnhcrypto
     ringct
     ${LMDB_LIBRARY}

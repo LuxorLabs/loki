@@ -40,7 +40,7 @@ target_link_libraries(transfers
     rpc
     cnh_cryptonote_core
     cnhcrypto
-    common
+    cnh_common
     epee
     ${GTEST_LIBRARIES})
 

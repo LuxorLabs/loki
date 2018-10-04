@@ -42,7 +42,7 @@ target_link_libraries(functional_tests
   PRIVATE
     cnh_cryptonote_core
     wallet
-    common
+    cnh_common
     cnhcrypto
     epee
     ${Boost_REGEX_LIBRARY}

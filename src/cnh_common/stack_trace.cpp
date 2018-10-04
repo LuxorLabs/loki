@@ -44,7 +44,7 @@
 #include <dlfcn.h>
 #endif
 #include <boost/algorithm/string.hpp>
-#include "common/stack_trace.h"
+#include "cnh_common/stack_trace.h"
 #include "misc_log_ex.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

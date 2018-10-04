@@ -28,7 +28,7 @@
 
 #include "include_base_utils.h"
 #include "file_io_utils.h"
-#include "common/base58.h"
+#include "cnh_common/base58.h"
 #include "fuzzer.h"
 
 class Base58Fuzzer: public Fuzzer

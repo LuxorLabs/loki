@@ -32,9 +32,9 @@
 
 #include <cstdint>
 
-#include "common/base58.cpp"
+#include "cnh_common/base58.cpp"
 #include "cnh_cryptonote_basic/cryptonote_basic_impl.h"
-#include "serialization/binary_utils.h"
+#include "cnh_serialization/binary_utils.h"
 
 using namespace tools;
 

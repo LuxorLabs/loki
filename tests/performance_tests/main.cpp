@@ -30,8 +30,8 @@
 
 #include <boost/regex.hpp>
 
-#include "common/util.h"
-#include "common/command_line.h"
+#include "cnh_common/util.h"
+#include "cnh_common/command_line.h"
 #include "performance_tests.h"
 #include "performance_utils.h"
 

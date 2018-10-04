@@ -30,8 +30,8 @@
 
 #include <boost/optional/optional.hpp>
 
-#include "common/http_connection.h"
-#include "common/scoped_message_writer.h"
+#include "cnh_common/http_connection.h"
+#include "cnh_common/scoped_message_writer.h"
 #include "rpc/core_rpc_server_commands_defs.h"
 #include "storages/http_abstract_invoke.h"
 #include "net/http_auth.h"

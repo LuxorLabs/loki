@@ -35,7 +35,7 @@
 #include <cstdint>
 #include <vector>
 
-#include "common/int-util.h"
+#include "cnh_common/int-util.h"
 #include "cnh_crypto/cnh_hash.h"
 #include "cryptonote_config.h"
 #include "difficulty.h"

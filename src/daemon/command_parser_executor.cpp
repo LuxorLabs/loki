@@ -27,7 +27,7 @@
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#include "common/dns_utils.h"
+#include "cnh_common/dns_utils.h"
 #include "version.h"
 #include "daemon/command_parser_executor.h"
 

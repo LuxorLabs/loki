@@ -34,11 +34,11 @@
 #include "wallet/wallet2.h"
 #include "cryptonote_tx_utils.h"
 #include "cnh_cryptonote_basic/tx_extra.h"
-#include "common/int-util.h"
-#include "common/scoped_message_writer.h"
-#include "common/i18n.h"
+#include "cnh_common/int-util.h"
+#include "cnh_common/scoped_message_writer.h"
+#include "cnh_common/i18n.h"
 #include "quorum_cop.h"
-#include "common/exp2.h"
+#include "cnh_common/exp2.h"
 
 #include "service_node_list.h"
 

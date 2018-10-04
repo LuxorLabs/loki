@@ -41,7 +41,7 @@
 #include "cryptonote_basic_impl.h"
 #include "cryptonote_format_utils.h"
 #include "file_io_utils.h"
-#include "common/command_line.h"
+#include "cnh_common/command_line.h"
 #include "string_coding.h"
 #include "string_tools.h"
 #include "storages/portable_storage_template_helper.h"

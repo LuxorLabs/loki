@@ -98,7 +98,7 @@ loki_add_library(daemon_rpc_server
 
 target_link_libraries(rpc_base
   PUBLIC
-    common
+    cnh_common
     epee
     ${Boost_REGEX_LIBRARY}
     ${Boost_THREAD_LIBRARY}
@@ -109,7 +109,7 @@ target_link_libraries(rpc_base
 target_link_libraries(rpc
   PUBLIC
     rpc_base
-    common
+    cnh_common
     cnh_cryptonote_core
     cryptonote_protocol
     epee
@@ -122,7 +122,7 @@ target_link_libraries(daemon_messages
   LINK_PRIVATE
   cnh_cryptonote_core
     cryptonote_protocol
-    serialization
+    cnh_serialization
     ${EXTRA_LIBRARIES})
 
 target_link_libraries(daemon_rpc_server
@@ -131,7 +131,7 @@ target_link_libraries(daemon_rpc_server
     cnh_cryptonote_core
     cryptonote_protocol
     daemon_messages
-    serialization
+    cnh_serialization
     ${Boost_CHRONO_LIBRARY}
     ${Boost_REGEX_LIBRARY}
     ${Boost_SYSTEM_LIBRARY}

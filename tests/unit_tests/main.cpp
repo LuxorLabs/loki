@@ -40,8 +40,8 @@
 #include "cryptonote_protocol/cryptonote_protocol_handler.inl"
 #include "include_base_utils.h"
 #include "string_tools.h"
-#include "common/command_line.h"
-#include "common/util.h"
+#include "cnh_common/command_line.h"
+#include "cnh_common/util.h"
 #include "unit_tests_utils.h"
 
 namespace po = boost::program_options;

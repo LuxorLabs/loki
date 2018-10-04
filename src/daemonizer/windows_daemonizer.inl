@@ -29,7 +29,7 @@
 
 #pragma once
 
-#include "common/util.h"
+#include "cnh_common/util.h"
 #include "daemonizer/windows_service.h"
 #include "daemonizer/windows_service_runner.h"
 

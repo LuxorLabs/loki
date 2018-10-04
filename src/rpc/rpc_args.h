@@ -33,8 +33,8 @@
 #include <boost/program_options/variables_map.hpp>
 #include <string>
 
-#include "common/command_line.h"
-#include "common/password.h"
+#include "cnh_common/command_line.h"
+#include "cnh_common/password.h"
 
 namespace cryptonote
 {

@@ -28,7 +28,7 @@
 
 #include "message.h"
 #include "daemon_rpc_version.h"
-#include "serialization/json_object.h"
+#include "cnh_serialization/json_object.h"
 
 #include "rapidjson/writer.h"
 #include "rapidjson/stringbuffer.h"

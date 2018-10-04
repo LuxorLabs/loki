@@ -45,7 +45,7 @@ loki_add_library(ringct_basic
   ${ringct_basic_private_headers})
 target_link_libraries(ringct_basic
   PUBLIC
-    common
+    cnh_common
     cnhcrypto
   PRIVATE
     ${OPENSSL_LIBRARIES}
@@ -69,7 +69,7 @@ loki_add_library(ringct
   ${ringct_private_headers})
 target_link_libraries(ringct
   PUBLIC
-    common
+    cnh_common
     cnhcrypto
     cnh_cryptonote_basic
     device

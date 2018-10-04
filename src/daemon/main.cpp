@@ -29,10 +29,10 @@
 //
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
-#include "common/command_line.h"
-#include "common/scoped_message_writer.h"
-#include "common/password.h"
-#include "common/util.h"
+#include "cnh_common/command_line.h"
+#include "cnh_common/scoped_message_writer.h"
+#include "cnh_common/password.h"
+#include "cnh_common/util.h"
 #include "cnh_cryptonote_core/cnh_cryptonote_core.h"
 #include "cnh_cryptonote_basic/miner.h"
 #include "daemon/command_server.h"
@@ -48,7 +48,7 @@
 #include "version.h"
 
 #ifdef STACK_TRACE
-#include "common/stack_trace.h"
+#include "cnh_common/stack_trace.h"
 #endif // STACK_TRACE
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

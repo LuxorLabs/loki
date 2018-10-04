@@ -42,7 +42,7 @@ add_executable(cnhcrypto-tests
   ${crypto_headers})
 target_link_libraries(cnhcrypto-tests
   PRIVATE
-    common
+    cnh_common
     ${Boost_SYSTEM_LIBRARY}
     ${EXTRA_LIBRARIES})
 set_property(TARGET cnhcrypto-tests

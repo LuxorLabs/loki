@@ -28,7 +28,7 @@
 
 #include "gtest/gtest.h"
 
-#include "common/util.h"
+#include "cnh_common/util.h"
 #include "string_tools.h"
 
 static bool check(const std::string &data, const char *expected_hash_hex)

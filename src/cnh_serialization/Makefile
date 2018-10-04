@@ -56,30 +56,6 @@ CMAKE_BINARY_DIR = /Users/nickh/code/C/loki
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/Cellar/cmake/3.12.2/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/Cellar/cmake/3.12.2/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/Cellar/cmake/3.12.2/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/Cellar/cmake/3.12.2/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -135,16 +111,40 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.12.2/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.12.2/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.12.2/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.12.2/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /Users/nickh/code/C/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/nickh/code/C/loki/CMakeFiles /Users/nickh/code/C/loki/external/db_drivers/liblmdb/CMakeFiles/progress.marks
-	cd /Users/nickh/code/C/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/all
+	cd /Users/nickh/code/C/loki && $(CMAKE_COMMAND) -E cmake_progress_start /Users/nickh/code/C/loki/CMakeFiles /Users/nickh/code/C/loki/src/cnh_serialization/CMakeFiles/progress.marks
+	cd /Users/nickh/code/C/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_serialization/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nickh/code/C/loki/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/clean
+	cd /Users/nickh/code/C/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_serialization/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,12 +154,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/nickh/code/C/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/preinstall
+	cd /Users/nickh/code/C/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_serialization/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/preinstall
+	cd /Users/nickh/code/C/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_serialization/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -168,73 +168,61 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f CMakeFiles/Makefile2 external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule
-.PHONY : external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule
+src/cnh_serialization/CMakeFiles/cnh_serialization.dir/rule:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_serialization/CMakeFiles/cnh_serialization.dir/rule
+.PHONY : src/cnh_serialization/CMakeFiles/cnh_serialization.dir/rule
 
 # Convenience name for target.
-lmdb: external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/rule
+cnh_serialization: src/cnh_serialization/CMakeFiles/cnh_serialization.dir/rule
 
-.PHONY : lmdb
+.PHONY : cnh_serialization
 
 # fast build rule for target.
-lmdb/fast:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build
-.PHONY : lmdb/fast
+cnh_serialization/fast:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_serialization/CMakeFiles/cnh_serialization.dir/build.make src/cnh_serialization/CMakeFiles/cnh_serialization.dir/build
+.PHONY : cnh_serialization/fast
 
-mdb.o: mdb.c.o
+# Convenience name for target.
+src/cnh_serialization/CMakeFiles/obj_cnh_serialization.dir/rule:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f CMakeFiles/Makefile2 src/cnh_serialization/CMakeFiles/obj_cnh_serialization.dir/rule
+.PHONY : src/cnh_serialization/CMakeFiles/obj_cnh_serialization.dir/rule
 
-.PHONY : mdb.o
+# Convenience name for target.
+obj_cnh_serialization: src/cnh_serialization/CMakeFiles/obj_cnh_serialization.dir/rule
 
-# target to build an object file
-mdb.c.o:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/mdb.c.o
-.PHONY : mdb.c.o
+.PHONY : obj_cnh_serialization
 
-mdb.i: mdb.c.i
+# fast build rule for target.
+obj_cnh_serialization/fast:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_serialization/CMakeFiles/obj_cnh_serialization.dir/build.make src/cnh_serialization/CMakeFiles/obj_cnh_serialization.dir/build
+.PHONY : obj_cnh_serialization/fast
 
-.PHONY : mdb.i
+json_object.o: json_object.cpp.o
 
-# target to preprocess a source file
-mdb.c.i:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/mdb.c.i
-.PHONY : mdb.c.i
-
-mdb.s: mdb.c.s
-
-.PHONY : mdb.s
-
-# target to generate assembly for a file
-mdb.c.s:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/mdb.c.s
-.PHONY : mdb.c.s
-
-midl.o: midl.c.o
-
-.PHONY : midl.o
+.PHONY : json_object.o
 
 # target to build an object file
-midl.c.o:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/midl.c.o
-.PHONY : midl.c.o
+json_object.cpp.o:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_serialization/CMakeFiles/obj_cnh_serialization.dir/build.make src/cnh_serialization/CMakeFiles/obj_cnh_serialization.dir/json_object.cpp.o
+.PHONY : json_object.cpp.o
 
-midl.i: midl.c.i
+json_object.i: json_object.cpp.i
 
-.PHONY : midl.i
+.PHONY : json_object.i
 
 # target to preprocess a source file
-midl.c.i:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/midl.c.i
-.PHONY : midl.c.i
+json_object.cpp.i:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_serialization/CMakeFiles/obj_cnh_serialization.dir/build.make src/cnh_serialization/CMakeFiles/obj_cnh_serialization.dir/json_object.cpp.i
+.PHONY : json_object.cpp.i
 
-midl.s: midl.c.s
+json_object.s: json_object.cpp.s
 
-.PHONY : midl.s
+.PHONY : json_object.s
 
 # target to generate assembly for a file
-midl.c.s:
-	cd /Users/nickh/code/C/loki && $(MAKE) -f external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/build.make external/db_drivers/liblmdb/CMakeFiles/lmdb.dir/midl.c.s
-.PHONY : midl.c.s
+json_object.cpp.s:
+	cd /Users/nickh/code/C/loki && $(MAKE) -f src/cnh_serialization/CMakeFiles/obj_cnh_serialization.dir/build.make src/cnh_serialization/CMakeFiles/obj_cnh_serialization.dir/json_object.cpp.s
+.PHONY : json_object.cpp.s
 
 # Help Target
 help:
@@ -242,20 +230,18 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
-	@echo "... install"
 	@echo "... list_install_components"
-	@echo "... lmdb"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... install/local"
 	@echo "... test"
-	@echo "... mdb.o"
-	@echo "... mdb.i"
-	@echo "... mdb.s"
-	@echo "... midl.o"
-	@echo "... midl.i"
-	@echo "... midl.s"
+	@echo "... cnh_serialization"
+	@echo "... install/strip"
+	@echo "... install"
+	@echo "... obj_cnh_serialization"
+	@echo "... json_object.o"
+	@echo "... json_object.i"
+	@echo "... json_object.s"
 .PHONY : help
 
 

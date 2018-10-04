@@ -28,7 +28,7 @@
 //
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
-#include "common/command_line.h"
+#include "cnh_common/command_line.h"
 #include "net_node.h"
 
 namespace nodetool

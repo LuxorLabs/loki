@@ -87,11 +87,11 @@ target_link_libraries(daemon
     blockchain_db
     cnh_cryptonote_core
     cnhcrypto
-    common
+    cnh_common
     p2p
     cryptonote_protocol
     daemonizer
-    serialization
+    cnh_serialization
     daemon_rpc_server
     epee
     ${EPEE_READLINE}

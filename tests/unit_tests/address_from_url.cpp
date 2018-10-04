@@ -31,7 +31,7 @@
 #include "gtest/gtest.h"
 
 #include "wallet/wallet2.h"
-#include "common/dns_utils.h"
+#include "cnh_common/dns_utils.h"
 #include "simplewallet/simplewallet.h"
 #include <string>
 

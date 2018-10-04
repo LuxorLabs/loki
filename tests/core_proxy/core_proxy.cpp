@@ -39,7 +39,7 @@
 
 #include <boost/program_options.hpp>
 
-#include "common/command_line.h"
+#include "cnh_common/command_line.h"
 #include "console_handler.h"
 #include "p2p/net_node.h"
 #include "p2p/net_node.inl"

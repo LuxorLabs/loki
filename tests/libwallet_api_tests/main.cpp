@@ -33,7 +33,7 @@
 #include "wallet/api/wallet2_api.h"
 #include "wallet/wallet2.h"
 #include "include_base_utils.h"
-#include "common/util.h"
+#include "cnh_common/util.h"
 
 #include <boost/chrono/chrono.hpp>
 #include <boost/filesystem.hpp>

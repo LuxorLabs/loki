@@ -29,7 +29,7 @@
 #ifndef DAEMON_COMMAND_LINE_ARGS_H
 #define DAEMON_COMMAND_LINE_ARGS_H
 
-#include "common/command_line.h"
+#include "cnh_common/command_line.h"
 #include "cryptonote_config.h"
 #include "daemonizer/daemonizer.h"
 
