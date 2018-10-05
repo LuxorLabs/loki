@@ -36,10 +36,10 @@
 #include "gtest/gtest.h"
 
 #include "string_tools.h"
-#include "blockchain_db/blockchain_db.h"
-#include "blockchain_db/lmdb/db_lmdb.h"
+#include "cnh_blockchain_db/blockchain_db.h"
+#include "cnh_blockchain_db/lmdb/db_lmdb.h"
 #ifdef BERKELEY_DB
-#include "blockchain_db/berkeleydb/db_bdb.h"
+#include "cnh_blockchain_db/berkeleydb/db_bdb.h"
 #endif
 #include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 

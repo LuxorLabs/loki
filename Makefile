@@ -480,30 +480,30 @@ obj_multisig/fast:
 .PHONY : obj_multisig/fast
 
 #=============================================================================
-# Target rules for targets named obj_blockchain_db
+# Target rules for targets named cnh_blockchain_db
 
 # Build rule for target.
-obj_blockchain_db: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 obj_blockchain_db
-.PHONY : obj_blockchain_db
+cnh_blockchain_db: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cnh_blockchain_db
+.PHONY : cnh_blockchain_db
 
 # fast build rule for target.
-obj_blockchain_db/fast:
-	$(MAKE) -f src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/build.make src/blockchain_db/CMakeFiles/obj_blockchain_db.dir/build
-.PHONY : obj_blockchain_db/fast
+cnh_blockchain_db/fast:
+	$(MAKE) -f src/cnh_blockchain_db/CMakeFiles/cnh_blockchain_db.dir/build.make src/cnh_blockchain_db/CMakeFiles/cnh_blockchain_db.dir/build
+.PHONY : cnh_blockchain_db/fast
 
 #=============================================================================
-# Target rules for targets named blockchain_db
+# Target rules for targets named obj_cnh_blockchain_db
 
 # Build rule for target.
-blockchain_db: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 blockchain_db
-.PHONY : blockchain_db
+obj_cnh_blockchain_db: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 obj_cnh_blockchain_db
+.PHONY : obj_cnh_blockchain_db
 
 # fast build rule for target.
-blockchain_db/fast:
-	$(MAKE) -f src/blockchain_db/CMakeFiles/blockchain_db.dir/build.make src/blockchain_db/CMakeFiles/blockchain_db.dir/build
-.PHONY : blockchain_db/fast
+obj_cnh_blockchain_db/fast:
+	$(MAKE) -f src/cnh_blockchain_db/CMakeFiles/obj_cnh_blockchain_db.dir/build.make src/cnh_blockchain_db/CMakeFiles/obj_cnh_blockchain_db.dir/build
+.PHONY : obj_cnh_blockchain_db/fast
 
 #=============================================================================
 # Target rules for targets named mnemonics
@@ -971,8 +971,8 @@ help:
 	@echo "... obj_cnh_cryptonote_core"
 	@echo "... multisig"
 	@echo "... obj_multisig"
-	@echo "... obj_blockchain_db"
-	@echo "... blockchain_db"
+	@echo "... cnh_blockchain_db"
+	@echo "... obj_cnh_blockchain_db"
 	@echo "... mnemonics"
 	@echo "... obj_mnemonics"
 	@echo "... obj_daemon_rpc_server"

@@ -31,7 +31,7 @@
 #include <algorithm>
 #include "gtest/gtest.h"
 
-#include "blockchain_db/blockchain_db.h"
+#include "cnh_blockchain_db/blockchain_db.h"
 #include "cnh_cryptonote_basic/cryptonote_format_utils.h"
 #include "cnh_cryptonote_basic/hardfork.h"
 

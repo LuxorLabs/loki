@@ -39,7 +39,7 @@
 #include "cnh_cryptonote_basic/cryptonote_boost_serialization.h"
 #include "cryptonote_config.h"
 #include "blockchain.h"
-#include "blockchain_db/blockchain_db.h"
+#include "cnh_blockchain_db/blockchain_db.h"
 #include "cnh_common/boost_serialization_helper.h"
 #include "cnh_common/int-util.h"
 #include "misc_language.h"

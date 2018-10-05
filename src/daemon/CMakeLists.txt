@@ -84,7 +84,7 @@ loki_add_executable(daemon
 target_link_libraries(daemon
   PRIVATE
     rpc
-    blockchain_db
+    cnh_blockchain_db
     cnh_cryptonote_core
     cnhcrypto
     cnh_common

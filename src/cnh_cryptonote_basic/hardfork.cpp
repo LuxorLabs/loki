@@ -31,7 +31,7 @@
 #include <cstdio>
 
 #include "cnh_cryptonote_basic/cryptonote_basic.h"
-#include "blockchain_db/blockchain_db.h"
+#include "cnh_blockchain_db/blockchain_db.h"
 #include "hardfork.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

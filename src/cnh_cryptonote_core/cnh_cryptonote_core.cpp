@@ -54,7 +54,7 @@ using namespace epee;
 #include <csignal>
 #include "checkpoints/checkpoints.h"
 #include "ringct/rctTypes.h"
-#include "blockchain_db/blockchain_db.h"
+#include "cnh_blockchain_db/blockchain_db.h"
 #include "ringct/rctSigs.h"
 #include "version.h"
 #include "wipeable_string.h"

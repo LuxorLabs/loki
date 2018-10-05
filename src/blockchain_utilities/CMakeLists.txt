@@ -100,7 +100,7 @@ loki_add_executable(blockchain_import
 target_link_libraries(blockchain_import
   PRIVATE
     cnh_cryptonote_core
-    blockchain_db
+    cnh_blockchain_db
     p2p
     cnh_version
     epee
@@ -127,7 +127,7 @@ loki_add_executable(blockchain_export
 target_link_libraries(blockchain_export
   PRIVATE
   cnh_cryptonote_core
-    blockchain_db
+    cnh_blockchain_db
     p2p
     cnh_version
     epee
@@ -150,7 +150,7 @@ target_link_libraries(blockchain_blackball
   PRIVATE
     wallet
     cnh_cryptonote_core
-    blockchain_db
+    cnh_blockchain_db
     p2p
     cnh_version
     epee
@@ -173,7 +173,7 @@ loki_add_executable(blockchain_usage
 target_link_libraries(blockchain_usage
   PRIVATE
   cnh_cryptonote_core
-    blockchain_db
+    cnh_blockchain_db
     p2p
     cnh_version
     epee

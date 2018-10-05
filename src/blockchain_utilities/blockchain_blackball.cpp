@@ -34,8 +34,8 @@
 #include "cnh_cryptonote_core/tx_pool.h"
 #include "cnh_cryptonote_core/cnh_cryptonote_core.h"
 #include "cnh_cryptonote_core/blockchain.h"
-#include "blockchain_db/blockchain_db.h"
-#include "blockchain_db/db_types.h"
+#include "cnh_blockchain_db/blockchain_db.h"
+#include "cnh_blockchain_db/db_types.h"
 #include "wallet/ringdb.h"
 #include "version.h"
 

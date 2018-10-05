@@ -65,7 +65,7 @@ target_link_libraries(cnh_cryptonote_core
     cnh_version
     cnh_common
     cnhcrypto
-    blockchain_db
+    cnh_blockchain_db
     multisig
     ringct
     device

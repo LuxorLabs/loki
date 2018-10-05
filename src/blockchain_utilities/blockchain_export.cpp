@@ -32,8 +32,8 @@
 #include "cnh_common/command_line.h"
 #include "cnh_cryptonote_core/tx_pool.h"
 #include "cnh_cryptonote_core/cnh_cryptonote_core.h"
-#include "blockchain_db/blockchain_db.h"
-#include "blockchain_db/db_types.h"
+#include "cnh_blockchain_db/blockchain_db.h"
+#include "cnh_blockchain_db/db_types.h"
 #include "version.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

@@ -36,7 +36,7 @@
 #include "p2p/net_peerlist.h"
 #include "p2p/net_node.h"
 #include "cryptonote_protocol/cryptonote_protocol_handler.h"
-#include "blockchain_db/lmdb/db_lmdb.h"
+#include "cnh_blockchain_db/lmdb/db_lmdb.h"
 #include "wallet/wallet2.h"
 #include "wallet/api/wallet.h"
 #include "wallet/api/transaction_info.h"

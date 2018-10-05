@@ -81,7 +81,7 @@ target_link_libraries(unit_tests
     ringct
     cryptonote_protocol
     cnh_cryptonote_core
-    blockchain_db
+    cnh_blockchain_db
     rpc
     wallet
     p2p

@@ -53,7 +53,7 @@
 #include "cnh_crypto/cnh_hash.h"
 #include "checkpoints/checkpoints.h"
 #include "cnh_cryptonote_basic/hardfork.h"
-#include "blockchain_db/blockchain_db.h"
+#include "cnh_blockchain_db/blockchain_db.h"
 
 namespace service_nodes
 {

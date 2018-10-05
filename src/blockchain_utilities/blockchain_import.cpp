@@ -41,7 +41,7 @@
 #include "cnh_serialization/binary_utils.h" // dump_binary(), parse_binary()
 #include "cnh_serialization/json_utils.h" // dump_json()
 #include "include_base_utils.h"
-#include "blockchain_db/db_types.h"
+#include "cnh_blockchain_db/db_types.h"
 #include "cnh_cryptonote_core/cnh_cryptonote_core.h"
 
 #undef LOKI_DEFAULT_LOG_CATEGORY

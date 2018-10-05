@@ -43,7 +43,7 @@
 #include "math_helper.h"
 #include "cnh_cryptonote_basic/cryptonote_basic_impl.h"
 #include "cnh_cryptonote_basic/verification_context.h"
-#include "blockchain_db/blockchain_db.h"
+#include "cnh_blockchain_db/blockchain_db.h"
 #include "cnh_crypto/cnh_hash.h"
 #include "rpc/core_rpc_server_commands_defs.h"
 #include "rpc/message_data_structs.h"
